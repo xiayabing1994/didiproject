@@ -1,0 +1,118 @@
+{include file='Public:header'}
+<body>
+<header class="yj-header yj-bg-main">
+    <a class="yj-header-meau"></a>
+    <span>个人中心</span>
+    <a class="yj-header-meau" href="user/userinfo" style="font-size: 0;"><img class="yj-header-img" src="__WAPPUBLIC__static/images/redact.png"></a>
+</header>
+
+<div class="yj-content yj-mainHF  yj-color-gray-dark">
+    <div class="zh-user-header yj-bg-main">
+        <div class="yj-text-center zh-user-baseinfo yj-color-gray-dark">
+            <div class="yj-bg-fff" style="margin-top: -1px;">
+                <p class="yj-mar-b zh-user-baseinfo-photo">
+                    <img class="zh-user-photo" src="{$Think.session.user.headimg}">
+                </p>
+                <p>昵称：{$Think.session.user.nickname} <img src="__WAPPUBLIC__static/images/{$sex_img}.png" height="12"></p>
+                <p class="yj-color-gray yj-text-sm">ID：{$Think.session.user.id}</p>
+
+                <ul class="yj-display-flex yj-text-center yj-pad-tb">
+                    <li class="yj-flex-1">
+                        <p>累计订单</p>
+                        <p class="yj-color-main yj-text-big">{$Think.session.user.ordercount}</p>
+                    </li>
+                    <li class="yj-flex-1">
+                        <p>累计收益</p>
+                        <p class="yj-color-main yj-text-big">&yen;{$Think.session.user.remainmoney}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="yj-mar-t yj-bg-fff">
+        <a class="weui-cell weui-cell_access yj-border-b" href="user/myorder">
+            <div class="weui-cell__bd">
+                <p>我的订单</p>
+            </div>
+            <div class="weui-cell__ft yj-text-sm">
+                查看全部订单
+            </div>
+        </a>
+        <div class="yj-display-flex yj-pad-tb-big">
+            <a class="yj-flex-1 yj-text-center" href="user/myorder/map/0">
+                <span class="yj-grid-icon yj-message">
+                    <img src="__WAPPUBLIC__static/images/payment.png" width="30">
+                    <i class="yj-message-num">1</i>
+                </span>
+                <p class="yj-text-sm yj-mar-t">待拼单</p>
+            </a>
+            <a class="yj-flex-1 yj-text-center" href="user/myorder/map/2">
+                <span class="yj-grid-icon yj-message">
+                    <img src="__WAPPUBLIC__static/images/await.png" width="30">
+                    <!--<i class="yj-message-num">1</i>-->
+                </span>
+                <p class="yj-text-sm yj-mar-t">待作业</p>
+            </a>
+            <a class="yj-flex-1 yj-text-center" href="user/myorder/map/1">
+                <span class="yj-grid-icon yj-message">
+                    <img src="__WAPPUBLIC__static/images/order.png" width="30">
+                    <!--<i class="yj-message-num">1</i>-->
+                </span>
+                <p class="yj-text-sm yj-mar-t">待付款</p>
+            </a>
+            <a class="yj-flex-1 yj-text-center" href="user/myorder/map/3">
+                <span class="yj-grid-icon yj-message">
+                    <img src="__WAPPUBLIC__static/images/finish.png" width="30">
+                </span>
+                <p class="yj-text-sm yj-mar-t">已完成</p>
+            </a>
+        </div>
+    </div>
+    <div class="weui-cells yj-mar-t">
+
+        <a class="weui-cell weui-cell_access" href="user/myland">
+            <div class="weui-cell__hd"><img class="yj-p-icon" src="__WAPPUBLIC__static/images/land.png" ></div>
+            <div class="weui-cell__bd">
+                <p>我的土地</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="user/myincome">
+            <div class="weui-cell__hd"><img class="yj-p-icon" src="__WAPPUBLIC__static/images/brokerage.png"></div>
+            <div class="weui-cell__bd">
+                <p>我的佣金</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+    </div>
+    <div class="weui-cells yj-mar-tb">
+        <a class="weui-cell weui-cell_access" href="tel:037155556666;">
+            <div class="weui-cell__hd"><img class="yj-p-icon" src="__WAPPUBLIC__static/images/service.png"></div>
+            <div class="weui-cell__bd">
+                <p>联系客服</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="option/option">
+            <div class="weui-cell__hd"><img class="yj-p-icon" src="__WAPPUBLIC__static/images/coupleback.png"></div>
+            <div class="weui-cell__bd">
+                <p>意见反馈</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="user/question">
+            <div class="weui-cell__hd"><img class="yj-p-icon" src="__WAPPUBLIC__static/images/coupleback.png"></div>
+            <div class="weui-cell__bd">
+                <p>常见问题</p>
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+    </div>
+</div>
+
+{include file='Public:footer'}
+
+
+
+</body>
+</html>

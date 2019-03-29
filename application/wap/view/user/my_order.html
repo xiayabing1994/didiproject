@@ -1,0 +1,38 @@
+{include file='Public:header'}
+<body>
+<header class="yj-header yj-bg-fff yj-border-b">
+    <a class="yj-header-return" href="javascript:history.go(-1)"><img src="__WAPPUBLIC__static/images/arrow_return.png"></a>
+    <span>我的订单</span>
+    <a class="yj-header-meau"></a>
+</header>
+<div class="yj-content yj-mainH">
+    <ul class="yj-pad-lr-big yj-mar-b">
+        {volist name='myorders' id='order' empty="$empty"}
+        <li class=" yj-radius-sm yj-mar-t yj-pad-lr-big yj-pad-tb yj-line-height-2 yj-bg-fff">
+            <p class="yj-display-flex">
+                <span class="yj-flex-1 yj-elip-1">{$order.p_info.pname}</span>
+                <span class="yj-right yj-text-sm yj-color-main">{:explain_state($order.state)}</span>
+                <!--<span class="yj-right yj-text-sm yj-color-red">待作业</span>-->
+                <!--<span class="yj-right yj-text-sm yj-color-gray-light">已完成</span>-->
+            </p>
+            <div class="yj-color-gray-light">
+                <p>总价：{$order.p_info.current_price*$order.area}¥</p>
+                <p>拼单时间：{$order.addtime}</p>
+                <p>拼单面积：{$order.area}亩</p>
+            </div>
+        </li>
+       {/volist}
+    </ul>
+</div>
+<script type="text/javascript" src="static/js/jquery.min.js"></script>
+<script type="text/javascript" src="weui/js/jquery-weui.js"></script>
+<script type="text/javascript">
+
+    //删除土地
+    function delLand(num){
+        $('#land_'+num).remove();
+        $.toast("操作成功");
+    }
+</script>
+</body>
+</html>

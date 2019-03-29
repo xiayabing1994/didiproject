@@ -1,0 +1,76 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Peace_no')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-peace_no" data-rule="required" class="form-control" name="row[peace_no]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Order_no')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-order_no" data-rule="required" class="form-control" name="row[order_no]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Piece_area')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-piece_area" data-rule="required" class="form-control" name="row[piece_area]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Completed_area')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-completed_area" data-rule="required" class="form-control" name="row[completed_area]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Piece_land_no')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-piece_land_no" data-rule="required" class="form-control" name="row[piece_land_no]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Create_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-create_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[create_time]" type="text" value="{:date('Y-m-d H:i:s')}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Statu')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-statu" data-rule="required" class="form-control selectpicker" name="row[statu]">
+                {foreach name="statuList" item="vo"}
+                    <option value="{$key}" {in name="key" value="0"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('User_id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-user_id" data-rule="required" data-source="user/user/index" data-field="nickname" class="form-control selectpage" name="row[user_id]" type="text" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Is_effect')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-is_effect" data-rule="required" class="form-control selectpicker" name="row[is_effect]">
+                {foreach name="isEffectList" item="vo"}
+                    <option value="{$key}" {in name="key" value="0"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

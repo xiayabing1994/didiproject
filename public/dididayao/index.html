@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no, viewport-fit=cover">
+    <title>滴滴打药</title>
+    <link rel="stylesheet" href="weui/lib/weui.min.css">
+    <link rel="stylesheet" href="weui/css/jquery-weui.css">
+    <link rel="stylesheet" href="static/css/page.css">
+</head>
+<body>
+<header class="yj-header yj-bg-fff">
+    <div class="yj-header-search">
+        <input class="yj-header-search-input" type="text" placeholder="XU2360" id="enterSearch">
+    </div>
+    <a href="" class="yj-header-scan">
+        <img src="static/images/scan.png">
+    </a>
+</header>
+<div class="yj-content yj-mainHF">
+    <!-- index banner -->
+    <!--<div class="zh-index-banner">
+        <img src="static/images/pic/banner1.jpg">
+    </div>-->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="static/images/pic/banner1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="static/images/pic/banner1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="static/images/pic/banner1.jpg" alt=""></div>
+        </div>
+    </div>
+    <div class="yj-bg-fff yj-mar-t">
+        <div class="zx-index-title1 yj-border-b">
+            <p>&nbsp;</p>
+            <div class="weui-loadmore weui-loadmore_line">
+                <span class="weui-loadmore__tips">附近拼单</span>
+            </div>
+        </div>
+        <!-- i -->
+        <p class="yj-list-item yj-pad-lr-big" id="selectArea">
+            <span class="yj-list-item-text yj-color-gray" id="areaName">选择地块</span>
+            <span class="yj-list"></span>
+            <img class="yj-list-item-more" src="static/images/arrow_right.png" alt="">
+        </p>
+    </div>
+    <!--地块 拼单 信息-->
+    <div class="yj-mar-t zh-merge ">
+        <!-- list  -->
+        <a class="yj-bg-fff yj-mar-b zh-merge-list yj-block"  href="merge_detail.html">
+            <div class="yj-pad-lr-big yj-border-b">
+                <div class="yj-list-item">
+                    <span class="yj-list-item-text yj-elip-1">云南大理需作业300亩</span>
+                    <i class="yj-color-main yj-text-sm">等待拼单</i>
+                </div>
+                <div class="yj-pad-b-big">
+                    <span class="yj-color-red yj-text-big">&yen;50/亩</span>
+                    <span class="yj-color-gray yj-mar-l">当前价：&yen;750</span>
+                </div>
+            </div>
+            <div class="yj-pad-b">
+                <div class="yj-pad-tb-big yj-display-flex yj-text-center">
+                    <div class="yj-flex-1">
+                        <p class="yj-color-gray yj-text-sm">开始时间</p>
+                        <p class="yj-mar-t">2018-02-04</p>
+                    </div>
+                    <div class="yj-flex-1 yj-border-l">
+                        <p class="yj-color-gray yj-text-sm">结束时间</p>
+                        <p class="yj-mar-t">2018-03-04</p>
+                    </div>
+                    <div class="yj-flex-1 yj-border-l">
+                        <p class="yj-color-gray yj-text-sm">已拼</p>
+                        <p class="yj-mar-t">50亩</p>
+                    </div>
+                    <div class="yj-flex-1 yj-border-l">
+                        <p class="yj-color-gray yj-text-sm">剩余</p>
+                        <p class="yj-mar-t">250亩</p>
+                    </div>
+                </div>
+                <div class="yj-pad-lr-big yj-pad-b-big">
+                    <div class="yj-progress yj-circle">
+                        <div class="yj-progress-bar" style="width: 30%;">30%</div>
+                    </div>
+                </div>
+                <div class="yj-text-right yj-pad-lr-big">
+                    <span class="yj-btn yj-main yj-sm">去拼单</span>
+                </div>
+            </div>
+        </a>
+        <!--  list end  -->
+
+    </div>
+
+</div>
+<footer class="yj-footer yj-border-t">
+    <a class="yj-footer-item">
+        <img class="yj-footer-icon" src="../static/images/home_active.png">
+        <p class="yj-footer-title yj-active">首页</p>
+    </a>
+    <a class="yj-footer-item" href="publish.html">
+        <img class="yj-footer-icon" src="../static/images/share.png">
+        <p class="yj-footer-title">拼单</p>
+    </a>
+    <a class="yj-footer-item" href="user.html">
+        <img class="yj-footer-icon" src="../static/images/my.png">
+        <p class="yj-footer-title">我的</p>
+    </a>
+</footer>
+
+<!-- search 引导 -->
+<div class="yj-search-guide yj-none">
+
+    <div class="yj-header yj-bg-fff">
+        <div class="yj-header-search">
+            <input class="yj-header-search-input" type="search" placeholder="请输入搜索内容" id="searchInput">
+        </div>
+        <a class="yj-search-cancel yj-color-gray" id="cancelSearch">取消</a>
+    </div>
+    <div class="yj-pad-header yj-text-usual">
+        <div class="yj-bg-fff yj-pad-l-big yj-mar-t">
+            <p class="yj-color-gray yj-pad-tb">热门搜索</p>
+
+            <div class="yj-pad-b yj-search-label">
+                <a class="yj-btn yj-sm yj-radius yj-mar-r yj-mar-b yj-main">新乡化纤</a>
+                <a class="yj-btn yj-sm yj-radius yj-mar-r yj-mar-b">杀虫剂药</a>
+                <a class="yj-btn yj-sm yj-radius yj-mar-r yj-mar-b">杀虫剂药</a>
+                <a class="yj-btn yj-sm yj-radius yj-mar-r yj-mar-b">杀虫剂药</a>
+                <a class="yj-btn yj-sm yj-radius yj-mar-r yj-mar-b">杀虫剂药</a>
+                <a class="yj-btn yj-sm yj-radius yj-mar-r yj-mar-b">杀虫剂药</a>
+                <a class="yj-btn yj-sm yj-radius yj-mar-r yj-mar-b">杀虫剂药</a>
+                <a class="yj-btn yj-sm yj-radius yj-mar-r yj-mar-b">杀虫剂药</a>
+                <a class="yj-btn yj-sm yj-radius yj-mar-r yj-mar-b">杀虫剂药</a>
+                <a class="yj-btn yj-sm yj-radius yj-mar-r yj-mar-b">杀虫剂药</a>
+                <a class="yj-btn yj-sm yj-radius yj-mar-r yj-mar-b">杀虫剂药</a>
+                <a class="yj-btn yj-sm yj-radius yj-mar-r yj-mar-b">杀虫剂药</a>
+            </div>
+            <!-- 加载中，数据正常时 显示 -->
+            <p class="yj-text-center yj-pad-b"><a class="yj-color-gray yj-text-usual"><img class="yj-mar-r" src="static/images/refresh.png" height="16"> 换一批</a></p>
+            <!-- 加载中，数据没有返回时 显示 -->
+            <!--<p class="yj-text-center yj-pad-b"><a class="yj-color-gray yj-text-usual"><img class="yj-mar-r" src="static/images/refresh.png" height="16"> 正在加载...</a></p>-->
+        </div>
+
+        <!-- 最近搜索 -->
+        <div class="yj-bg-fff yj-pad-l-big yj-mar-t">
+            <p class="yj-color-gray yj-pad-tb yj-pad-r-big">
+                最近搜索 <img class="yj-right" src="static/images/trash.png" height="14">
+            </p>
+            <div class="yj-pad-b yj-search-label">
+                <a class="yj-btn yj-sm yj-radius yj-mar-r yj-mar-b">新乡化纤</a>
+                <a class="yj-btn yj-sm yj-radius yj-mar-r yj-mar-b">杀虫剂药</a>
+                <a class="yj-btn yj-sm yj-radius yj-mar-r yj-mar-b">杀虫剂药</a>
+                <a class="yj-btn yj-sm yj-radius yj-mar-r yj-mar-b">杀虫剂药</a>
+            </div>
+            <!--<div class="yj-pad-b-big">
+                &lt;!&ndash; 这里开始 foreach &ndash;&gt;
+                <div class="yj-input-list">
+                    &lt;!&ndash; 以下 input label 位置不可变，且必须为 兄弟关系 &ndash;&gt;
+                    <input type="radio" name="historySearch" id="history1">
+                    <label for="history1">新乡化纤</label>
+                </div>
+                &lt;!&ndash; end &ndash;&gt;
+
+
+                <div class="yj-input-list">
+                    <input type="radio" name="historySearch" id="history2">
+                    <label for="history2">杀虫剂药</label>
+                </div>
+                <div class="yj-input-list">
+                    <input type="radio" name="historySearch" id="history3">
+                    <label for="history3">新乡化纤</label>
+                </div>
+                <div class="yj-input-list">
+                    <input type="radio" name="historySearch" id="history4">
+                    <label for="history4">新乡化纤</label>
+                </div>
+                <div class="yj-input-list">
+                    <input type="radio" name="historySearch" id="history5">
+                    <label for="history5">新乡化纤</label>
+                </div>
+                <div class="yj-input-list">
+                    <input type="radio" name="historySearch" id="history6">
+                    <label for="history6">新乡化纤</label>
+                </div>
+                <div class="yj-input-list">
+                    <input type="radio" name="historySearch" id="history7">
+                    <label for="history7">新乡化纤</label>
+                </div>
+                <div class="yj-input-list">
+                    <input type="radio" name="historySearch" id="history8">
+                    <label for="history8">新乡化纤</label>
+                </div>
+            </div>-->
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="static/js/jquery.min.js"></script>
+<script type="text/javascript" src="weui/js/jquery-weui.js"></script>
+<script type='text/javascript' src='weui/js/swiper.js'></script>
+<script type="text/javascript">
+
+    new Swiper('.swiper-container', {
+        autoplay: 3000
+    });
+    $("#selectArea").select({
+        title: "选择地块",
+        items: ["全部地块","地块1", "地块2"],
+        closeText:'关闭',
+        onOpen:function(){
+            var aa = '<div class="yj-popup-bg"></div>';
+            $('body').append(aa);
+        },
+        onClose:function(){
+            $('.yj-popup-bg').remove();
+        },
+        onChange:function(p){
+            $('#areaName').text(p.values);
+        }
+    });
+
+    $('#enterSearch').focus(function(){
+        $('.yj-search-guide').show();
+        $('#searchInput').focus();
+    });
+
+    $('#cancelSearch').click(function(){
+        $('.yj-search-guide').hide();
+    });
+
+    $('.yj-search-label a').click(function(){
+        $(this).addClass('yj-main').siblings().removeClass('yj-main');
+    });
+
+
+</script>
+</body>
+</html>

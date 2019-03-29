@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no, viewport-fit=cover">
+    <title>滴滴打药</title>
+    <link rel="stylesheet" href="weui/lib/weui.min.css">
+    <link rel="stylesheet" href="weui/css/jquery-weui.css">
+    <link rel="stylesheet" href="static/css/page.css">
+</head>
+<body>
+    <header class="yj-header yj-bg-fff">
+        <a class="yj-header-return" href="javascript:history.go(-1)"><img src="/static/images/arrow_return.png"></a>
+        <span>发布拼单</span>
+        <a class="yj-header-meau"></a>
+    </header>
+    <div class="yj-content yj-mainH">
+        <div class="weui-cells yj-mar-t">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>付款金额</p>
+                </div>
+                <div class="weui-cell__ft yj-color-red">&yen;1500.00</div>
+            </div>
+        </div>
+        <div class="weui-cells weui-cells_radio yj-mar-t">
+            <label class="weui-cell weui-check__label" for="x11">
+                <div class="weui-cell__hd"><img class="yj-p-icon" src="/static/images/wechatPay.png"></div>
+                <div class="weui-cell__bd">
+                    <p>微信支付</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <input type="radio" class="weui-check" name="radio1" id="x11">
+                    <span class="weui-icon-checked"></span>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="x12">
+                <div class="weui-cell__hd"><img class="yj-p-icon" src="/static/images/alipayPay.png"></div>
+                <div class="weui-cell__bd">
+                    <p>支付宝支付</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <input type="radio" name="radio1" class="weui-check" id="x12" checked="checked">
+                    <span class="weui-icon-checked"></span>
+                </div>
+            </label>
+        </div>
+
+        <p class="yj-pad-bigger yj-pad-b-0 yj-mar-t-big"><a class="yj-btn yj-main yj-block yj-big" href="pay.html">立即支付</a></p>
+    </div>
+</body>
+</html>

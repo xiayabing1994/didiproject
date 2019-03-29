@@ -1,0 +1,141 @@
+{include file='Public:header'}
+<body>
+    <header class="yj-header yj-bg-fff">
+        <a class="yj-header-return" href="javascript:history.go(-1)"><img src="__WAPPUBLIC__static/images/arrow_return.png" alt=""></a>
+        <span>拼单详情</span>
+        <a href="" class="yj-header-meau"><img src="__WAPPUBLIC__static/images/share_icon.png" alt=""></a>
+    </header>
+    <div class="yj-content yj-mainHF">
+        <div class="yj-bg-fff yj-mar-t">
+            <div class="yj-pad-lr-big yj-border-b">
+                <div class="yj-list-item">
+                    <span class="yj-list-item-text yj-elip-1">{$crowd_info.pname}</span>
+                    <i class="yj-color-main yj-text-sm">{:explain_state($crowd_info.state)}</i>
+                </div>
+                <div class="yj-pad-b-big">
+                    <span class="yj-color-red yj-text-big">&yen;{$crowd_info.price}/亩</span>
+                    <span class="yj-color-gray yj-mar-l">当前价：&yen;{$crowd_info.current_price}</span>
+                </div>
+            </div>
+            <div class="yj-pad-b">
+                <div class="yj-pad-tb-big yj-display-flex yj-text-center">
+                    <div class="yj-flex-1">
+                        <p class="yj-color-gray yj-text-sm">开始时间</p>
+                        <p class="yj-mar-t">{$crowd_info.starttime}</p>
+                    </div>
+                    <div class="yj-flex-1 yj-border-l">
+                        <p class="yj-color-gray yj-text-sm">结束时间</p>
+                        <p class="yj-mar-t">{$crowd_info.endtime}</p>
+                    </div>
+                    <div class="yj-flex-1 yj-border-l">
+                        <p class="yj-color-gray yj-text-sm">已拼</p>
+                        <p class="yj-mar-t">{$crowd_info.hasland}亩</p>
+                    </div>
+                    <div class="yj-flex-1 yj-border-l">
+                        <p class="yj-color-gray yj-text-sm">剩余</p>
+                        <p class="yj-mar-t">{$crowd_info.sumarea-$crowd_info.hasland}亩</p>
+                    </div>
+                </div>
+                <div class="yj-pad-lr-big yj-pad-b-big">
+                    <div class="yj-progress yj-circle">
+                        <div class="yj-progress-bar" style="width: {:floor($crowd_info.hasland/$crowd_info.sumarea*100)}%;">{:floor($crowd_info.hasland/$crowd_info.sumarea*100)}%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yj-bg-fff yj-mar-t yj-pad-lr-big yj-pad-b-big">
+            <p class="yj-list-item yj-text-big">详细信息</p>
+            <div class="zh-merge-detailinfo">
+                <p>
+                    <span class="zh-merge-detailinfo-title">拼地面积：</span>
+                    <span>{$crowd_info.sumarea}亩</span>
+                </p>
+                <p>
+                    <span class="zh-merge-detailinfo-title">已拼：</span>
+                    <span>{$crowd_info.hasland}亩</span>
+                </p>
+                <p>
+                    <span class="zh-merge-detailinfo-title">开始事件：</span>
+                    <span>{$crowd_info.starttime}</span>
+                </p>
+                <p>
+                    <span class="zh-merge-detailinfo-title">用药类型：</span>
+                    <span>杀虫剂</span>
+                </p>
+                <p>
+                    <span class="zh-merge-detailinfo-title">详细地址：</span>
+                    <span>云南大理南京</span>
+                </p>
+                <!--{volist name="crowd_info.land_points" id="point"}
+                   {$point.name}/{$point.point}
+                {/volist}-->
+            </div>
+        </div>
+        <div class="yj-mar-b-big" id="gaodeMap" style="width: 100%; height: 50vw;"></div>
+    </div>
+    <input type="hidden" value="{volist name='crowd_info.land_points' id='point'}{$point.point}/{/volist}" id="pointers">
+    <footer class="yj-footer yj-pad-lr-bigger yj-border-box" style="height: 3rem;background-color: #F2F2F2">
+        <a href="/wap/crowd/join/id/{$crowd_info.id}" class="yj-btn yj-main yj-block yj-big yj-mar-t-sm">立即加入</a>
+    </footer>
+
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.13&key=44c809431935b87f9c3d9c6f27f0af2f"></script>
+    <script>
+
+        var di = $('#pointers').val();
+        var diArr = spiltStr(di,'/');
+        var areaArr = [];
+        for(var i = 0; i< diArr.length - 1;i++){
+            var pointArr = spiltStr(diArr[i],';');
+            var areaPoint = [];
+            var aa = JSON.parse('['+pointArr+']');
+            for(var n=0;n<aa.length;n++){
+                areaPoint.push([aa[n+1],aa[n]]);
+                n++
+            }
+            areaArr.push(areaPoint);
+        }
+
+        console.log(areaArr);
+        var map = new AMap.Map('gaodeMap', {
+            resizeEnable: true,
+            zoomEnable:true,
+            dragEnable: true,
+            zoom:18,//级别
+            center: [116.397428, 39.90923],//中心点坐标
+        });
+
+
+
+        var markers = [];
+
+        for (var i = 0; i < areaArr.length; i++) {
+            var marker = new AMap.Polygon({
+                path: areaArr[i],
+            });
+            markers.push(marker);
+        }
+
+        // 创建覆盖物群组，并将 marker 传给 OverlayGroup
+        var overlayGroups = new AMap.OverlayGroup(markers);
+
+        // 对此覆盖物群组设置同一属性
+        overlayGroups.setOptions({
+            fillColor: '#fff', // 多边形填充颜色
+            strokeColor: '#62CAA4', // 线条颜色
+            strokeWeight:1,
+        });
+
+        // 统一添加到地图实例上
+        map.add(overlayGroups);
+        //无参数时，自适应所有覆盖物
+        map.setFitView();
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

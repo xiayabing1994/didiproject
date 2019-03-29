@@ -1,0 +1,112 @@
+@import "common.less";
+
+.yj-header{
+  &-search{
+    width:100%;
+    height:100%;
+    padding:7px @yj_header_h+0.5rem 7px 1rem;
+    .yj-border-box;
+    &-input{
+      float: left;
+      width:100%;
+      height:100%;
+      padding-left: 2.2rem;
+      .yj-radius(5px);
+      .yj-border-box;
+      background: #eee url("../images/search.png") no-repeat;
+      background-size: 1rem;
+      background-position: .5rem;
+    }
+  }
+  &-scan{
+    position: absolute;
+    right: .8rem;
+    width:1.2rem;
+    height:1.2rem;
+    img{
+      float: left;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+
+.zh-index{
+  &-banner{
+    width:100%;
+    height: 48vw;
+    img{
+      width:100%;
+      height:100%;
+    }
+  }
+}
+.zx-index-title1{
+  .weui-loadmore_line{
+    margin-top:0;
+    margin-bottom:0;
+  }
+  .weui-loadmore{
+    width:35%;
+  }
+}
+
+.yj-search-guide{
+  position: fixed;
+  width:100%;
+  height:100vh;
+  top:0;
+  left:0;
+  background-color: #eee;
+  z-index: 9999;
+  .yj-search-cancel{
+    position: absolute;
+    right:10px;
+    font-size:@font_usual;
+  }
+}
+
+.zh-merge-detailinfo{
+  p{
+    padding:@yj_margin 0;
+  }
+  &-title{
+    width:7em;
+    color: @medium_gray;
+  }
+}
+
+.zh-user-baseinfo{
+  padding-top:2rem;
+  &-photo{
+    background:#fff url("../images/user_header_bg.png") no-repeat top;
+    background-size: 100% auto;
+  }
+}
+.zh-user-photo{
+  width: 3.5rem;
+  height:3.5rem;
+  .yj-radius(1em);
+  border:3px solid #fff;
+}
+.zh-select-sex{
+  width:6em;
+  .yj-display-flex;
+  .yj-radius(30px);
+  overflow: hidden;
+  &-item{
+    .yj-flex(1);
+    label{
+      display: block;
+      text-align: center;
+      background-color: #eee;
+    }
+
+    input:checked + label{
+      background-color: @main_color;
+      color: #fff;
+    }
+
+  }
+}

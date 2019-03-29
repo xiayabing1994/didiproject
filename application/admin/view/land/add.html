@@ -1,0 +1,88 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Name')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-name" data-rule="required" class="form-control" name="row[name]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Point')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-point" data-rule="required" class="form-control" name="row[point]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Area')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-area" data-rule="required" class="form-control" name="row[area]" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Userid')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-userid" data-rule="required" class="form-control" name="row[userid]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('State')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            
+            <div class="radio">
+            {foreach name="stateList" item="vo"}
+            <label for="row[state]-{$key}"><input id="row[state]-{$key}" name="row[state]" type="radio" value="{$key}" {in name="key" value="0"}checked{/in} /> {$vo}</label> 
+            {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Isdel')}:</label>
+        <div class="col-xs-12 col-sm-8">
+                        
+            <select  id="c-isdel" data-rule="required" class="form-control selectpicker" name="row[isdel]">
+                {foreach name="isdelList" item="vo"}
+                    <option value="{$key}" {in name="key" value="0"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Centerx')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-centerX" data-rule="required" class="form-control" step="0.00000001" name="row[centerX]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Centery')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-centerY" data-rule="required" class="form-control" step="0.00000001" name="row[centerY]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Landarea')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-landarea" data-rule="required" class="form-control" step="0.0001" name="row[landarea]" type="number">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Perimeter')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-perimeter" data-rule="required" class="form-control" step="0.0001" name="row[perimeter]" type="number" value="0.0000">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Addtime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-addtime" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[addtime]" type="text" value="{:date('Y-m-d H:i:s')}">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

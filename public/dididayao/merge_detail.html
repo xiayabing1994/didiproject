@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no, viewport-fit=cover">
+    <title>滴滴打药</title>
+    <link rel="stylesheet" href="weui/lib/weui.min.css">
+    <link rel="stylesheet" href="weui/css/jquery-weui.css">
+    <link rel="stylesheet" href="static/css/page.css">
+</head>
+<body>
+    <header class="yj-header yj-bg-fff">
+        <a class="yj-header-return" href="javascript:history.go(-1)"><img src="static/images/arrow_return.png" alt=""></a>
+        <span>拼单详情</span>
+        <a href="" class="yj-header-meau"><img src="static/images/share_icon.png" alt=""></a>
+    </header>
+    <div class="yj-content yj-mainHF">
+        <div class="yj-bg-fff yj-mar-t">
+            <div class="yj-pad-lr-big yj-border-b">
+                <div class="yj-list-item">
+                    <span class="yj-list-item-text yj-elip-1">云南大理需作业300亩</span>
+                    <i class="yj-color-main yj-text-sm">等待拼单</i>
+                </div>
+                <div class="yj-pad-b-big">
+                    <span class="yj-color-red yj-text-big">&yen;50/亩</span>
+                    <span class="yj-color-gray yj-mar-l">当前价：&yen;750</span>
+                </div>
+            </div>
+            <div class="yj-pad-b">
+                <div class="yj-pad-tb-big yj-display-flex yj-text-center">
+                    <div class="yj-flex-1">
+                        <p class="yj-color-gray yj-text-sm">开始时间</p>
+                        <p class="yj-mar-t">2018-02-04</p>
+                    </div>
+                    <div class="yj-flex-1 yj-border-l">
+                        <p class="yj-color-gray yj-text-sm">结束时间</p>
+                        <p class="yj-mar-t">2018-03-04</p>
+                    </div>
+                    <div class="yj-flex-1 yj-border-l">
+                        <p class="yj-color-gray yj-text-sm">已拼</p>
+                        <p class="yj-mar-t">50亩</p>
+                    </div>
+                    <div class="yj-flex-1 yj-border-l">
+                        <p class="yj-color-gray yj-text-sm">剩余</p>
+                        <p class="yj-mar-t">250亩</p>
+                    </div>
+                </div>
+                <div class="yj-pad-lr-big yj-pad-b-big">
+                    <div class="yj-progress yj-circle">
+                        <div class="yj-progress-bar" style="width: 30%;">30%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yj-bg-fff yj-mar-t yj-pad-lr-big yj-pad-b-big">
+            <p class="yj-list-item yj-text-big">详细信息</p>
+            <div class="zh-merge-detailinfo">
+                <p>
+                    <span class="zh-merge-detailinfo-title">详细面积：</span>
+                    <span>300亩</span>
+                </p>
+                <p>
+                    <span class="zh-merge-detailinfo-title">已拼：</span>
+                    <span>50亩</span>
+                </p>
+                <p>
+                    <span class="zh-merge-detailinfo-title">开始事件：</span>
+                    <span>2019-02-05 09:30</span>
+                </p>
+                <p>
+                    <span class="zh-merge-detailinfo-title">用药类型：</span>
+                    <span>杀虫剂</span>
+                </p>
+                <p>
+                    <span class="zh-merge-detailinfo-title">详细地址：</span>
+                    <span>云南大理南京</span>
+                </p>
+            </div>
+        </div>
+        <div class="yj-mar-b-big" id="gaodeMap" style="width: 100%; height: 50vw;"></div>
+    </div>
+
+    <footer class="yj-footer yj-pad-lr-bigger yj-border-box" style="height: 3rem;background-color: #F2F2F2">
+        <a href="order_confirm.html" class="yj-btn yj-main yj-block yj-big yj-mar-t-sm">立即加入</a>
+    </footer>
+
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.13&key=44c809431935b87f9c3d9c6f27f0af2f"></script>
+    <script>
+        var map = new AMap.Map('gaodeMap', {
+            resizeEnable: true,
+            zoomEnable:true,
+            dragEnable: true,
+            zoom:13,//级别
+            center: [116.397428, 39.90923],//中心点坐标
+        });
+
+        // 覆盖物1
+        var path1 = [
+            new AMap.LngLat(116.368904,39.62),
+            new AMap.LngLat(116.382122,39.68),
+            new AMap.LngLat(116.387271,39.65),
+            new AMap.LngLat(116.398258,39.63)
+        ];
+
+        // 覆盖物2
+        var path2 = [
+            new AMap.LngLat(116.368904,39.913423),
+            new AMap.LngLat(116.387271,39.912501),
+            new AMap.LngLat(116.398258,39.904600),
+            new AMap.LngLat(116.382122,39.901176)
+        ];
+
+        var polygon1 = new AMap.Polygon({
+            path: path1,
+        });
+        var polygon2 = new AMap.Polygon({
+            path: path2
+        });
+
+        // 创建覆盖物群组，传入覆盖物组成的数组
+        var overlayGroup = new AMap.OverlayGroup([polygon1, polygon2]);
+
+        // 对此覆盖物群组设置同一属性
+        overlayGroup.setOptions({
+            fillColor: '#fff', // 多边形填充颜色
+            strokeColor: '#62CAA4', // 线条颜色
+        });
+
+        // 统一添加到地图实例上
+        map.add(overlayGroup);
+        //无参数时，自适应所有覆盖物
+        map.setFitView();
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

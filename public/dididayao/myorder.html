@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no, viewport-fit=cover">
+    <title>滴滴打药</title>
+    <link rel="stylesheet" href="weui/lib/weui.min.css">
+    <link rel="stylesheet" href="weui/css/jquery-weui.css">
+    <link rel="stylesheet" href="static/css/page.css">
+</head>
+<body>
+<header class="yj-header yj-bg-fff yj-border-b">
+    <a class="yj-header-return" href="javascript:history.go(-1)"><img src="/static/images/arrow_return.png"></a>
+    <span>我的订单</span>
+    <a class="yj-header-meau"></a>
+</header>
+<div class="yj-content yj-mainH">
+    <ul class="yj-pad-lr-big yj-mar-b">
+        <li class=" yj-radius-sm yj-mar-t yj-pad-lr-big yj-pad-tb yj-line-height-2 yj-bg-fff">
+            <p class="yj-display-flex">
+                <span class="yj-flex-1 yj-elip-1">云南大理作业300亩</span>
+                <span class="yj-right yj-text-sm yj-color-main">等待拼单</span>
+                <!--<span class="yj-right yj-text-sm yj-color-red">待作业</span>-->
+                <!--<span class="yj-right yj-text-sm yj-color-gray-light">已完成</span>-->
+            </p>
+            <div class="yj-color-gray-light">
+                <p>总价：&yen;5020</p>
+                <p>拼单时间：2019-02-04 12:20</p>
+                <p>拼单面积：300亩</p>
+            </div>
+        </li>
+        <li class=" yj-radius-sm yj-mar-t yj-pad-lr-big yj-pad-tb yj-line-height-2 yj-bg-fff">
+            <p class="yj-display-flex"><span class="yj-flex-1 yj-elip-1">云南大理作业300亩</span> <span class="yj-right yj-text-sm yj-color-red">待付款</span></p>
+            <div class="yj-color-gray-light">
+                <p>总价：&yen;5020</p>
+                <p>拼单时间：2019-02-04 12:20</p>
+                <p>拼单面积：300亩</p>
+            </div>
+            <p class="yj-text-right">
+                <a class="yj-btn yj-main yj-sm">去付款</a>
+            </p>
+        </li>
+        <li class=" yj-radius-sm yj-mar-t yj-pad-lr-big yj-pad-tb yj-line-height-2 yj-bg-fff">
+            <p class="yj-display-flex"><span class="yj-flex-1 yj-elip-1">云南大理作业300亩</span> <span class="yj-right yj-text-sm yj-color-red">待作业</span></p>
+            <div class="yj-color-gray-light">
+                <p>总价：&yen;5020</p>
+                <p>拼单时间：2019-02-04 12:20</p>
+                <p>拼单面积：300亩</p>
+            </div>
+        </li>
+        <li class=" yj-radius-sm yj-mar-t yj-pad-lr-big yj-pad-tb yj-line-height-2 yj-bg-fff">
+            <p class="yj-display-flex"><span class="yj-flex-1 yj-elip-1">云南大理作业300亩</span> <span class="yj-right yj-text-sm yj-color-gray-light">已完成</span></p>
+            <div class="yj-color-gray-light">
+                <p>总价：&yen;5020</p>
+                <p>拼单时间：2019-02-04 12:20</p>
+                <p>拼单面积：300亩</p>
+            </div>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript" src="static/js/jquery.min.js"></script>
+<script type="text/javascript" src="weui/js/jquery-weui.js"></script>
+<script type="text/javascript">
+
+    //删除土地
+    function delLand(num){
+        $('#land_'+num).remove();
+        $.toast("操作成功");
+    }
+</script>
+</body>
+</html>

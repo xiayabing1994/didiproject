@@ -1,0 +1,201 @@
+{include file='Public:header'}
+<body>
+    <header class="yj-header yj-bg-fff">
+        <span>发布拼单</span>
+    </header>
+    <div class="yj-content yj-mainHF">
+        <div class="yj-pad-tb yj-pad-lr-big">
+            <p>活动规则</p>
+            <ol class="yj-color-gray yj-text-sm yj-line-height-2">
+                <li>
+                    每亩单价为 &yen;50/亩
+                </li>
+                <li>
+                    拼单需在规定时间完成
+                </li>
+            </ol>
+        </div>
+        <form action="/wap/crowd/deal.html" method="post" name="crowd_form" onsubmit="return checkEmpty()">
+        <div class="weui-cells weui-cells_form yj-text-sm yj-mar-t-sm">
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label"><i class="yj-color-red">*</i> 标题</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" name="pname" data-id="pname" id="pname" type="text" placeholder="请输入标题">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label"><i class="yj-color-red">*</i> 作业面积</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" name="sumarea" id="sumarea" data-id="sumarea" type="text" placeholder="请输入需作业的面积">
+                </div>
+                <div class="weui-cell__ft yj-text-usual">
+                    亩
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label"><i class="yj-color-red">*</i> 拼单开始时间</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" name='starttime' id="starttime" data-id="starttime" type="text" placeholder="请输入开始时间" id="startTime" readonly>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label"><i class="yj-color-red">*</i> 拼单结束时间</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" name="endtime" id="endtime" data-id="endtime" type="text" placeholder="请输入结束时间" id="endTime">
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-cells yj-text-sm yj-mar-t-sm" >
+
+            <div class="weui-cell weui-cell_swiped">
+                <div class="weui-cell__bd">
+                    <div class="weui-cell weui-cell_select weui-cell_select-after">
+                        <div class="weui-cell__bd">
+                            <label for="" class="weui-label"><i class="yj-color-red">*</i> 选择地块</label>
+                        </div>
+                        <div class="weui-cell__ft">
+                            <select class="weui-select yj-color-gray" name="land_id" id="landSel">
+                                <option value="">请选择</option>
+                                {volist name='my_land' id='land' empty="$empty"}
+                                <option value="{$land.id}" data-area="{$land.area}">{$land.name}</option>
+                                {/volist}
+                                <!--<option value="2">杀虫剂</option>-->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" id='land-area' name="area" value="">
+            </div>
+
+            <div class="weui-cell weui-cell_swiped">
+                <div class="weui-cell__bd">
+                    <div class="weui-cell weui-cell_select weui-cell_select-after">
+                        <div class="weui-cell__bd">
+                            <label for="" class="weui-label"><i class="yj-color-red">*</i> 选择农药</label>
+                        </div>
+                        <div class="weui-cell__ft">
+                            <select class="weui-select yj-color-gray" name="pesticide" id="shachongSel">
+                                <option value="">请选择</option>
+                                {volist name='pesticides' id='pesticide' empty="$empty"}
+                                <option value="{$pesticide.id}" data-price="{$pesticide.price}">{$pesticide.name}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <!--<div class="weui-cells weui-cells_radio yj-mar-t-sm yj-text-sm">
+            <label class="weui-cell weui-check__label" for="x11">
+                <div class="weui-cell__bd">
+                    <p>直接下单</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <input type="radio" class="weui-check" name="radio1" id="x11">
+                    <span class="weui-icon-checked"></span>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="x12">
+
+                <div class="weui-cell__bd">
+                    <p>自动拼单</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <input type="radio" name="radio1" class="weui-check" id="x12" checked="checked">
+                    <span class="weui-icon-checked"></span>
+                </div>
+            </label>
+        </div>
+-->
+        <p class="yj-pad-bigger yj-pad-b-0 yj-mar-t-big"><input value='下 一 步' type='submit' class="yj-btn yj-main yj-block yj-big" ></p>
+
+        </form>
+    </div>
+
+{include file='Public:footer'}
+    <script type="text/javascript">
+        var localTime = localdate('YMDHM');
+        $("#startTime").val(localTime);
+        $("#endTime").datetimePicker({
+           // min:localTime
+        });
+        $('.delete-swipeout').click(function () {
+            $(this).parents('.weui-cell').remove()
+        });
+        $('.close-swipeout').click(function () {
+            $(this).parents('.weui-cell').swipeout('close')
+        });
+
+
+        var unitPrice = 0;
+        var area = 0;
+        $('#landSel').change(function () {
+            var area=$('#landSel').find("option:selected").attr('data-area');
+            $('#land-area').val(area);
+            var count=unitPrice*area;
+            $('#yajinNum').text(count);
+        });
+        $('#landSel,#shachongSel').change(function () {
+            console.log('change');
+            var unitPrice = $('#shachongSel').find("option:selected").attr('data-price');
+            var area = $('#landSel').find("option:selected").attr('data-area');
+            var count=unitPrice*area;
+            $('#yajinNum').text(count);
+        });
+
+        function checkEmpty(){
+            var pname = $('#pname').val();
+            var sumarea = $('#sumarea').val();
+            var starttime = $('#starttime').val();
+            var endtime = $('#endtime').val();
+            var  shachongSel = $('#shachongSel').val();
+            var  landSel = $('#landSel').val();
+            if(pname==''){
+                $.toast('标题不能为空','text');
+                $("#pname").focus();
+                return false;
+            }else if(sumarea==''){
+                $.toast('作业面积不能为空','text');
+                $("#sumarea").focus();
+                return false;
+            }else if(starttime==''){
+                $.toast('请选择拼单开始时间','text');
+                $("#starttime").focus();
+                return false;
+            }else if(endtime==''){
+                $.toast('请选择拼单结束时间','text');
+                $("#endtime").focus();
+                return false;
+            }else if(shachongSel==''){
+                $.toast('请选择您要拼单的地块','text');
+                $("#shachongSel").focus();
+                return false;
+            }else if(landSel==''){
+                $.toast('选择农药','text');
+                $("#landSel").focus();
+                return false;
+            }else{
+                //console.log(pname);
+                return true;
+            }
+
+        }
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+{include file='Public:header'}
+<body>
+<header class="yj-header yj-bg-fff">
+    <a class="yj-header-return" href="javascript:history.go(-1)"><img src="__WAPPUBLIC__static/images/arrow_return.png"></a>
+    <span>修改昵称</span>
+    <a class="yj-header-meau"></a>
+</header>
+<div class="yj-content yj-mainH">
+    <div class="weui-cells yj-mar-t">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <input class="weui-input" value="{$Think.session.user.nickname}" type="text" placeholder="请输入昵称" id="rename">
+            </div>
+            <div class="weui-cell__ft">
+                <img src="__WAPPUBLIC__static/images/close.png" height="20" onclick="$('#rename').val('')">
+            </div>
+        </div>
+    </div>
+    <div class="yj-pad-lr-bigger" style="margin-top: 3rem;">
+        <a onclick="changeName()" class="yj-btn yj-main yj-big yj-block">确定</a>
+    </div>
+</div>
+<script type="text/javascript" src="__WAPPUBLIC__static/js/jquery.min.js"></script>
+<script type="text/javascript" src="__WAPPUBLIC__weui/js/jquery-weui.js"></script>
+<script>
+    function changeName(){
+        var userid={$Think.session.user.id};
+        var name=$('#rename').val();
+        if(name=='') {
+            $.alert('昵称为空');
+        }else{
+            $.ajax({
+                url:'/api/user/changenickname',
+                type:'post',
+                data:{userid:userid,name:name},
+                success:function(data){
+                    $.alert(data.msg);
+                    session_refresh();
+                }
+            })
+        }
+
+    }
+    function session_refresh(){
+        $.ajax({
+            url:'/wap/user/sessionrefresh',
+            type:'post',
+            data:{},
+            success:function(data){
+            }
+        })
+    }
+</script>
+</body>
+</html>

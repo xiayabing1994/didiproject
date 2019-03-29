@@ -1,0 +1,34 @@
+<footer class="yj-footer yj-border-t">
+    <a class="yj-footer-item" href="/wap/index">
+        <img class="yj-footer-icon" src="__WAPPUBLIC__/static/images/home{:request()->controller()=='Index' ? '_active' : ''}.png">
+        <p class="yj-footer-title {:request()->controller()=='Index' ? 'yj-active' : ''}">首页</p>
+    </a>
+    <!--href="/wap/crowd"-->
+    <a class="yj-footer-item" href="/wap/crowd">
+        <img class="yj-footer-icon" src="__WAPPUBLIC__/static/images/share{:request()->controller()=='Crowd' ? '_active' : ''}.png">
+        <p class="yj-footer-title {:request()->controller()=='Crowd' ? 'yj-active' : ''} " >下单</p>
+    </a>
+    <a class="yj-footer-item" href="/wap/user">
+        <img class="yj-footer-icon" src="__WAPPUBLIC__/static/images/my{:request()->controller()=='User' ? '_active' : ''}.png">
+        <p class="yj-footer-title {:request()->controller()=='User' ? 'yj-active' : ''}">我的</p>
+    </a>
+</footer>
+<!--
+<script type="text/javascript">
+    function orderType(){
+        $.actions({
+            actions: [{
+                text: "我要拼单",
+                onClick: function() {
+                    window.location.href="/wap/crowd";
+                }
+            },{
+                text: "直接下单",
+                onClick: function() {
+                    //do something
+                    window.location.href="/wap/crowd/join"
+                }
+            }]
+        });
+    }
+</script>-->
