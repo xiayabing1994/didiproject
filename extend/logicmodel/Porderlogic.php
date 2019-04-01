@@ -190,22 +190,22 @@ namespace logicmodel;
             $addtime=date('Y-m-d H:i:s');
             $PorderData=['userid'=>$userid,'addtime'=>$addtime,'starttime'=>$starttime,'pname'=>$pname,'endtime'=>$endtime,'sumarea'=>$sumArea,'pordernum'=>$pordernum];
             $porderid=$this->_porder->addEntityReturnID($PorderData);
-            if($porderid>0)
-            {
-                $pordernumData=['userid'=>$userid,'landid'=>$landid,'porderid'=>$porderid,'pesticide'=>$pesticide,'area'=>$area,'addtime'=>$addtime,'pordernum'=>$pordernum];
+            if($porderid>0){
+                $pordernumData=[
+                    'userid'=>$userid,
+                    'landid'=>$landid,
+                    'porderid'=>$porderid,
+                    'pesticide'=>$pesticide,
+                    'area'=>$area,
+                    'addtime'=>$addtime,
+                    'pordernum'=>$pordernum
+                ];
                 $pordernumId = $this->_pordernum->addEntityReturnID($pordernumData);
-                if($pordernumId>0)
-                {
-                    return ['errcode'=>0,'msg'=>'发布拼单成功','result'=>['pordernumid'=>$pordernumId,'porderid'=>$porderid]];
-                }else
-                    {
-                        return ['errcode'=>1,'msg'=>'添加拼单失败'];
-                    }
-
-            }else
-            {
-                return ['errcode'=>1,'msg'=>'发布拼单失败'];
+                $money=model('\logicmodel\Pordernumlogic')->getPorderMoney($pordernumId);
+                if($pordernumId>0) return ['pordernumid'=>$pordernumId,'money'=>$money,'porderid'=>$porderid];
+                return false;
             }
+            return false;
         }
 
      /**加入拼单
@@ -230,6 +230,12 @@ namespace logicmodel;
                 {
                     return ['errcode'=>1,'msg'=>'加入拼单失败'];
                 }
+        }
+        public function placeOrder($data){
+             if(empty($data['userid']) || empty($data['landid'])) return false;
+             $data['addtime']=date('Y-m-d H:i:s');
+             $data['porderid']=0;
+             return $pordernumid=$this->_pordernum->addEntityReturnID($data);
         }
 
      /**获取农药列表

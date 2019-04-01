@@ -14,10 +14,10 @@ class User
     private $_userLogic ;
     private $_appid ;
 
-    public function __construct(Request $request , \logicmodel\Login $alluser)
+    public function __construct(Request $request )
     {
         $this->_request = $request;
-        $this->_userLogic = $alluser;
+        $this->_userLogic = new \logicmodel\Login();
         $this->_appid=$this->_request->header('appid',123455);
     }
     /** 手机发送验证码
@@ -82,13 +82,32 @@ class User
     /**上传头像
      * @return \think\response\Json
      */
-    public function uploadLogo()
+    public function baseUploadLogo()
     {
         $uid=$this->_request->param('userid');
         $base64 = $this->_request->param('image');
-        return json($this->_userLogic->uploadHeading($uid,$base64));
+        $base64_string= explode(',', $base64); //截取data:image/png;base64, 这个逗号后的字符
+        $data= $base64_string[1];
+        if(!$uid>0) return json(['errcode'=>2,'msg'=>'用户id错误','id'=>$uid]);
+        if($rs=$this->_userLogic->baseUpload($uid,$data)){
+            return json(['errcode'=>0,'msg'=>'更改成功','result'=>get_img_url($rs)]);
+        }else{
+            return json(['errcode'=>1,'msg'=>'更改头像失败']);
+        }
     }
-
+    /**上传头像
+     * @return \think\response\Json
+     */
+    public function uploadLogo()
+    {
+        $file = request()->file('image');
+        $uid=$this->_request->param('userid');
+        if($rs=$this->_userLogic->fileUpload($uid,$file)){
+            return json(['errcode'=>0,'msg'=>'更改成功','result'=>get_img_url($rs)]);
+        }else{
+            return json(['errcode'=>1,'msg'=>'更改头像失败']);
+        }
+    }
     /**修改用户性别
      * @return \think\response\Json
      */

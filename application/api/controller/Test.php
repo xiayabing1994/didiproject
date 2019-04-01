@@ -16,7 +16,9 @@ class Test extends Api{
     }
 
     public function test(){
-        file_put_contents('./test.txt','hahha');
+        $pid = input('pid');
+        $model=new \logicmodel\Pordernumlogic($pid);
+        dump($model->getPorderMoney($pid));
     }
     public function test1(){
          dump(Hook::listen('api_test1'));

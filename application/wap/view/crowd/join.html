@@ -4,91 +4,108 @@
     <span>加入拼单</span>
 </header>
 <div class="yj-content yj-mainH">
-    <form action="/wap/crowd/join_deal.html" method="post" name="crowd_form">
-        <div class="weui-cells yj-text-sm yj-mar-t-sm" >
-
-            <div class="weui-cell weui-cell_swiped">
-                <div class="weui-cell__bd">
-                    <div class="weui-cell weui-cell_select weui-cell_select-after">
-                        <div class="weui-cell__bd">
-                            <label for="" class="weui-label"><i class="yj-color-red">*</i> 选择地块</label>
+    <form action="/wap/crowd/join_deal.html" method="post" name="crowd_form" onsubmit="return confirmPindan()">
+        <div class="yj-mar-t-sm arealist">
+            <p class="yj-color-gray yj-text-sm yj-pad-lr-big">请选择土地</p>
+            <div class="readyarea">
+                <!--<p class="yj-color-gray-light yj-text-sm yj-text-center">暂无土地</p>-->
+                <div class="yj-pad-lr">
+                    {volist name='my_land' id='land' empty="$empty"}
+                    <div class="yj-display-flex yj-middle yj-mar-t yj-bg-fff yj-border yj-pad yj-radius">
+                        <div class="yj-pad-r-big">
+                            <input type="checkbox" class="yj-radio yj-areainput" name="" id="{$land.id}" data-area="{$land.area}" data-areaname="{$land.name}">
                         </div>
-                        <div class="weui-cell__ft">
-                            <select class="weui-select yj-color-gray" name="land_id" id="landSel">
-                                <option value="">请选择</option>
-                                {volist name='my_land' id='land' empty="$empty"}
-                                <option value="{$land.id}" data-area="{$land.area}">{$land.name}</option>
-                                {/volist}
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <input type="hidden" id='land-area' name="area" value="">
-                <input type="hidden" id='p_id' name="p_id" value="{:input('id')}">
-                <div class="weui-cell__ft">
-                    <a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:">删除</a>
-                    <a class="weui-swiped-btn weui-swiped-btn_default close-swipeout" href="javascript:">关闭</a>
-                </div>
-            </div>
-
-            <div class="weui-cell weui-cell_swiped">
-                <div class="weui-cell__bd">
-                    <div class="weui-cell weui-cell_select weui-cell_select-after">
-                        <div class="weui-cell__bd">
-                            <label for="" class="weui-label"><i class="yj-color-red">*</i> 选择杀虫剂</label>
-                        </div>
-                        <div class="weui-cell__ft">
-                            <select class="weui-select yj-color-gray" name="pesticide" id="shachongSel">
-                                <option value="">请选择</option>
+                        <div class="yj-flex-1">
+                            <p class="">
+                                <span class="yj-elip-1" style="width: 50vw;">{$land.name}</span>
+                                <span class="yj-right yj-text-sm yj-color-gray-light">面积：{$land.area}亩</span>
+                            </p>
+                            <select class="yj-border-0 zh-yaosel" name="" style="width: 100%;" id="yao_{$land.id}" data-areaid="{$land.id}">
+                                <!--<option value="">请选择喷洒药剂</option>-->
                                 {volist name='pesticides' id='pesticide' empty="$empty"}
                                 <option value="{$pesticide.id}" data-price="{$pesticide.price}">{$pesticide.name}</option>
                                 {/volist}
                             </select>
                         </div>
                     </div>
+
+                    {/volist}
+                    <a href="/wap/user/myland" class="weui-cell weui-cell_link">
+                        <div class="weui-cell__bd">去个人中心添加新地块</div>
+                    </a>
                 </div>
-                <div class="weui-cell__ft">
-                    <a class="weui-swiped-btn weui-swiped-btn_warn delete-swipeout" href="javascript:">删除</a>
-                    <a class="weui-swiped-btn weui-swiped-btn_default close-swipeout" href="javascript:">关闭</a>
-                </div>
+
+                <!--土地id-->
+                <input type="hidden" value="" id="areaId" name="land_id">
+                <!--药物id-->
+                <input type="hidden" value="" id="yaoid" name="pesticide">
+                <!--土地拼单总面积-->
+                <input type="hidden" value="" id="areaCount" name="area">
+                <!--对应的拼单id-->
+
+                {if condition="input('id')>0"}
+                <input type="hidden" value="{:input('id')}"  name="p_id">
+                {/if}
+                <!--药物价格-->
+                <!--<input type="hidden" value="" id="yaoprice">-->
+                <p class="yj-pad-bigger"><input value='加入拼单' type='submit' class="yj-btn yj-main yj-block yj-big" ></p>
             </div>
-
         </div>
-        <p class="yj-pad-bigger yj-pad-b-0 yj-mar-t-big"><input value='下 一步' type='submit' class="yj-btn yj-main yj-block yj-big" ></p>
-
     </form>
 </div>
 
 <script type="text/javascript">
-    var localTime = localdate('YMDHM');
-    $("#startTime").val(localTime);
-    $("#endTime").datetimePicker({
-        min:localTime
-    });
-    $('.delete-swipeout').click(function () {
-        $(this).parents('.weui-cell').remove()
-    });
-    $('.close-swipeout').click(function () {
-        $(this).parents('.weui-cell').swipeout('close')
-    });
 
+    //提交拼单信息
+    function confirmPindan(){
+        var sel = $(".yj-areainput:checked");
+        var selLen = sel.length;
+        if(selLen>0){
+            selval();
+        }else{
+            $.toast('您没有选中的地块','text');
+            return false;
+        }
+    }
 
-    var unitPrice = 0;
-    var area = 0;
-    $('#landSel').change(function () {
-        var area=$('#landSel').find("option:selected").attr('data-area');
-        $('#land-area').val(area);
-        var count=unitPrice*area;
-        $('#yajinNum').text(count);
-    });
-    $('#landSel,#shachongSel').change(function () {
-        console.log('change');
-        var unitPrice = $('#shachongSel').find("option:selected").attr('data-price');
-        var area = $('#landSel').find("option:selected").attr('data-area');
-        var count=unitPrice*area;
-        $('#yajinNum').text(count);
-    });
+    //选中的地块信息
+    var areaidArr;
+    var areasizeArr;
+    var yaoidArr;
+    var areaCount;
+    function selval(){
+        areaidArr=[];
+        areasizeArr=[];
+        yaoidArr=[];
+        areaCount=0;
+        $(".yj-areainput:checked").each(function(){
+            var that = $(this);
+            var thisId = that.attr('id');
+            var thisareasize = that.attr('data-area');
+            var thisyaoid = $('#yao_'+thisId).val();
+            /*if(thisyaoid==''){
+             $.toast('请选择土地"'+areaName+'"喷洒药物','text');
+             return false;
+             }else{
+             areaidArr.push(thisId);
+             areasizeArr.push(thisareasize);
+             yaoidArr.push(thisyaoid);
+             }*/
+            areaidArr.push(thisId);
+            yaoidArr.push(thisyaoid);
+            areaCount = parseFloat(areaCount) + parseFloat(thisareasize);
+            areasizeArr.push(thisareasize);
+        });
 
+        /*console.log(areaidArr);
+         console.log(areasizeArr);
+         console.log(yaoidArr);*/
+
+        $('#areaId').val(areaidArr);
+        $('#yaoid').val(yaoidArr);
+        $('#areaCount').val(areaCount);
+
+    }
 </script>
 
 </body>

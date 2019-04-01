@@ -25,11 +25,11 @@ class Orderlogic
      * @param $pOrderNumId int 拼单人员表id
      * @return array
      */
-    public function createOrders($userId,$pOrderNumId,$payfrom)
+    public function createOrders($userId,$pOrderNumId,$payfrom=0,$paytype='weixin')
     {
-        $rate=0.20;
+        $rate=load_config('peace')['land_sub_rate'];
         $OrderNum=$this->createOrderNo($userId);
-        $originalPrice='12.00';
+        $originalPrice=load_config('peace')['land_unit_price'];
         $res=$this->_pordernum->queryfind(['id'=>$pOrderNumId],['*']);
         $pOrderNum=$res['pordernum'];
         $landid = $res['landid'];
@@ -43,23 +43,23 @@ class Orderlogic
         }
         $money=bcmul($area,$originalPrice,2);
         $money=bcmul($money,$rate,2);
-        if($payfrom==0)
-        {
-            $orderData=['userid'=>$userId,'pordernum'=>$pOrderNum,'landid'=>$landid,'ordernum'=>$OrderNum,'rate'=>$rate,'porderid'=>$porderid,'money'=>$money,'pordernumid'=>$pOrderNumId,'createtime'=>date('Y-m-d H:i:s')];
-            $orderId=$this->_order->addEntityReturnID($orderData);
-        }else
-            {
-                $orderData=['userid'=>$userId,'pordernum'=>$pOrderNum,'landid'=>$landid,'payfrom'=>1,'ordernum'=>$OrderNum,'rate'=>$rate,'porderid'=>$porderid,'money'=>$money,'pordernumid'=>$pOrderNumId,'createtime'=>date('Y-m-d H:i:s')];
-                $orderId=$this->_order->addEntityReturnID($orderData);
-            }
-        if($orderId>0)
-        {
-            return ['errcode'=>0,'msg'=>'success','result'=>['orderid'=>$orderId]];
-        }else
-            {
-                return ['errcode'=>1,'msg'=>false];
-            }
-
+        $orderData=[
+            'userid'=>$userId,
+            'pordernum'=>$pOrderNum,
+            'landid'=>$landid,
+            'ordernum'=>$OrderNum,
+            'rate'=>$rate,
+            'porderid'=>$porderid,
+            'money'=>$money,
+            'pordernumid'=>$pOrderNumId,
+            'payfrom'=>$payfrom,
+            'paytype'=>$paytype,
+            'createtime'=>date('Y-m-d H:i:s')
+        ];
+        $orderData['describe']=explain_payfrom($payfrom);
+        $orderId=$this->_order->addEntityReturnID($orderData);
+        if($orderId>0) return ['orderid'=>$orderId,'orderdata'=>$orderData];
+        return false;
     }
 
     /**创建订单

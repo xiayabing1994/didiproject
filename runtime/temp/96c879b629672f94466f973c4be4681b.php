@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"/www/wwwroot/didi.xlove99.top/public/../application/wap/view/index/index.html";i:1553765361;s:69:"/www/wwwroot/didi.xlove99.top/application/wap/view/Public/header.html";i:1553069199;s:69:"/www/wwwroot/didi.xlove99.top/application/wap/view/Public/footer.html";i:1553769052;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"/www/wwwroot/didi.xlove99.top/public/../application/wap/view/index/index.html";i:1553940070;s:69:"/www/wwwroot/didi.xlove99.top/application/wap/view/Public/header.html";i:1553069199;s:69:"/www/wwwroot/didi.xlove99.top/application/wap/view/Public/footer.html";i:1553769052;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +30,8 @@
             <a href="<?php echo $banner['url']; ?>" class="swiper-slide"><img src="<?php echo $banner['image']; ?>" alt=""></a>
             <?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
+
+    </div>
     <div class="yj-bg-fff yj-mar-t">
         <div class="zx-index-title1 yj-border-b">
             <p>&nbsp;</p>
@@ -111,7 +113,6 @@
 
     </div>
 
-</div>
 </div>
 <footer class="yj-footer yj-border-t">
     <a class="yj-footer-item" href="/wap/index">

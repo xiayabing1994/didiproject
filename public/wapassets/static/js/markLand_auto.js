@@ -30,10 +30,7 @@ map.plugin('AMap.Geolocation', function() {
 
     map.addControl(geolocation);
 
-    //geolocation.getCurrentPosition();
-    setInterval(function(){
-        geolocation.getCurrentPosition();
-    },3000);
+    geolocation.getCurrentPosition();
 
     AMap.event.addListener(geolocation, 'complete', onComplete); //返回定位信息
 
@@ -66,7 +63,6 @@ function onError(data) {
     console.log(data);
     islocal=false;
     alert(data.message+'\n 定位失败');
-    return false;
 }
 
 

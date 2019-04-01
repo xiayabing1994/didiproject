@@ -40,9 +40,9 @@ class Sms extends Api
             $this->error(__('发送频繁'));
         }
         $ipSendTotal = \app\common\model\Sms::where(['ip' => $this->request->ip()])->whereTime('createtime', '-1 hours')->count();
-        if ($ipSendTotal >= 5) {
-            $this->error(__('发送频繁'));
-        }
+//        if ($ipSendTotal >= 5) {
+//            $this->error(__('发送频繁'));
+//        }
         if ($event) {
             $userinfo = User::getByMobile($mobile);
             if ($event == 'register' && $userinfo) {

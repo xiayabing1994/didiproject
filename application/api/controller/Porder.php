@@ -30,7 +30,11 @@ class Porder
         $endtime = $this->_request->param('endtime');
         $pesticide=$this->_request->param('pesticide');
         $sumArea=$this->_request->param('sumarea');
-        return json($this->_porderlogic->releasePorder($userid,$landid,$starttime,$endtime,$pesticide,$sumArea,$pname));
+        if($res=$this->_porderlogic->releasePorder($userid,$landid,$starttime,$endtime,$pesticide,$sumArea,$pname)){
+            return json(['errcode'=>0,'msg'=>'发布拼单成功','result'=>$res]);
+        }else{
+            return json(['errcode'=>0,'msg'=>'发布拼单失败']);
+        }
     }
 
     /**加入拼单
@@ -48,6 +52,16 @@ class Porder
         return json($this->_porderlogic->joinPorders($userid,$landid,$pordernum,$pesticide,$porderId,$pcode));
     }
 
+    /**
+     *  直接下单接口
+     */
+    public function placeOrder(){
+        if($res=$this->_porderlogic->placeOrder($this->_request->param())){
+            return json(['errcode'=>0,'msg'=>'下单成功','result'=>['id'=>$res]]);
+        }else{
+            return json(['errcode'=>1,'msg'=>'下单失败']);
+        }
+    }
     /**农药列表
      * @return \think\response\Json
      * @throws \think\Exception

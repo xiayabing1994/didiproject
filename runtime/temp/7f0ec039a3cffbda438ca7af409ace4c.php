@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:78:"/www/wwwroot/didi.xlove99.top/public/../application/wap/view/user/my_land.html";i:1553768138;s:69:"/www/wwwroot/didi.xlove99.top/application/wap/view/Public/header.html";i:1553069199;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:78:"/www/wwwroot/didi.xlove99.top/public/../application/wap/view/user/my_land.html";i:1553860049;s:69:"/www/wwwroot/didi.xlove99.top/application/wap/view/Public/header.html";i:1553069199;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,8 +24,10 @@
         <?php if(is_array($my_land) || $my_land instanceof \think\Collection || $my_land instanceof \think\Paginator): $i = 0; $__LIST__ = $my_land;if( count($__LIST__)==0 ) : echo "$empty" ;else: foreach($__LIST__ as $key=>$land): $mod = ($i % 2 );++$i;?>
         <li class="yj-bg-fff yj-mar-b yj-pad-lr" id="land_1" >
             <p class="yj-list-item yj-border-b">
-                <span class="yj-list-item-text" onclick="changeName('<?php echo $land['id']; ?>',this)"><?php echo $land['name']; ?></span>
-                <img class="yj-list-item-more" src="/wapassets/static/images/trash.png" onclick="delLand(<?php echo $land['id']; ?>,<?php echo \think\Session::get('user.id'); ?>)">
+                <!--onclick="changeName('<?php echo $land['id']; ?>',this)"-->
+                <span class="yj-list-item-text"><?php echo $land['name']; ?><i class="yj-text-min yj-color-gray-light"><?php echo $land['state']==0?'闲置中' : '订单进行中'; ?></i></span>
+
+                <img class="yj-list-item-more" src="/wapassets/static/images/trash.png" onclick="delLand('<?php echo $land['id']; ?>','<?php echo \think\Session::get('user.id'); ?>')">
             </p>
             <div class="yj-display-flex yj-pad-tb-big yj-middle yj-mar-t">
                 <div class="yj-flex-1 yj-text-center yj-border-r" style="height: 25px;">
@@ -46,13 +48,13 @@
                         <p class="yj-color-gray-light yj-text-sm">总面积</p>
                     </div>
                 </div>
-                <?php echo $land['state']==0?'闲置中' : '订单进行中'; ?>
+
             </div>
         </li>
         <?php endforeach; endif; else: echo "$empty" ;endif; ?>
     </ul>
 
-    <div class="yj-mar-t-bigger yj-pad-lr-bigger">
+    <div class="yj-mar-bigger">
         <!--href="addland.html"-->
         <a class="yj-btn yj-bg-gray yj-block yj-big"  onclick="addland()">
             <img src="/wapassets/static/images/share.png" class="yj-mar-r" height="20" style="margin-top: -4px;">

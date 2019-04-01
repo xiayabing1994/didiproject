@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"/www/wwwroot/didi.xlove99.top/public/../application/wap/view/user/index.html";i:1553773255;s:69:"/www/wwwroot/didi.xlove99.top/application/wap/view/Public/header.html";i:1553069199;s:69:"/www/wwwroot/didi.xlove99.top/application/wap/view/Public/footer.html";i:1553769052;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"/www/wwwroot/didi.xlove99.top/public/../application/wap/view/user/index.html";i:1553924252;s:69:"/www/wwwroot/didi.xlove99.top/application/wap/view/Public/header.html";i:1553069199;s:69:"/www/wwwroot/didi.xlove99.top/application/wap/view/Public/footer.html";i:1553769052;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,27 +56,29 @@
             <a class="yj-flex-1 yj-text-center" href="user/myorder/map/0">
                 <span class="yj-grid-icon yj-message">
                     <img src="/wapassets/static/images/payment.png" width="30">
-                    <i class="yj-message-num">1</i>
+                    <i class="yj-message-num"><?php echo !empty($order_states[0])?$order_states[0] : 0; ?></i>
                 </span>
                 <p class="yj-text-sm yj-mar-t">待拼单</p>
             </a>
             <a class="yj-flex-1 yj-text-center" href="user/myorder/map/2">
                 <span class="yj-grid-icon yj-message">
                     <img src="/wapassets/static/images/await.png" width="30">
-                    <!--<i class="yj-message-num">1</i>-->
+
+                    <i class="yj-message-num"><?php echo !empty($order_states[2])?$order_states[2] : 0; ?></i>
                 </span>
                 <p class="yj-text-sm yj-mar-t">待作业</p>
             </a>
             <a class="yj-flex-1 yj-text-center" href="user/myorder/map/1">
                 <span class="yj-grid-icon yj-message">
                     <img src="/wapassets/static/images/order.png" width="30">
-                    <!--<i class="yj-message-num">1</i>-->
+                    <i class="yj-message-num"><?php echo !empty($order_states[1])?$order_states[1] : 0; ?></i>
                 </span>
                 <p class="yj-text-sm yj-mar-t">待付款</p>
             </a>
             <a class="yj-flex-1 yj-text-center" href="user/myorder/map/3">
                 <span class="yj-grid-icon yj-message">
                     <img src="/wapassets/static/images/finish.png" width="30">
+                    <!--<i class="yj-message-num"><?php echo !empty($order_states[3])?$order_states[3] : 0; ?></i>-->
                 </span>
                 <p class="yj-text-sm yj-mar-t">已完成</p>
             </a>
@@ -84,17 +86,17 @@
     </div>
     <div class="weui-cells yj-mar-t">
 
-        <a class="weui-cell weui-cell_access" href="user/myland">
+        <a class="weui-cell weui-cell_access" href="user/myland" target="_blank">
             <div class="weui-cell__hd"><img class="yj-p-icon" src="/wapassets/static/images/land.png" ></div>
             <div class="weui-cell__bd">
                 <p>我的土地</p>
             </div>
             <div class="weui-cell__ft"></div>
         </a>
-        <a class="weui-cell weui-cell_access" href="user/myincome">
+        <a class="weui-cell weui-cell_access" href="user/myprofit">
             <div class="weui-cell__hd"><img class="yj-p-icon" src="/wapassets/static/images/brokerage.png"></div>
             <div class="weui-cell__bd">
-                <p>我的佣金</p>
+                <p>我的收益</p>
             </div>
             <div class="weui-cell__ft"></div>
         </a>
@@ -160,7 +162,14 @@
 </script>-->
 
 
-
+<script type="text/javascript">
+    $('.yj-message-num').each(function(){
+        var thisVal = $(this).text();
+        if(thisVal==0){
+            $(this).remove();
+        }
+    })
+</script>
 
 </body>
 </html>

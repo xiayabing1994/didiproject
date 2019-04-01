@@ -234,7 +234,7 @@ class Login
      * @param $base64 string base64文件
      * @return array
      */
-    public function uploadHeading($uid, $base64)
+    public function baseUpload($uid, $base64)
     {
         if(isset($base64))
         {
@@ -242,19 +242,30 @@ class Login
             $res = TybUpload::uploadBase64($rootPath,$base64);
             if($res['errcode']==0)
             {
-                $data['headimg'] = $res['result'];
+                $data['headimg'] = '/uploads/userlogo/'.$res['result'];
                 $where['id']=$uid;
                 $up = $this->_alluser->updateEntity($where,$data);
-                if($up!==false)
-                {
-                    return $res;
-                }else
-                {
-                    return ['errcode'=>1,'msg'=>'上传失败'];
-                }
-            }else
-            {
-                return $res;
+                if($up!==false)  return '/uploads/userlogo/'.$res['result'];
+                return false;
+            }
+            return false;
+        }
+    }
+    public function fileUpload($uid,$file){
+        // 获取表单上传文件 例如上传了001.jpg
+        $rootPath = './uploads';
+        // 移动到框架应用根目录/public/uploads/ 目录下
+        if($file){
+            $info = $file->move($rootPath);
+            if($info){
+                // 输出 20160820/42a79759f284b767dfcb2a0197904287.jpg
+                $img_path=$info->getSaveName();
+                $up = $this->_alluser->updateEntity(['id'=>$uid],['headimg'=>'/uploads/'.$img_path]);
+                // 输出 42a79759f284b767dfcb2a0197904287.jpg
+                if($up) return '/uploads/'.$img_path;
+                return false;
+            }else{
+                return false;
             }
         }
     }

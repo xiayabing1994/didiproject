@@ -4,6 +4,10 @@ use think\Db;
 class Land extends Base{
     public function __construct(){
     }
+
+    /**
+     * 添加一条land表记录
+     */
     public function addLand($data){
         $data['userid']=session('user.id');
         $points=$this->pointDeal($data['point']);
@@ -13,8 +17,24 @@ class Land extends Base{
         $data['addtime']=date('Y-m-d H:i');
         return Db::name('land')->insertGetId($data);
     }
+
+    /**
+     * 更改土地名字
+     */
     public function updLandName($land_id,$name){
         return Db::name('land')->where('id',$land_id)->update(['name'=>$name]);
+    }
+
+    /**
+     * 根据土地id或ids串计算土地总面积
+     */
+    public function getLandArea($landid){
+        $area=0;
+        $land_arr=explode(',',$landid);
+        foreach($land_arr as $v){
+            $area+= Db::name('land')->where('id',$v)->find()['area'];
+        }
+        return $area;
     }
     private function pointDeal($points){
         $points=json_decode($points,1);

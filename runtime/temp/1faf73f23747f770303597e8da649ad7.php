@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:78:"/www/wwwroot/didi.xlove99.top/public/../application/wap/view/crowd/detail.html";i:1553758364;s:69:"/www/wwwroot/didi.xlove99.top/application/wap/view/Public/header.html";i:1553069199;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:78:"/www/wwwroot/didi.xlove99.top/public/../application/wap/view/crowd/detail.html";i:1553925834;s:69:"/www/wwwroot/didi.xlove99.top/application/wap/view/Public/header.html";i:1553069199;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,7 +88,7 @@
     </div>
     <input type="hidden" value="<?php if(is_array($crowd_info['land_points']) || $crowd_info['land_points'] instanceof \think\Collection || $crowd_info['land_points'] instanceof \think\Paginator): $i = 0; $__LIST__ = $crowd_info['land_points'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$point): $mod = ($i % 2 );++$i;?><?php echo $point['point']; ?>/<?php endforeach; endif; else: echo "" ;endif; ?>" id="pointers">
     <footer class="yj-footer yj-pad-lr-bigger yj-border-box" style="height: 3rem;background-color: #F2F2F2">
-        <a href="/wap/crowd/join/id/<?php echo $crowd_info['id']; ?>" class="yj-btn yj-main yj-block yj-big yj-mar-t-sm">立即加入</a>
+        <a href="/wap/crowd/join/id/<?php echo $crowd_info['id']; ?>" class="yj-btn yj-main yj-block yj-big">立即加入</a>
     </footer>
 
     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.13&key=44c809431935b87f9c3d9c6f27f0af2f"></script>

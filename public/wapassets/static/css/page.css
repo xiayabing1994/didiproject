@@ -20,9 +20,14 @@ ol li {
 img {
   vertical-align: middle;
 }
-
-input,button,textarea{
-  -webkit-appearance:none;
+input,
+button,
+textarea {
+  -webkit-appearance: none;
+  outline: none;
+}
+select {
+  outline: none;
 }
 .yj-page-center {
   width: 100%;
@@ -1535,7 +1540,7 @@ hr {
 }
 .swiper-container {
   width: 100%;
-  height: 100%;
+  height: 45.33333vw;
   overflow: hidden;
 }
 .swiper-slide {

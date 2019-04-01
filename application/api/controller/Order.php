@@ -26,8 +26,11 @@ class Order
         $payfrom=$this->_request->param('payfrom');
         $userId = $this->_request->param('userid');
         $pOrderNumId = $this->_request->param('pordernumid');
-        return json($this->_orderlogic->createOrders($userId,$pOrderNumId,$payfrom));
-
+        $paytype=$this->_request->param('type') ? $this->_request->param('type') : 'weixin';
+        if($res=$this->_orderlogic->createOrders($userId,$pOrderNumId,$payfrom,$paytype)){
+           return json(['errcode'=>0,'msg'=>'创建订单成功','result'=>$res]);
+        }
+        return json(['errcode'=>1,'msg'=>'创建订单失败']);
     }
 
     /**s上传分组值

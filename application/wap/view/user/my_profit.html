@@ -1,0 +1,29 @@
+{include file='Public:header'}
+<body>
+<header class="yj-header yj-bg-main">
+    <a class="yj-header-return" href="javascript:history.go(-1)"><img src="__WAPPUBLIC__static/images/arrow_return_fff.png"></a>
+    <span>我的佣金</span>
+    <a class="yj-header-meau"></a>
+</header>
+<div class="yj-content yj-mainH">
+    <div class="yj-pad-tb-bigger yj-text-center yj-bg-main" style="margin-top: -1px;">
+        <p class="yj-text-super">{$profits.total}</p>
+        <p class="yj-text-sm">总金额(￥)</p>
+        <p class="yj-text-sm">(仅用于平台内使用)</p>
+    </div>
+    <p class="yj-mar-tb yj-pad-l-big yj-color-gray yj-text-big">佣金明细</p>
+    <ul class="yj-pad-lr-big yj-bg-fff">
+        {volist name='profits.list' id='profit'}
+        <li class="yj-pad-tb-big yj-border-b yj-light">
+            <div class="yj-fold-title">
+                <p>{$profit.type=='earn' ? '分享收益' : '其他收益'} <span class="yj-color-red yj-right">+{$profit.money}</span></p>
+                <p class="yj-color-gray-light yj-text-sm">{$profit.addtime} <span class="yj-right">{$profit.iseffect==1 ? '正常' : '异常'}</span></p>
+            </div>
+        </li>
+        {/volist}
+    </ul>
+</div>
+<script type="text/javascript" src="static/js/jquery.min.js"></script>
+
+</body>
+</html>

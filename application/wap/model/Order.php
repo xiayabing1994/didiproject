@@ -10,6 +10,7 @@ class Order extends Base{
      *  根据拼单id获取拼单业务详情信息
      */
     public function getPorderInfo($p_id){
+        if(!$p_id>0) return [];
         $row=Db::name('porder')->where(['id'=>$p_id])->find();
         $row['current_price']=$this->getPrice($row['hasland']);
         $row['land_points']=$this->getOrderLands($p_id);
@@ -32,14 +33,26 @@ class Order extends Base{
      */
     public function getOrders($userid,$state=''){
         $where['userid']=$userid;
+//        $where['porderid']=['>',0];
         if($state!='') $where['state']=$state;
-        $orders=Db::name('pordernum')->where($where)->select();
+        $orders=Db::name('pordernum')->where($where)->order('addtime desc')->select();
         foreach($orders as $k=>$v){
             $orders[$k]['p_info']=$this->getPorderInfo($v['porderid']);
         }
         return $orders;
     }
 
+    /**
+     * 获取个人各种状态订单对应的数量
+     */
+    public function getOrderStates($userid){
+        $res=[];
+        $states=Db::name('pordernum')->field('state,count(*) as count ')->where('userid',$userid)->group('state')->select();
+        foreach($states as $k=>$v){
+            $res[$v['state']]=$v['count'];
+        }
+        return $res;
+    }
     /**
      * 获取附近拼单列表
      */
@@ -79,6 +92,7 @@ class Order extends Base{
             'area'=>['>',$area]
         ];
         $row=Db::name('price')->where($where)->order('area','asc')->find();
-        return $row['price'];
+        $price=!empty($row['price']) ?  $row['price'] : 0 ;
+        return $price;
     }
 }

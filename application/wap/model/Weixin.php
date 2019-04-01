@@ -20,7 +20,7 @@ class Weixin extends Model{
                 'addtime'=>date("Y-m-d H:i:s"),
                 'nickname'=>$u['nickname'],
                 'sex'=>$u['sex']!=2 ? 1-$u['sex'] : 1,
-                'headimg'=>$u['headimg'],
+                'headimg'=>$u['headimgurl'],
                 'wx_unionid'=>$u['openid'],
                 'login_type'=>'weixin',
             ];
@@ -33,8 +33,9 @@ class Weixin extends Model{
         ];
         Db::name('user')
             ->where($where)
-            ->update(['headimg'=>$user['original']['headimgurl'],'last_login_time'=>date("Y-m-d H:i:s")]);
-        $uinfo=model('user')->getUserInfo($userinfo['id']);
+//            ->update(['headimg'=>$user['original']['headimgurl'],'last_login_time'=>date("Y-m-d H:i:s")]);
+            ->update(['last_login_time'=>date("Y-m-d H:i:s")]);
+        $uinfo=model('User')->getUserInfo($userinfo['id']);
         session('user',$uinfo);
         return true;
     }

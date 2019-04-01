@@ -109,11 +109,11 @@
                 <span id="replaceImg"><img id="headimg" class="yj-circle" src="{$Think.session.user.headimg}" width="60" height="60"></span>
             </div>
         </a>
-        <a class="weui-cell weui-cell_access" href="rename.html">
+        <a class="weui-cell weui-cell_access" onclick="changeName('{$Think.session.user.nickname}')">
             <div class="weui-cell__bd">
                 <p>昵称</p>
             </div>
-            <div class="weui-cell__ft yj-text-sm">
+            <div class="weui-cell__ft yj-text-sm" id="username">
                 {$Think.session.user.nickname}
             </div>
         </a>
@@ -124,24 +124,24 @@
             <div class="weui-cell__ft yj-text-sm">
                 <div class="zh-select-sex">
                     <div class="zh-select-sex-item">
-                        <input class="yj-none" type="radio" id="men" name="sex" value="0" {$sex ? '' :'checked'} >
+                        <input class="yj-none sexsel" type="radio" id="men" name="sex" value="0" onchange="changeSex()" {$sex ? '' :'checked'}>
                         <label for="men">男</label>
                     </div>
                     <div class="zh-select-sex-item">
-                        <input class="yj-none" type="radio" id="women" name="sex" value="1" {$sex ? 'checked' :''}>
+                        <input class="yj-none sexsel" type="radio" id="women" name="sex" value="1" onchange="changeSex()" {$sex ? 'checked' :''}>
                         <label for="women">女</label>
                     </div>
                 </div>
             </div>
         </div>
-        <a class="weui-cell weui-cell_access" href="change_pwd.html">
+        <!--<a class="weui-cell weui-cell_access" href="change_pwd.html">
             <div class="weui-cell__bd">
                 <p>登录密码</p>
             </div>
             <div class="weui-cell__ft yj-text-sm">
                 修改
             </div>
-        </a>
+        </a>-->
     </div>
 
 </div>
@@ -158,7 +158,6 @@
     </div>
 </div>
 
-<script src="__WAPPUBLIC__static/js/jquery.min.js"></script>
 <script type="text/javascript" src="__WAPPUBLIC__plugin/cutting/js/hammer.min.js" ></script>
 <script type="text/javascript" src="__WAPPUBLIC__plugin/cutting/js/lrz.all.bundle.js" ></script>
 <script type="text/javascript" src="__WAPPUBLIC__plugin/cutting/js/iscroll-zoom-min.js" ></script>
@@ -168,6 +167,7 @@
         $(".clipbg").fadeIn();
     })
 
+    var userid={$Think.session.user.id};
     var clipArea = new  PhotoClip("#clipArea", {
         size: [200, 200],//裁剪框大小
         outputSize:[0,0],//打开图片大小，[0,0]表示原图大小
@@ -184,13 +184,89 @@
         },
         done: function(dataURL) { //裁剪完成的回调函数。this 指向当前 PhotoClip 的实例对象，会将裁剪出的图像数据DataURL作为参数传入。
             $("#headimg").prop("src",dataURL);
+            $.ajax({
+                url:'/api/user/baseuploadlogo',
+                dataType:'json',
+                type:'post',
+                data:{
+                    image:dataURL,
+                    userid:userid
+                },
+                success:function(data){
+                    /*if(data.errcode = 1){
+                        $.toast(data.msg,'text');
+                    }*/
+                    console.log(data);
+                    $.toast(data.msg,'text');
+                    session_refresh();
+                },
+                error:function(data){
+                    $.toast('请求失败','text');
+                }
+            });
             console.log(dataURL);//dataURL裁剪后图片地址base64格式提交给后台处理
             $(".clipbg").fadeOut()
         }
     });
     $(".back").click(function(){
         $(".clipbg").fadeOut()
-    })
+    });
+
+    function changeName(old){
+        $.prompt({
+            title: '标题',
+            text: '请输入新名字',
+            input: old,
+            empty: false, // 是否允许为空
+            onOK: function (input) {
+                if(old==input){
+                    $.toast('没有发现名字更改','text');
+                    //return false;
+                }else{
+                    $('#username').text(input);
+                    $.ajax({
+                        url:'/api/user/changenickname',
+                        type:'post',
+                        data:{userid:userid,name:input},
+                        success:function(data){
+                            $.toast(data.msg,'text');
+                            session_refresh();
+                        }
+                    })
+                }
+            },
+            onCancel: function () {
+                //点击取消
+
+            }
+        });
+    }
+    function session_refresh(){
+        $.ajax({
+            url:'/wap/user/sessionrefresh',
+            type:'post',
+            data:{},
+            success:function(data){
+            }
+        })
+    }
+    function changeSex(){
+        var selsex = $('.sexsel:checked').val();
+        //var v = selsex==0?'男':'女';
+        $.ajax({
+            url:'/api/user/changeSex',
+            dataType:'json',
+            type:'post',
+            data:{
+                userid:userid,
+                sex:selsex
+            },
+            success:function(data){
+                $.toast(data.msg,'text');
+                session_refresh();
+            }
+        });
+    }
 </script>
 </body>
 </html>

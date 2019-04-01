@@ -49,3 +49,31 @@ function spiltStr(str,b){
     var arr = str.split(b);
     return arr;
 }
+
+/*
+* 增加土地
+* */
+
+//增加土地
+function addlandpopup(){
+    $.actions({
+        actions: [{
+            text: "实地测量",
+            onClick: function() {
+                window.location.href="/wap/user/measure_auto.html"
+            }
+        },{
+            text: "手动测量",
+            onClick: function() {
+                window.location.href="/wap/user/measure.html"
+            }
+        }]
+    });
+}
+
+
+/*校验手机码格式 */
+function isTelCode(str) {
+    var reg= /^(1[34589]\d{9})$/;
+    return reg.test(str);
+}

@@ -356,10 +356,10 @@ if(!function_exists('xdeal')) {
 if(!function_exists('explain_state')){
     function explain_state($state){
         switch ($state){
-            case 0: return '待拼单';
-            case 1: return '待付尾款';
-            case 2: return '待作业';
-            case 3: return '已完单';
+            case 0: return '<i class="yj-color-red">待拼单</i>';
+            case 1: return '<i class="yj-color-gray">待付尾款</i>';
+            case 2: return '<i class="yj-color-gray">待作业</i>';
+            case 3: return '<i class="yj-color-main">已完单</i>';
         }
     }
 }
@@ -367,5 +367,32 @@ if(!function_exists('deal_distance')){
     function deal_distance($meter){
         if($meter<1000) return $meter.'m';
         return round($meter/1000,2).'km';
+    }
+}
+if(!function_exists('load_config')){
+    function load_config($group=''){
+       $config=new app\wap\model\Config;
+       return $config->getConfig($group);
+    }
+}
+if(!function_exists('explain_payfrom')){
+    function explain_payfrom($state){
+        switch ($state){
+            case 0: return '拼单订金';
+            case 2: return '下单付款';
+            case 1: return '支付尾款';
+        }
+    }
+}
+if(!function_exists('get_land_price')){
+    function get_land_price($area){
+        $model=new app\wap\model\Order();
+        return $model->getPrice($area);
+    }
+}
+if(!function_exists('get_img_url')){
+    function get_img_url($path){
+        if(strpos($path,'http://') || strpos($path,'https://')) return $path;
+        return request()->domain().$path;
     }
 }

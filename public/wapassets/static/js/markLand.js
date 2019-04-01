@@ -4,7 +4,7 @@ var map,geolocation;
 map = new AMap.Map('map', {
     resizeEnable: true,
     zoom:16,
-    center: [113.772357,34.756547],
+    //center: [113.772357,34.756547],
     baseRender:'d',    //强制使用栅格图
     scrollWheel:true
 });
@@ -27,7 +27,7 @@ var googleLayer = new AMap.TileLayer({
 googleLayer.setMap(map);
 
 
-/*AMap.plugin('AMap.Geolocation', function() {
+map.plugin('AMap.Geolocation', function() {
 
     geolocation = new AMap.Geolocation({
         enableHighAccuracy: true, // 是否使用高精度定位，默认:true
@@ -39,11 +39,11 @@ googleLayer.setMap(map);
         buttonOffset: new AMap.Pixel(10, 20), // 定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
         showMarker: true,         // 定位成功后在定位到的位置显示点标记，默认：true
         useNative: true,
-        /!*'markerOptions':{
+        /*'markerOptions':{
             //自定义定位点样式，同Marker的Options
             'offset': new AMap.Pixel(-18, -36),
             'content':'<img src="https://a.amap.com/jsapi_demos/static/resource/img/user.png" style="width:36px;height:36px"/>'
-        },*!/
+        },*/
         showCircle: true,         // 定位成功后用圆圈表示定位精度范围，默认：true
 
         circleOptions: {
@@ -93,7 +93,6 @@ function onError() {
     console.log(str.join('<br>'));
 }
 
- */
 
 
 

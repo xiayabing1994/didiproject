@@ -20,18 +20,16 @@
     </div>-->
 
   <div class="weui-cells weui-cells_radio yj-mar-t-sm">
-      <a href="/wap/pay/wxpay">
-        <label class="weui-cell weui-check__label" for="x11">
-            <div class="weui-cell__hd"><img class="yj-p-icon" src="__WAPPUBLIC__static/images/wechatPay.png"></div>
-            <div class="weui-cell__bd">
-                <p>微信支付</p>
-            </div>
-            <div class="weui-cell__ft">
-                <input type="radio" class="weui-check" name="radio1" id="x11">
-                <span class="weui-icon-checked"></span>
-            </div>
-        </label>
-    </a>
+      <label class="weui-cell weui-check__label" for="x11">
+          <div class="weui-cell__hd"><img class="yj-p-icon" src="__WAPPUBLIC__static/images/wechatPay.png"></div>
+          <div class="weui-cell__bd">
+              <p>微信支付</p>
+          </div>
+          <div class="weui-cell__ft">
+              <input type="radio" class="weui-check" name="radio1" id="x11">
+              <span class="weui-icon-checked"></span>
+          </div>
+      </label>
         <label class="weui-cell weui-check__label" for="x12">
             <div class="weui-cell__hd"><img class="yj-p-icon" src="__WAPPUBLIC__static/images/alipayPay.png"></div>
             <div class="weui-cell__bd">
@@ -46,8 +44,11 @@
 
 </div>
 <div class="yj-footer yj-pay-footer">
-    <div class="yj-flex-1 yj-list-item yj-pad-l-big yj-text-left yj-text-usual">
-        实付款：<span class="yj-color-main"> ¥<i class="yj-text-bigger" id="yajinNum">{$sub_price}</i> 定金</span>
+    <div class="yj-flex-1 yj-pad-lr">
+        <p class="yj-text-left yj-text-usual">
+            实付款：<span class="yj-color-main"> ¥<i class="yj-text-usual" id="yajinNum">{$price}</i></span>
+            <span class="yj-text-sm yj-color-gray yj-right">{$p_msg}</span>
+        </p>
     </div>
 
     <div>

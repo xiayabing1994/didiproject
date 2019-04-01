@@ -20,8 +20,6 @@
         <a onclick="changeName()" class="yj-btn yj-main yj-big yj-block">确定</a>
     </div>
 </div>
-<script type="text/javascript" src="__WAPPUBLIC__static/js/jquery.min.js"></script>
-<script type="text/javascript" src="__WAPPUBLIC__weui/js/jquery-weui.js"></script>
 <script>
     function changeName(){
         var userid={$Think.session.user.id};
@@ -39,7 +37,6 @@
                 }
             })
         }
-
     }
     function session_refresh(){
         $.ajax({

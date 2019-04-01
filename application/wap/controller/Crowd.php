@@ -10,23 +10,29 @@ class Crowd extends Controller{
         return $this->fetch();
     }
 
-    /**
-     * 处理拼单信息
+    /*
+     * 1.直接下单
      */
-    public function deal(){
-        $data=input('post.');
-        $result = $this->validate($data,'Crowd');
-        $p_id=model('Crowd')->createCrowd($data);     //创建拼单信息
-        $p_no=model('Crowd')->addCrowd($p_id,$data);  //添加参与拼单信息
-        if(true !== $result)  $this->error($result);
-        $sub_price=model('Crowd')->getSubMoney($data['area']); //根据土地面积获取订金价格
-        $this->assign('p_no',$p_no);
-        $this->assign('sub_price',$sub_price);
+    public function xiadan(){
+        $myLand=model('User')->getMyLand(session('user.id')); //获取土地列表
+        $pesticides=model('Crowd')->getPesticides();
+        $this->assign('my_land',$myLand);
+        $this->assign('pesticides',$pesticides);
         return $this->fetch();
     }
-
+    /*
+     * 2.拼单页面
+     * */
+    public function pindan(){
+        $myLand=model('User')->getMyLand(session('user.id')); //获取土地列表
+        $pesticides=model('Crowd')->getPesticides();
+        $this->assign('my_land',$myLand);
+        $this->assign('pesticides',$pesticides);
+        $this->assign('empty','<span class="yj-color-red">没有数据</span>');
+        return $this->fetch();
+    }
     /**
-     * 选择土地加入拼单
+     * 3.选择土地加入拼单
      */
     public function join(){
         $myLand=model('User')->getMyLand(session('user.id')); //获取土地列表
@@ -35,27 +41,44 @@ class Crowd extends Controller{
         $this->assign('pesticides',$pesticides);
         return $this->fetch();
     }
+    /**
+     * 1.处理直接下单信息
+     */
+    public function placeDeal(){
+        $data=input('param.');
+        $p_no=model('Crowd')->addCrowd(0,$data);    //
+        $price=model('\logicmodel\Pordernumlogic')->getPorderMoney($p_no); //根据土地面积获取订金价格
+        $this->assign('p_no',$p_no);
+        $this->assign('price',$price);
+        $this->assign('p_msg','直接下单金额');
+        return $this->fetch('deal');
+    }
 
     /**
-     * 处理加入拼单的信息
+     * 2.处理发布拼单信息
+     */
+    public function deal(){
+        $data=input('param.');
+        $p_id=model('Crowd')->createCrowd($data);     //创建拼单信息
+        $p_no=model('Crowd')->addCrowd($p_id,$data);    //添加参与拼单信息
+        $price=model('\logicmodel\Pordernumlogic')->getPorderMoney($p_no); //根据土地面积获取订金价格
+        $this->assign('p_no',$p_no);
+        $this->assign('price',$price);
+        $this->assign('p_msg','发布拼单订金');
+        return $this->fetch();
+    }
+    /**
+     * 3.处理加入拼单的信息
      */
     public function join_deal(){
         $data=input('post.');
         $p_no=model('Crowd')->addCrowd($data['p_id'],$data);  //添加参与拼单信息
-        $sub_price=model('Crowd')->getSubMoney($data['area']); //根据土地面积获取订金价格
+        $price=model('\logicmodel\Pordernumlogic')->getPorderMoney($p_no); //根据土地面积获取订金价格
         $this->assign('p_no',$p_no);
-        $this->assign('sub_price',$sub_price);
+        $this->assign('price',$price);
+        $this->assign('p_msg','参与拼单订金');
         return $this->fetch('deal');
     }
-    /**
-     * 选择土地拼单页面
-     */
-    public function crowd($data){
-
-        $this->assign('crowd_data',$data);
-        return view();
-    }
-
     /**
      * 拼单信息详情页
      */
@@ -79,26 +102,5 @@ class Crowd extends Controller{
         return $this->fetch();
     }
 
-    /*
-     * 直接下单
-     * */
-    public function xiadan(){
-        $myLand=model('User')->getMyLand(session('user.id')); //获取土地列表
-        $pesticides=model('Crowd')->getPesticides();
-        $this->assign('my_land',$myLand);
-        $this->assign('pesticides',$pesticides);
-        return $this->fetch();
-    }
-    /*
-     * 拼单
-     * */
-    public function pindan(){
-        $myLand=model('User')->getMyLand(session('user.id')); //获取土地列表
-        $pesticides=model('Crowd')->getPesticides();
-        $this->assign('my_land',$myLand);
-        $this->assign('pesticides',$pesticides);
-        $this->assign('empty','<span class="yj-color-red">没有数据</span>');
-        return $this->fetch();
-    }
 
 }
