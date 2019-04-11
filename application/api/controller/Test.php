@@ -16,9 +16,13 @@ class Test extends Api{
     }
 
     public function test(){
-        $pid = input('pid');
-        $model=new \logicmodel\Pordernumlogic($pid);
-        dump($model->getPorderMoney($pid));
+        $allInfo=db('pordernum')
+            ->alias('a')
+            ->join('pordernum b','a.superior_code=b.code')
+            ->field('a.*,b.userid as par_id')
+            ->where("a.superior_code>0")
+            ->select();
+        dump($allInfo);
     }
     public function test1(){
          dump(Hook::listen('api_test1'));

@@ -31,7 +31,7 @@ class Porder extends Model
 
     public function getStateList()
     {
-        return ['0' => __('State 0'),'1' => __('State 1'),'2' => __('State 2'),'3' => __('State 3')];
+        return ['1' => __('State 1'),'2' => __('State 2'),'3' => __('State 3'),'4' => __('State 4')];
     }     
 
 

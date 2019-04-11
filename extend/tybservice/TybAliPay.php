@@ -10,17 +10,22 @@ use think\Log;
 use think\Config;
 class TybAliPay
 {
-    public static function alipay($orderid,$order_no,$money)
+
+    private $ali_config;
+    public function __construct(){
+        $this->ali_config=load_config('alipay');
+    }
+    public  function alipay($orderinfo)
     {
         //振航通用航空正式环境公钥
-        $pubSecret = '';
+        $pubSecret = $this->ali_config['ali_public_key'];
         //振航通用航空正式环境私钥
-        $priSecret ='';
+        $priSecret =$this->ali_config['ali_private_key'];
         vendor('alipay.AopSdk');
         $aop = new \AopClient;
         $aop->gatewayUrl = "https://openapi.alipay.com/gateway.do";//正式环境
         //振航通用航空正式环境
-        $aop->appId = "";
+        $aop->appId = $this->ali_config['ali_appid'];
         $aop->rsaPrivateKey = $priSecret;
         $aop->format = "json";
         $aop->charset = "UTF-8";
@@ -29,15 +34,15 @@ class TybAliPay
         //实例化具体API对应的request类,类名称和接口名称对应,当前调用接口名称：alipay.trade.app.pay
         $request = new \AlipayTradeAppPayRequest();
         //SDK已经封装掉了公共参数，这里只需要传入业务参数
-        $bizcontent = "{\"body\":\"振航订单支付\","
-            . "\"subject\": \"振航通用航空订单支付\","
-            . "\"out_trade_no\": \"$order_no\","
+        $bizcontent = "{\"body\":\"{$orderinfo['body']}\","
+            . "\"subject\": \"{$orderinfo['body']}\","
+            . "\"out_trade_no\": \"{$orderinfo['order_no']}\","
             . "\"timeout_express\": \"1m\","
-            . "\"total_amount\": \"$money\","
+            . "\"total_amount\": \"{$orderinfo['money']}\","
             . "\"product_code\":\"QUICK_MSECURITY_PAY\","
-            . "\"passback_params\":\"$orderid\""
+            . "\"passback_params\":\"{$orderinfo['order_no']}\""
             . "}";
-        $request->setNotifyUrl(Config::get('HOST_SERVER')."/index.php/pay/Alipay/BackReceive");
+        $request->setNotifyUrl($orderinfo['notify_url']);
         $request->setBizContent($bizcontent);
         //这里和普通的接口调用不同，使用的是sdkExecute
         $response = $aop->sdkExecute($request);
@@ -46,13 +51,13 @@ class TybAliPay
         return $response;
     }
 
-    public static function checkSign($sign){
+    public  function checkSign($post){
         vendor('alipay.AopSdk');
         //振航正式环境
-        $pubSecret = '';
+        $pubSecret =$this->ali_config['ali_public_key'];
         $aop = new \AopClient;
         $aop->alipayrsaPublicKey = $pubSecret;
-        $flag = $aop->rsaCheckV1($sign, NULL, "RSA2");
+        $flag = $aop->rsaCheckV1($post, NULL, "RSA2");
         return $flag;
     }
 }

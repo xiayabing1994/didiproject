@@ -75,8 +75,8 @@ class Login
                     {
                         $this->_alluser->updateEntity(['id'=>$u['id']],['jtoken'=>$jtoken]);
                     }
-                    $usersign=\tybservice\Tim::getSign($mobile);
-                    return ['errcode'=>0,'msg'=>'登录成功','result'=>['res'=>$myuser,'userusign'=>$usersign]];
+                    $usersig=\tybservice\Tim::getSign($mobile);
+                    return ['errcode'=>0,'msg'=>'登录成功','result'=>['res'=>$myuser,'usersig'=>$usersig]];
                 }
                 else
                 {
@@ -108,9 +108,8 @@ class Login
     {
         $u = $this->_alluser->queryfind(['mobile' => $mobile], ['*']);
         Log::info(empty($u));
-        if(empty($u)){
-            return null;
-        }
+        if(empty($u))   return null;
+        $u['headimg']=get_img_url($u['headimg']);
         return $u;
 
     }

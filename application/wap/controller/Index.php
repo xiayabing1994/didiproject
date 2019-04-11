@@ -26,8 +26,6 @@ class Index extends Base{
         Hook::listen('weixin_login',$user);
         $map=input('param.');
         $aroundOrders=model('order')->getAroundOrders($map);
-        array_multisort(array_column($aroundOrders,'distance'),SORT_ASC,$aroundOrders);
-//        dump($aroundOrders);
         $myland=model('user')->getMyLand(session('user.id'));
         $this->assign('myland',$myland);
         $this->assign('aroundOrders',$aroundOrders);

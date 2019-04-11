@@ -3,7 +3,7 @@
 namespace app\admin\controller;
 
 use app\common\controller\Backend;
-
+use think\Db;
 /**
  * 
  *
@@ -32,5 +32,11 @@ class Porder extends Backend
      * 需要将application/admin/library/traits/Backend.php中对应的方法复制到当前控制器,然后进行修改
      */
     
-
+    public function allot(){
+        $id=input('id');
+        $pilots=Db::name('pilot')->where('is_effect',1)->select();
+        $this->view->assign('pilots',$pilots);
+        $this->view->assign('pid',$id);
+        return $this->view->fetch();
+    }
 }

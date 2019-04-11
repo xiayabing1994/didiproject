@@ -13,6 +13,7 @@ return [
     'Dictionary'                  => '字典配置',
     'Peace'                       => '地块设置',
     'Weixin'                      => '微信配置',
+    'Alipay'                      => '支付宝配置',
     'Weixinmp'                    => '公众号配置',
     'User'                        => '会员配置',
     'Example'                     => '示例分组',

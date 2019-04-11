@@ -43,7 +43,7 @@ class Landlogic
      */
     public function userLands($userid)
     {
-        $res=$this->_land->queryEntity(['userid'=>$userid,'state'=>0,'isdel'=>0],['name','area','id','state','point','landarea','perimeter']);
+        $res=$this->_land->queryEntity(['userid'=>$userid,'isdel'=>0],['name','area','id','state','point','landarea','perimeter']);
         if(!$res)
         {
             return ['errcode'=>1,'msg'=>'农户暂无添加土地，请添加土地','result'=>['res'=>[]]];
@@ -52,7 +52,12 @@ class Landlogic
             return ['errcode'=>0,'msg'=>'success','result'=>['res'=>$res]];
         }
     }
-
+    public function getLandInfo($landid){
+        $landid=strval($landid);
+        $res=db('land')->where("id in ({$landid})")->field(['name','area','id','state','point','landarea','perimeter'])->select();
+//        $res= $this->_land->queryEntity(["id"=>[ "in", "({$landid})"]],['name','area','id','state','point','landarea','perimeter']);
+        return $res;
+    }
     /**删除土地
      * @param $where
      * @param $fields

@@ -25,7 +25,8 @@
         "karsonzhang/fastadmin-addons": "~1.1.4",
         "overtrue/pinyin": "~3.0",
         "phpoffice/phpexcel": "^1.8",
-        "jpush/jpush": "^3.6"
+        "jpush/jpush": "^3.6",
+        "firebase/php-jwt": "^5.0"
     },
     "config": {
         "preferred-install": "dist"

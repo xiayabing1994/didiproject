@@ -57,12 +57,13 @@
             <div class="yj-pad-lr-big yj-border-b">
                 <div class="yj-list-item">
                     <span class="yj-list-item-text yj-elip-1">{$order.pname}</span>
-                    <i class="yj-color-main yj-text-sm">等待拼单</i>
+                    <i class="yj-color-main yj-text-sm">{:explain_state($order.state)}</i>
                 </div>
                 <div class="yj-pad-b-big">
-                    <span class="yj-color-red yj-text-big">{$order.originalprice}&yen;/亩</span>
-                    <span class="yj-color-gray yj-mar-l">当前价:{$order.nowprice}&yen;/亩</span>
+                    <span class="yj-color-red yj-text-big">{$order.ori_price}&yen;/亩</span>
+                    <span class="yj-color-gray yj-mar-l">当前价:{$order.price}&yen;/亩</span>
                 </div>
+                <span class="yj-color-gray yj-mar-l">发布人:{$order.leader_name}</span>
             </div>
             <div class="yj-pad-b">
                 <div class="yj-pad-tb-big yj-display-flex yj-text-center">
@@ -89,7 +90,7 @@
                     </div>
                 </div>
                 <div class="yj-pad-lr-big">
-                    <span class="yj-color-gray-light yj-text-min">距您:{:deal_distance($order.distance)}</span>
+                    <span class="yj-color-gray-light yj-text-min">{$order.distance}距您:{:deal_distance($order.distance)}</span>
                     <span class="yj-btn yj-main yj-sm yj-right">去拼单</span>
                 </div>
             </div>

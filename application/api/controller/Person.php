@@ -12,11 +12,13 @@ class Person
     private $_request;
     private $_order;
     private $_porderlogic;
+    private $_pordernumlogic;
     public function __construct(Request $request)
     {
         $this->_personal = new \logicmodel\Personal();
         $this->_order = new \logicmodel\Orderlogic();
         $this->_porderlogic = new \logicmodel\Porderlogic();
+        $this->_pordernumlogic = new \logicmodel\Pordernumlogic();
         $this->_request = $request;
     }
 
@@ -53,9 +55,13 @@ class Person
      * @throws \think\Exception
      */
     public function myOrder()
-    {
+    {   $ordertype=$this->_request->param('ordertype','crowd');
         $userid = $this->_request->param('userid');
-        return json($this->_personal->getOrderInfos($userid));
+        if($res=$this->_personal->getOrderInfos($userid,$ordertype)){
+            return json(['errcode'=>0,'msg'=>'获取订单列表成功','result'=>['res'=>$res]]);
+        }else{
+            return json(['errcode'=>1,'msg'=>'暂无数据']);
+        }
     }
 
     /**根据用户名获取头像
@@ -106,9 +112,22 @@ class Person
     {
         $userid=$this->_request->param('userid');
         $porderid = $this->_request->param('porderid');
-        return json($this->_personal->getPorderInfo($userid,$porderid));
+        if(empty($userid) || empty($porderid)){
+            return json(['errcode'=>4,'msg'=>'参数错误']);
+        }
+        if($res=$this->_personal->getPorderInfo($userid,$porderid)){
+            return json(['errcode'=>0,'msg'=>'获取详情成功','result'=>$res]);
+        }else{
+            return json(['errcode'=>3,'msg'=>'暂无详情信息']);
+        }
     }
-
+    public function getJoinInfo(){
+        $pnumid=$this->_request->param('pnumid');
+        if($res=$this->_pordernumlogic->getPorderNumInfo($pnumid)){
+            return json(['errcode'=>0,'msg'=>'获取个人订单信息成功','result'=>$res]);
+        }
+        return json(['errcode'=>2,'msg'=>'暂无信息']);
+    }
     public function recordKeyword()
     {
         $userid=$this->_request->param('userid',26);

@@ -8,7 +8,7 @@
 namespace logicmodel;
  use think\Log;
  use think\queue\job\Database;
-
+use think\Db;
  class Porderlogic
  {
         private $_porder;
@@ -17,8 +17,10 @@ namespace logicmodel;
         private $_price;
         private $_order;
         private $_pordernum;
+        private $pconfig;
         public function __construct()
         {
+            $this->pconfig=load_config('peace');
             $this->_porder = new \datamodel\Porder();
             $this->_land = new \datamodel\Land();
             $this->_pesticide = new \datamodel\Pesticide();
@@ -28,167 +30,90 @@ namespace logicmodel;
 
         }
 
-     /**附近拼单
-      * @param $userid
-      * @param $pageIndex
-      * @param $pageSize
-      * @return array|void
-      * @throws \think\Exception
+        public function getPorderInfo($pid){
+            $res=$this->_porder->queryfind(['id'=>$pid],['*']);
+            $res['landsinfo']=$this->getLandsInfo($pid);
+            return $res;
+        }
+
+     /**
+      * 附近拼单
       */
-        public function getAroundOrder($userid,$landid,$keyword,$distance=100000,$pageIndex,$pageSize)
+        public function getAroundOrder($userid,$landid,$keyword,$distance=10000000,$pageIndex=1,$pageSize=10)
         {
-            $originalPrice='12.00';
-            if(empty($landid))
-            {
-                $lands=$this->_land->queryfind(['userid'=>$userid,'isdel'=>0],['*']);
-            }else
-                {
-                    $lands=$this->_land->queryfind(['id'=>$landid,'isdel'=>0],['*']);;
-                }
+            $where=['userid'=>$userid,'isdel'=>0];
+            if(!empty($landid)) $where['id']=$landid;
+            $lands=$this->_land->queryfind($where,['*']);
             Log::info($lands);
-            $su=$this->_pordernum->queryfind(['userid'=>$userid,'state'=>0],['*']);
-            $leader=$this->_porder->queryfind(['userid'=>$userid,'state'=>0],['isleader'])['isleader'];
-            if(is_null($leader)||$leader==1)
-            {
-                $leader=1;
-            }else
-            {
-                $leader=0;
-            }
-            if($su)
-            {
-                $isjoin=0;
-            }else
-                {
-                    $isjoin=1;
-                }
-            if($lands)
-            {
-                return $this->getAroundOrders($originalPrice,$lands,$pageIndex,$pageSize,$isjoin,$leader,$distance,$keyword);
-            }else
-                {
-                    return $this->getAllAroundOrder($originalPrice,$pageIndex,$pageSize,$keyword);
-                }
+            return $this->getAroundOrders($lands,$userid,$distance,$keyword,$pageIndex,$pageSize);
         }
-
-     /**全部拼单
-      * @param $originalPrice
-      * @return array
-      * @throws \think\Exception
+     /**
+      * 获取附近拼单   //lands,distance,keywords
       */
-        public function getAllAroundOrder($originalPrice,$pageIndex,$pageSize,$keyword)
+        private function getAroundOrders($lands=[],$userid,$distance,$keyword,$p,$size)
         {
-            $res =  $this->_porder->queryEntity(['state'=>0,'pname'=>['like',"%.$keyword.%"]],['*'],null,null,$pageIndex,$pageSize);
-            foreach ($res as &$v)
-            {
-                $nowPrice=$this->_price->queryEntity(['area'=>['>=',$v['hasland']]],['price'],null,['price desc'])[0]['price'];
-                $v['nowprice']=$nowPrice;
-                $v['originalprice']=$originalPrice;
-            }
-            if($res)
-            {
-                return ['errcode'=>0,'msg'=>'success','result'=>['res'=>$res]];
-            }else
-            {
-                return ['errcode'=>1,'msg'=>'附近暂无拼单'];
-            }
-        }
-
-     /**获取附近拼单
-      * @param $originalPrice
-      * @param $lands
-      * @param $pageIndex
-      * @param $pageSize
-      * @return array
-      * @throws \think\Exception
-      */
-        public function getAroundOrders($originalPrice,$lands,$pageIndex,$pageSize,$isjoin,$leader,$distance,$keyword)
-        {
-            $arr=[];
-            $centerX=$lands['centerX'];
-            $centerY=$lands['centerY'];
-            $res =  $this->_pordernum->queryEntity(['state'=>0,'landid'=>['<>',$lands['id']]],['*']);
-            foreach ($res as &$v)
-            {
-                $landInfo=$this->_land->queryfind(['id'=>$v['landid']],['centerX','centerY','point']);
-                $a=\tybservice\Distance::getDistance($centerX,$centerY,$landInfo['centerX'],$landInfo['centerY']);
-                if($a<=$distance)
+            //如果lands为空则根据发布时间顺序获取拼单列表  如果不为空则获取distance附近的拼单
+            $where=['p.state'=>'1','p.pname'=>['like',"%$keyword%"]];
+            $ori_price=load_config('peace')['land_unit_price'];
+            if(empty($lands)){
+                $porders=db('porder')
+                    ->alias('p')
+                    ->where($where)
+                    ->order('addtime desc')
+                    ->limit($p*$size-$size,$size)
+                    ->select();
+            }else{
+                $arr=[];
+                $centerX=$lands['centerX'];
+                $centerY=$lands['centerY'];
+                //选出porder表中状态为1订单下用户userid下单的土地id  获取土地信息并计算距离，判断用户是否已经参与
+                $res =  $this->_pordernum->queryEntity(['state'=>0,'landid'=>['<>',$lands['id']]],['*']);
+                $porders=db('porder')
+                    ->alias('p')
+                    ->join('pordernum n','n.porderid=p.id')
+                    ->where($where)
+                    ->field('p.*,n.landid')->select();
+                foreach ($porders as &$v)
                 {
-                    $arr[]=$v['pordernum'];
-                }
-            }
-
-            Log::info($arr);
-            if(empty($arr))
-            {
-               return ['errcode'=>1,'msg'=>'您附近没有拼单','result'=>['res'=>['']]];
-            }
-            if(empty($keyword))
-            {
-                $res1 =  $this->_porder->queryEntity(['state'=>0,'pordernum'=>['in',$arr]],['id','sumarea','userid','pordernum','state','pname','starttime','endtime','price','hasland'],null,null,$pageIndex,$pageSize);
-            }else
-                {
-                    $res1 =  $this->_porder->queryEntity(['state'=>0,'pordernum'=>['in',$arr],'pname'=>['like',"%$keyword%"]],['id','sumarea','userid','pordernum','state','pname','starttime','endtime','price','hasland'],null,null,$pageIndex,$pageSize);
-
-                }
-            Log::info($res1);
-            foreach ($res1 as &$v)
-            {
-                $res2 =  $this->_pordernum->queryEntity(['state'=>0,'pordernum'=>$v['pordernum']],['landid','pesticide']);
-                foreach ($res2 as $v5)
-                {
-                    $landid = $v5['landid'];
-                    $landids= explode(",", $landid);
-                    foreach ($landids as $v1)
-                    {
-                        $landInfos = $this->_land->queryfind(['id'=>$v1],['point','centerX','centerY']);
-                        $point = $landInfos['point'];
-                        $points[]=$point;
-                        $a1=\tybservice\Distance::getDistance($centerX,$centerY,$landInfos['centerX'],$landInfos['centerY']);
+                    $landInfo=$this->_land->queryfind("id in ($v[landid])",['centerX','centerY','point']);
+                    $a=\tybservice\Distance::getDistance($centerX,$centerY,$landInfo['centerX'],$landInfo['centerY']);
+                    if($a<=$distance){
+                        $v['distance']=$a;
+                        $v['ori_price']=$ori_price;
+                        $arr[]=$v;
                     }
                 }
-                $points=array_unique($points);
-                $groupid=$this->_pordernum->queryfind(['porderid'=>$v['id']],['groupid'])['groupid'];
-                Log::info($groupid);
-                if(!empty($groupid))
-                {
-                    $v['groupid']=$groupid;
-                }
-                $nowPrice=$this->_price->queryEntity(['area'=>['>=',$v['hasland']]],['price'],null,['price desc'])[0]['price'];
-                $v['nowprice']=$nowPrice;
-                $v['originalprice']=$originalPrice;
-                $v['point']=$points;
-                $v['isjoin']=$isjoin;
-                $v['isleader']=$leader;
-                $points=[];
-                $v['distance']=$a1;
+                Log::info($arr);
             }
-            if($res1)
-            {
-                return ['errcode'=>0,'msg'=>'success','result'=>['res'=>$res1]];
-            }else
-            {
-                return ['errcode'=>1,'msg'=>'false'];
+            if(empty($arr)) return [];
+            foreach($arr as $k=>$v){
+                $count=db('pordernum')->where(['userid'=>$userid,'porderid'=>$v['id']])->count();
+                $arr[$k]['isleader']=$v['userid']==$userid ? 1 : 0 ;
+                $arr[$k]['isjoin']=$count;
+                $arr[$k]['leader_name']=model('\logicmodel\Personal')->getUserInfo($v['userid'])['result']['nickname'];
+                $arr[$k]['lands_info']=$this->getLandsInfo($v['id']);
             }
-
+            $arr=unique_multidim_array($arr,'id');
+            array_multisort(array_column($arr,'distance'),SORT_ASC,$arr);
+            return $arr;
         }
 
-     /** 农户发布拼单，未支付
-      * @param $userid
-      * @param $landid
-      * @param $starttime
-      * @param $endtime
-      * @param $pesticide
-      * @param $sumArea
-      * @return array
-      * @throws \think\Exception
+     /**
+      * 发布拼单
       */
         public function releasePorder($userid,$landid,$starttime,$endtime,$pesticide,$sumArea,$pname)
         {
-            $area = $this->_land->queryEntity(['id'=>$landid],['area'])[0]['area'];
-            $pordernum=mt_rand(100000,9999999).$userid;
+            $area = $this->getLandArea($landid);
             $addtime=date('Y-m-d H:i:s');
-            $PorderData=['userid'=>$userid,'addtime'=>$addtime,'starttime'=>$starttime,'pname'=>$pname,'endtime'=>$endtime,'sumarea'=>$sumArea,'pordernum'=>$pordernum];
+            $PorderData=[
+                'userid'=>$userid,
+                'addtime'=>$addtime,
+                'starttime'=>$starttime,
+                'pname'=>$pname,
+                'endtime'=>$endtime,
+                'sumarea'=>$sumArea,
+                'price'=>$this->pconfig['land_unit_price'],
+            ];
             $porderid=$this->_porder->addEntityReturnID($PorderData);
             if($porderid>0){
                 $pordernumData=[
@@ -198,49 +123,122 @@ namespace logicmodel;
                     'pesticide'=>$pesticide,
                     'area'=>$area,
                     'addtime'=>$addtime,
-                    'pordernum'=>$pordernum
                 ];
                 $pordernumId = $this->_pordernum->addEntityReturnID($pordernumData);
-                $money=model('\logicmodel\Pordernumlogic')->getPorderMoney($pordernumId);
-                if($pordernumId>0) return ['pordernumid'=>$pordernumId,'money'=>$money,'porderid'=>$porderid];
+                if($pordernumId>0){
+                    $money=model('\logicmodel\Pordernumlogic')->getPorderMoney($pordernumId);
+                    return ['pordernumid'=>$pordernumId,'money'=>$money,'porderid'=>$porderid];
+                }
                 return false;
             }
             return false;
         }
 
-     /**加入拼单
-      * @param $userid
-      * @param $landid
-      * @param $pordernum
-      * @param $pesticide
-      * @param $porderid
-      * @return array
-      * @throws \think\Exception
+     /**
+      *  加入拼单
       */
-        public function joinPorders($userid,$landid,$pordernum,$pesticide,$porderid,$pcode)
+        public function joinPorders($userid,$landid,$pesticide,$porderid,$pcode,$p_userid)
         {
-            $area = $this->_land->queryEntity(['id'=>$landid],['area'])[0]['area'];
+            $area = $this->getLandArea($landid);
             $addtime=date('Y-m-d H:i:s');
-            $pOrderData=['userid'=>$userid,'landid'=>$landid,'pordernum'=>$pordernum,'pesticide'=>$pesticide,'area'=>$area,'addtime'=>$addtime,'porderid'=>$porderid,'pcode'=>$pcode];
-            $pordernumid=$this->_pordernum->addEntityReturnID($pOrderData);
-            if($pordernumid>0)
-            {
-                return ['errcode'=>0,'msg'=>'加入拼单成功','pordernumid'=>$pordernumid];
-            }else
-                {
-                    return ['errcode'=>1,'msg'=>'加入拼单失败'];
-                }
+            $pOrderData=[
+                'userid'=>$userid,
+                'landid'=>$landid,
+                'pesticide'=>$pesticide,
+                'area'=>$area,
+                'addtime'=>$addtime,
+                'porderid'=>$porderid,
+                'superior_code'=>$pcode,
+                'pid'=>$p_userid,
+            ];
+            $pordernumId=$this->_pordernum->addEntityReturnID($pOrderData);
+            if($pordernumId>0){
+                $money=model('\logicmodel\Pordernumlogic')->getPorderMoney($pordernumId);
+                return ['pordernumid'=>$pordernumId,'money'=>$money];
+            }
+            return false;
         }
+
+     /**
+      * 直接下单
+      */
         public function placeOrder($data){
              if(empty($data['userid']) || empty($data['landid'])) return false;
              $data['addtime']=date('Y-m-d H:i:s');
              $data['porderid']=0;
-             return $pordernumid=$this->_pordernum->addEntityReturnID($data);
+             $data['type']='direct';
+             $data['area'] = $this->getLandArea($data['landid']);
+             $pordernumId=$this->_pordernum->addEntityReturnID($data);
+             if($pordernumId>0){
+                 $money=model('\logicmodel\Pordernumlogic')->getPorderMoney($pordernumId);
+                 return ['pordernumid'=>$pordernumId,'money'=>$money];
+             }
+             return false;
         }
 
-     /**获取农药列表
-      * @return array
-      * @throws \think\Exception
+     /**
+      * 拼单完成
+      */
+         public function finishOrder($id){  //完成订单
+            $p_upd_arr=['state'=>4,'finishtime'=>time()];
+            $pnum_upd_arr=['state'=>4];
+            $land_upd_arr=['state'=>0];
+            $lands=$this->_pordernum->queryEntity(['porderid'=>$id],['landid']);
+            $landstr='';
+            foreach($lands as $land){
+                $landstr.=$land['landid'].',';
+            }
+            $landstr=rtrim($landstr,',');
+             Db::startTrans();
+             try{
+                 Db::name('land')->where("id in ($landstr) ")->update($land_upd_arr);
+                 Db::name('porder')->where('id',$id)->update($p_upd_arr);
+                 Db::name('pordernum')->where('porderid',$id)->update($pnum_upd_arr);
+                 // 提交事务
+                 Db::commit();
+                 $profitModel=new \logicmodel\Profitlogic;
+                 if($profitModel->dealAllProfit($id))    return true;
+                 return false;
+             } catch (\Exception $e) {
+                 // 回滚事务
+                 Db::rollback();
+                 return false;
+             }
+        }
+
+     /**
+      * 根据土地id或id列表串获取土地面积
+      */
+         private function getLandArea($landid){
+             $area=0;
+             $land_arr=explode(',',$landid);
+             foreach($land_arr as $v){
+                 $area+= db('land')->where('id',$v)->find()['area'];
+             }
+             return $area;
+         }
+
+     /**
+      * @param 根据邀请码获取拼单信息
+      */
+         public function getPnumInfo($pcode){
+             return $this->_pordernum->queryfind(['code'=>$pcode],['*']);
+         }
+     /**
+      * 获取某个拼单下的所有土地信息
+      */
+         public  function getLandsInfo($porderid){
+            $str='';
+            $landids=$this->_pordernum->queryEntity(['porderid'=>$porderid],['landid']);
+            foreach($landids as $land){
+                $str.=$land['landid'].',';
+            }
+            rtrim($str,',');
+            $lands=$this->_land->queryEntity(["id"=>['in', $str]],['*']);
+            return $lands;
+         }
+     /**
+      * 获取农药列表
       */
         public function getPesticide()
         {
@@ -254,32 +252,13 @@ namespace logicmodel;
                 }
         }
 
-     /**生成邀请码接口
-      * @param $userid
-      * @param $porderid
-      * @return array
+     /**
+      * 上传分组groupid值
       */
-        public function addCodes($userid,$porderid)
-        {
-            $code=$porderid.$userid.mt_rand(10000,99999);
-            $res=$this->_pordernum->updateEntity(['userid'=>$userid,'porderid'=>$porderid],['code'=>$code]);
-            if($res)
-            {
-                return ['errcode'=>0,'msg'=>'success','result'=>['code'=>$code]];
-            }else
-            {
-                return ['errcode'=>1,'msg'=>'false'];
-            }
+     public function addGrounpId($userId,$porderId,$groupId)
+     {
+         return $this->_porder->updateEntity(['id'=>$porderId],['groupid'=>$groupId]);
+     }
 
-        }
 
-        public function getPorderInfo($where,$fields)
-        {
-            return $this->_porder->queryfind($where,$fields);
-        }
-
-        public function updatepOederInfo($where,$data)
-        {
-            return $this->_porder->updateEntity($where,$data);
-        }
  }

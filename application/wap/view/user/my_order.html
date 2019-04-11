@@ -15,9 +15,9 @@
                         <span class="yj-right yj-text-sm ">{:explain_state($order.state)}</span>
                     </p>
                     <div class="yj-color-gray-light">
-                        <p>总价：¥{$order.p_info.current_price*$order.area}</p>
+                        <p>总价：¥{$order.p_info.price*$order.area}</p>
                         <p>拼单时间：{$order.addtime}</p>
-                        <p>拼单面积：{$order.p_info.sumarea}亩</p>
+                        <p>拼单亩数：{$order.p_info.sumarea}亩</p>
                     </div>
                     <!--订单操作按钮-->
                     <p class="yj-text-right">

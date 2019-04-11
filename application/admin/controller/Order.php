@@ -23,7 +23,9 @@ class Order extends Backend
         parent::_initialize();
         $this->model = new \app\admin\model\Order;
         $this->view->assign("paytypeList", $this->model->getPaytypeList());
-        $this->view->assign("orderstateList", $this->model->getOrderstateList());
+        $this->view->assign("paystateList", $this->model->getPaystateList());
+        $this->view->assign("ordertypeList", $this->model->getOrdertypeList());
+        $this->view->assign("isdealList", $this->model->getIsdealList());
     }
     
     /**

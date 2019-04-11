@@ -1,0 +1,2126 @@
+---------------------------------------------------------------
+[ 2019-04-09T17:50:49+08:00 ] 115.60.20.220 POST wx.xlove99.top/api/order/pay
+[运行时间：0.315779s] [吞吐率：3.17req/s] [内存消耗：5,118.56kb] [文件加载：168]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000025s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.002026s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002050s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'order',
+    2 => 'pay',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => '*/*',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryPWRVJ4WGg6r95bWT',
+  'postman-token' => 'c57fc8c5-57b9-b66d-6f95-a3cd0ce20622',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'cache-control' => 'no-cache',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'content-length' => '435',
+  'connection' => 'keep-alive',
+  'host' => 'wx.xlove99.top',
+)
+[ info ] [ PARAM ] array (
+  'userid' => '22',
+  'p_id' => '222',
+  'ordertype' => 'direct',
+  'paytype' => 'weixin',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001308s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Order->pay[ /www/wwwroot/didi.xlove99.top/application/api/controller/Order.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000180s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000456s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_pordernum` [ RunTime:0.000769s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_pordernum` WHERE  `id` = 222 LIMIT 1 [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_pordernum` WHERE  `id` = 222 LIMIT 1 [ RunTime:0.000207s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_pordernum` WHERE  `id` = 222 LIMIT 1 [ RunTime:0.000198s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_land` [ RunTime:0.000590s ]
+[ sql ] [ SQL ] SELECT `area` FROM `fa_land` WHERE  `id` = 47 LIMIT 1 [ RunTime:0.000157s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000599s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000179s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_porder` [ RunTime:0.000584s ]
+[ sql ] [ SQL ] SELECT `hasland`,`price` FROM `fa_porder` WHERE  `id` = 160 LIMIT 1 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_price` [ RunTime:0.000510s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_price` WHERE  `isdel` = '0'  AND `area` > 0 ORDER BY `area` ASC LIMIT 1 [ RunTime:0.000189s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_order` [ RunTime:0.000568s ]
+[ sql ] [ SQL ] INSERT INTO `fa_order` (`userid` , `order_no` , `money` , `pordernumid` , `ordertype` , `paytype` , `createtime` , `describe`) VALUES (22 , 'wx' , 0 , 222 , 'direct' , 'weixin' , 1554803448 , '下单付款') [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000216s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:51:23+08:00 ] 115.60.20.220 GET wx.xlove99.top/api/Person/showBanner
+[运行时间：0.032631s] [吞吐率：30.65req/s] [内存消耗：3,819.23kb] [文件加载：91]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000028s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.002066s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002086s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Person',
+    2 => 'showBanner',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'Keep-Alive',
+  'host' => 'wx.xlove99.top',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; HUAWEI MLA-AL10 Build/HUAWEIMLA-AL10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001268s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Person->showBanner[ /www/wwwroot/didi.xlove99.top/application/api/controller/Person.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000124s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000388s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000687s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_banner` [ RunTime:0.000555s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_banner` WHERE  `isshow` = '0' ORDER BY `order` DESC [ RunTime:0.000193s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:51:24+08:00 ] 115.60.20.220 GET wx.xlove99.top/api/Porder/aroundOrder?userid=29&landid=&keyword=&distance=10000000&pageindex=0&pagesize=30
+[运行时间：0.058970s] [吞吐率：16.96req/s] [内存消耗：3,919.37kb] [文件加载：91]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001825s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001843s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Porder',
+    2 => 'aroundOrder',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'Keep-Alive',
+  'host' => 'wx.xlove99.top',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; HUAWEI MLA-AL10 Build/HUAWEIMLA-AL10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'userid' => '29',
+  'landid' => '',
+  'keyword' => '',
+  'distance' => '10000000',
+  'pageindex' => '0',
+  'pagesize' => '30',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001162s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Porder->aroundOrder[ /www/wwwroot/didi.xlove99.top/application/api/controller/Porder.php ]
+[ info ] datamodel\Land::__set_state(array(
+   'connection' => 
+  array (
+  ),
+   'parent' => NULL,
+   'query' => NULL,
+   'name' => 'Land',
+   'table' => NULL,
+   'class' => 'datamodel\\Land',
+   'error' => NULL,
+   'validate' => NULL,
+   'pk' => NULL,
+   'field' => 
+  array (
+  ),
+   'except' => 
+  array (
+  ),
+   'disuse' => 
+  array (
+  ),
+   'readonly' => 
+  array (
+  ),
+   'visible' => 
+  array (
+  ),
+   'hidden' => 
+  array (
+  ),
+   'append' => 
+  array (
+  ),
+   'data' => 
+  array (
+    'id' => 46,
+    'name' => '圣墟',
+    'point' => '34.76949074075356,113.76963241973525;34.76982454132813,113.77769513989608;34.764024151144035,113.78055571576154;34.75915767842979,113.7759798672604;34.762930128731725,113.76924752274819;34.76605240609948,113.7671272365582',
+    'area' => '1424',
+    'userid' => 29,
+    'state' => '1',
+    'isdel' => '0',
+    'centerX' => 34.76524734,
+    'centerY' => 113.77337646,
+    'landarea' => 949920.875,
+    'perimeter' => 3704.6282,
+    'addtime' => '2019-03-27 15:10:39',
+  ),
+   'origin' => 
+  array (
+    'id' => 46,
+    'name' => '圣墟',
+    'point' => '34.76949074075356,113.76963241973525;34.76982454132813,113.77769513989608;34.764024151144035,113.78055571576154;34.75915767842979,113.7759798672604;34.762930128731725,113.76924752274819;34.76605240609948,113.7671272365582',
+    'area' => '1424',
+    'userid' => 29,
+    'state' => '1',
+    'isdel' => '0',
+    'centerX' => 34.76524734,
+    'centerY' => 113.77337646,
+    'landarea' => 949920.875,
+    'perimeter' => 3704.6282,
+    'addtime' => '2019-03-27 15:10:39',
+  ),
+   'relation' => 
+  array (
+  ),
+   'auto' => 
+  array (
+  ),
+   'insert' => 
+  array (
+  ),
+   'update' => 
+  array (
+  ),
+   'autoWriteTimestamp' => false,
+   'createTime' => 'create_time',
+   'updateTime' => 'update_time',
+   'dateFormat' => false,
+   'type' => 
+  array (
+  ),
+   'isUpdate' => true,
+   'replace' => false,
+   'force' => false,
+   'updateWhere' => 
+  array (
+    'userid' => '29',
+    'isdel' => 0,
+  ),
+   'failException' => false,
+   'useGlobalScope' => true,
+   'batchValidate' => false,
+   'resultSetType' => '\\think\\Collection',
+   'relationWrite' => NULL,
+))
+[ info ] array (
+  0 => 
+  array (
+    'id' => 152,
+    'userid' => 29,
+    'sumarea' => 4600.0,
+    'isleader' => '0',
+    'state' => '1',
+    'pname' => '成渝',
+    'starttime' => '2019-04-04 00:00:00',
+    'endtime' => '2019-05-04 00:00:00',
+    'addtime' => '2019-04-04 14:10:37',
+    'hasland' => 0.0,
+    'price' => '10.00',
+    'groupid' => '',
+    'finishtime' => 0,
+    'landid' => '46,47',
+    'distance' => 0.0,
+    'ori_price' => '10',
+  ),
+  1 => 
+  array (
+    'id' => 153,
+    'userid' => 29,
+    'sumarea' => 4600.0,
+    'isleader' => '0',
+    'state' => '1',
+    'pname' => '成渝',
+    'starttime' => '2019-04-04 00:00:00',
+    'endtime' => '2019-05-04 00:00:00',
+    'addtime' => '2019-04-04 14:14:03',
+    'hasland' => 0.0,
+    'price' => '10.00',
+    'groupid' => '',
+    'finishtime' => 0,
+    'landid' => '46,47',
+    'distance' => 0.0,
+    'ori_price' => '10',
+  ),
+  2 => 
+  array (
+    'id' => 154,
+    'userid' => 29,
+    'sumarea' => 3600.0,
+    'isleader' => '0',
+    'state' => '1',
+    'pname' => '皇城相府',
+    'starttime' => '2019-04-04 00:00:00',
+    'endtime' => '2019-05-04 00:00:00',
+    'addtime' => '2019-04-04 14:40:14',
+    'hasland' => 0.0,
+    'price' => '10.00',
+    'groupid' => '5322',
+    'finishtime' => 0,
+    'landid' => '46',
+    'distance' => 0.0,
+    'ori_price' => '10',
+  ),
+  3 => 
+  array (
+    'id' => 155,
+    'userid' => 29,
+    'sumarea' => 6888.0,
+    'isleader' => '0',
+    'state' => '1',
+    'pname' => '皇城宰相',
+    'starttime' => '2019-04-04 00:00:00',
+    'endtime' => '2019-05-04 00:00:00',
+    'addtime' => '2019-04-04 14:42:26',
+    'hasland' => 0.0,
+    'price' => '10.00',
+    'groupid' => '',
+    'finishtime' => 0,
+    'landid' => '49',
+    'distance' => 912.0,
+    'ori_price' => '10',
+  ),
+  4 => 
+  array (
+    'id' => 156,
+    'userid' => 29,
+    'sumarea' => 6888.0,
+    'isleader' => '0',
+    'state' => '1',
+    'pname' => '皇城宰相',
+    'starttime' => '2019-04-04 00:00:00',
+    'endtime' => '2019-05-04 00:00:00',
+    'addtime' => '2019-04-04 14:46:06',
+    'hasland' => 0.0,
+    'price' => '10.00',
+    'groupid' => '',
+    'finishtime' => 0,
+    'landid' => '49',
+    'distance' => 912.0,
+    'ori_price' => '10',
+  ),
+  5 => 
+  array (
+    'id' => 157,
+    'userid' => 29,
+    'sumarea' => 4700.0,
+    'isleader' => '0',
+    'state' => '1',
+    'pname' => '南山南',
+    'starttime' => '2019-04-04 00:00:00',
+    'endtime' => '2019-05-04 00:00:00',
+    'addtime' => '2019-04-04 17:12:52',
+    'hasland' => 0.0,
+    'price' => '10.00',
+    'groupid' => '',
+    'finishtime' => 0,
+    'landid' => '65',
+    'distance' => 905.0,
+    'ori_price' => '10',
+  ),
+  6 => 
+  array (
+    'id' => 158,
+    'userid' => 29,
+    'sumarea' => 4700.0,
+    'isleader' => '0',
+    'state' => '1',
+    'pname' => '北山北',
+    'starttime' => '2019-04-04 00:00:00',
+    'endtime' => '2019-05-04 00:00:00',
+    'addtime' => '2019-04-04 17:13:52',
+    'hasland' => 0.0,
+    'price' => '10.00',
+    'groupid' => '',
+    'finishtime' => 0,
+    'landid' => '47',
+    'distance' => 1161.0,
+    'ori_price' => '10',
+  ),
+  7 => 
+  array (
+    'id' => 159,
+    'userid' => 29,
+    'sumarea' => 2677.0,
+    'isleader' => '0',
+    'state' => '1',
+    'pname' => '蓝波湾',
+    'starttime' => '2019-04-04 00:00:00',
+    'endtime' => '2019-05-04 00:00:00',
+    'addtime' => '2019-04-04 17:16:21',
+    'hasland' => 0.0,
+    'price' => '10.00',
+    'groupid' => '',
+    'finishtime' => 0,
+    'landid' => '49',
+    'distance' => 912.0,
+    'ori_price' => '10',
+  ),
+  8 => 
+  array (
+    'id' => 160,
+    'userid' => 29,
+    'sumarea' => 3688.0,
+    'isleader' => '0',
+    'state' => '1',
+    'pname' => '夕阳西下',
+    'starttime' => '2019-04-04 00:00:00',
+    'endtime' => '2019-05-04 00:00:00',
+    'addtime' => '2019-04-04 17:22:22',
+    'hasland' => 0.0,
+    'price' => '10.00',
+    'groupid' => '',
+    'finishtime' => 0,
+    'landid' => '47',
+    'distance' => 1161.0,
+    'ori_price' => '10',
+  ),
+  9 => 
+  array (
+    'id' => 161,
+    'userid' => 30,
+    'sumarea' => 3600.0,
+    'isleader' => '0',
+    'state' => '1',
+    'pname' => '春光灿烂',
+    'starttime' => '2019-04-09 00:00:00',
+    'endtime' => '2019-05-09 00:00:00',
+    'addtime' => '2019-04-09 13:12:55',
+    'hasland' => 942.0,
+    'price' => '10.00',
+    'groupid' => '',
+    'finishtime' => 0,
+    'landid' => '56',
+    'distance' => 676.0,
+    'ori_price' => '10',
+  ),
+  10 => 
+  array (
+    'id' => 162,
+    'userid' => 29,
+    'sumarea' => 1300.0,
+    'isleader' => '0',
+    'state' => '1',
+    'pname' => '马霄先生',
+    'starttime' => '2019-04-09 00:00:00',
+    'endtime' => '2019-04-15 00:00:00',
+    'addtime' => '2019-04-09 13:35:05',
+    'hasland' => 0.0,
+    'price' => '10.00',
+    'groupid' => '5322',
+    'finishtime' => 0,
+    'landid' => '48',
+    'distance' => 1542.0,
+    'ori_price' => '10',
+  ),
+  11 => 
+  array (
+    'id' => 163,
+    'userid' => 29,
+    'sumarea' => 600.0,
+    'isleader' => '0',
+    'state' => '1',
+    'pname' => '53245',
+    'starttime' => '2019-04-09 00:00:00',
+    'endtime' => '2019-04-12 00:00:00',
+    'addtime' => '2019-04-09 13:49:42',
+    'hasland' => 0.0,
+    'price' => '10.00',
+    'groupid' => '',
+    'finishtime' => 0,
+    'landid' => '49',
+    'distance' => 912.0,
+    'ori_price' => '10',
+  ),
+  12 => 
+  array (
+    'id' => 164,
+    'userid' => 29,
+    'sumarea' => 10.0,
+    'isleader' => '0',
+    'state' => '1',
+    'pname' => '007',
+    'starttime' => '2019-04-09 00:00:00',
+    'endtime' => '2019-04-11 00:00:00',
+    'addtime' => '2019-04-09 13:54:06',
+    'hasland' => 0.0,
+    'price' => '10.00',
+    'groupid' => '',
+    'finishtime' => 0,
+    'landid' => '65',
+    'distance' => 905.0,
+    'ori_price' => '10',
+  ),
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000129s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000387s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000819s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_land` [ RunTime:0.000628s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_land` WHERE  `userid` = 29  AND `isdel` = '0' LIMIT 1 [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000160s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_pordernum` [ RunTime:0.000539s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_pordernum` WHERE  `state` = '0'  AND `landid` <> '46' [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_porder` [ RunTime:0.000541s ]
+[ sql ] [ SQL ] SELECT `p`.*,`n`.`landid` FROM `fa_porder` `p` INNER JOIN `fa_pordernum` `n` ON `n`.`porderid`=`p`.`id` WHERE  `p`.`state` = '1'  AND `p`.`pname` LIKE '%%' [ RunTime:0.000199s ]
+[ sql ] [ SQL ] SELECT `centerX`,`centerY`,`point` FROM `fa_land` WHERE  (  id in (46,47) ) LIMIT 1 [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SELECT `centerX`,`centerY`,`point` FROM `fa_land` WHERE  (  id in (46,47) ) LIMIT 1 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT `centerX`,`centerY`,`point` FROM `fa_land` WHERE  (  id in (46) ) LIMIT 1 [ RunTime:0.000141s ]
+[ sql ] [ SQL ] SELECT `centerX`,`centerY`,`point` FROM `fa_land` WHERE  (  id in (49) ) LIMIT 1 [ RunTime:0.000151s ]
+[ sql ] [ SQL ] SELECT `centerX`,`centerY`,`point` FROM `fa_land` WHERE  (  id in (49) ) LIMIT 1 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT `centerX`,`centerY`,`point` FROM `fa_land` WHERE  (  id in (65) ) LIMIT 1 [ RunTime:0.000132s ]
+[ sql ] [ SQL ] SELECT `centerX`,`centerY`,`point` FROM `fa_land` WHERE  (  id in (47) ) LIMIT 1 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT `centerX`,`centerY`,`point` FROM `fa_land` WHERE  (  id in (49) ) LIMIT 1 [ RunTime:0.000145s ]
+[ sql ] [ SQL ] SELECT `centerX`,`centerY`,`point` FROM `fa_land` WHERE  (  id in (47) ) LIMIT 1 [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT `centerX`,`centerY`,`point` FROM `fa_land` WHERE  (  id in (56) ) LIMIT 1 [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT `centerX`,`centerY`,`point` FROM `fa_land` WHERE  (  id in (48) ) LIMIT 1 [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT `centerX`,`centerY`,`point` FROM `fa_land` WHERE  (  id in (49) ) LIMIT 1 [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT `centerX`,`centerY`,`point` FROM `fa_land` WHERE  (  id in (65) ) LIMIT 1 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29  AND `porderid` = '152' LIMIT 1 [ RunTime:0.000164s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29 LIMIT 1 [ RunTime:0.000182s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_user` [ RunTime:0.000590s ]
+[ sql ] [ SQL ] SELECT `money` FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000184s ]
+[ sql ] [ SQL ] SELECT `landid` FROM `fa_pordernum` WHERE  `porderid` = '152' [ RunTime:0.000161s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_land` WHERE  `id` IN (46,47,0) [ RunTime:0.000175s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29  AND `porderid` = '153' LIMIT 1 [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29 LIMIT 1 [ RunTime:0.000165s ]
+[ sql ] [ SQL ] SELECT `money` FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000166s ]
+[ sql ] [ SQL ] SELECT `landid` FROM `fa_pordernum` WHERE  `porderid` = '153' [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_land` WHERE  `id` IN (46,47,0) [ RunTime:0.000176s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29  AND `porderid` = '154' LIMIT 1 [ RunTime:0.000160s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29 LIMIT 1 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT `money` FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT `landid` FROM `fa_pordernum` WHERE  `porderid` = '154' [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_land` WHERE  `id` IN (46,0) [ RunTime:0.000160s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29  AND `porderid` = '155' LIMIT 1 [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29 LIMIT 1 [ RunTime:0.000146s ]
+[ sql ] [ SQL ] SELECT `money` FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000160s ]
+[ sql ] [ SQL ] SELECT `landid` FROM `fa_pordernum` WHERE  `porderid` = '155' [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_land` WHERE  `id` IN (49,0) [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29  AND `porderid` = '156' LIMIT 1 [ RunTime:0.000154s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29 LIMIT 1 [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT `money` FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000129s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT `landid` FROM `fa_pordernum` WHERE  `porderid` = '156' [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_land` WHERE  `id` IN (49,0) [ RunTime:0.000159s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29  AND `porderid` = '157' LIMIT 1 [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29 LIMIT 1 [ RunTime:0.000149s ]
+[ sql ] [ SQL ] SELECT `money` FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000130s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000160s ]
+[ sql ] [ SQL ] SELECT `landid` FROM `fa_pordernum` WHERE  `porderid` = '157' [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_land` WHERE  `id` IN (65,0) [ RunTime:0.000170s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29  AND `porderid` = '158' LIMIT 1 [ RunTime:0.000177s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29 LIMIT 1 [ RunTime:0.000154s ]
+[ sql ] [ SQL ] SELECT `money` FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000133s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT `landid` FROM `fa_pordernum` WHERE  `porderid` = '158' [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_land` WHERE  `id` IN (47,0) [ RunTime:0.000170s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29  AND `porderid` = '159' LIMIT 1 [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29 LIMIT 1 [ RunTime:0.000146s ]
+[ sql ] [ SQL ] SELECT `money` FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000175s ]
+[ sql ] [ SQL ] SELECT `landid` FROM `fa_pordernum` WHERE  `porderid` = '159' [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_land` WHERE  `id` IN (49,0) [ RunTime:0.000173s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29  AND `porderid` = '160' LIMIT 1 [ RunTime:0.000150s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29 LIMIT 1 [ RunTime:0.000141s ]
+[ sql ] [ SQL ] SELECT `money` FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000129s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT `landid` FROM `fa_pordernum` WHERE  `porderid` = '160' [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_land` WHERE  `id` IN (47,0) [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29  AND `porderid` = '161' LIMIT 1 [ RunTime:0.000151s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 30 LIMIT 1 [ RunTime:0.000148s ]
+[ sql ] [ SQL ] SELECT `money` FROM `fa_user` WHERE  `id` = 30 LIMIT 1 [ RunTime:0.000129s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 30 LIMIT 1 [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SELECT `landid` FROM `fa_pordernum` WHERE  `porderid` = '161' [ RunTime:0.000136s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_land` WHERE  `id` IN (56,0) [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29  AND `porderid` = '162' LIMIT 1 [ RunTime:0.000157s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29 LIMIT 1 [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT `money` FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000131s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT `landid` FROM `fa_pordernum` WHERE  `porderid` = '162' [ RunTime:0.000134s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_land` WHERE  `id` IN (48,0) [ RunTime:0.000164s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29  AND `porderid` = '163' LIMIT 1 [ RunTime:0.000155s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29 LIMIT 1 [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT `money` FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000128s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000202s ]
+[ sql ] [ SQL ] SELECT `landid` FROM `fa_pordernum` WHERE  `porderid` = '163' [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_land` WHERE  `id` IN (49,0) [ RunTime:0.000172s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29  AND `porderid` = '164' LIMIT 1 [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29 LIMIT 1 [ RunTime:0.000135s ]
+[ sql ] [ SQL ] SELECT `money` FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000159s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000173s ]
+[ sql ] [ SQL ] SELECT `landid` FROM `fa_pordernum` WHERE  `porderid` = '164' [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_land` WHERE  `id` IN (65,0) [ RunTime:0.000166s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:51:24+08:00 ] 115.60.20.220 GET wx.xlove99.top/api/person/updateVersion
+[运行时间：0.033252s] [吞吐率：30.07req/s] [内存消耗：3,786.05kb] [文件加载：90]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000025s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.002018s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002036s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'person',
+    2 => 'updateVersion',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'Keep-Alive',
+  'host' => 'wx.xlove99.top',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; HUAWEI MLA-AL10 Build/HUAWEIMLA-AL10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001216s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Person->updateVersion[ /www/wwwroot/didi.xlove99.top/application/api/controller/Person.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000127s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000363s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000747s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_version` [ RunTime:0.000574s ]
+[ sql ] [ SQL ] SELECT `version` FROM `fa_version` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000313s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:51:40+08:00 ] 115.60.20.220 POST wx.xlove99.top/api/Person/userInfo
+[运行时间：0.035171s] [吞吐率：28.43req/s] [内存消耗：3,806.22kb] [文件加载：91]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000024s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001849s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001863s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Person',
+    2 => 'userInfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'Keep-Alive',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '9',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; HUAWEI MLA-AL10 Build/HUAWEIMLA-AL10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+  'userid' => '29',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001466s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Person->userInfo[ /www/wwwroot/didi.xlove99.top/application/api/controller/Person.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000154s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000424s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000670s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_pordernum` [ RunTime:0.000654s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29 LIMIT 1 [ RunTime:0.000180s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_user` [ RunTime:0.000541s ]
+[ sql ] [ SQL ] SELECT `money` FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000163s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000260s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:51:40+08:00 ] 115.60.20.220 POST wx.xlove99.top/api/person/myOrder
+[运行时间：0.038267s] [吞吐率：26.13req/s] [内存消耗：3,853.54kb] [文件加载：93]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000019s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001782s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001796s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'person',
+    2 => 'myOrder',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'Keep-Alive',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '9',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; HUAWEI MLA-AL10 Build/HUAWEIMLA-AL10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+  'userid' => '29',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001149s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Person->myOrder[ /www/wwwroot/didi.xlove99.top/application/api/controller/Person.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000128s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000414s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000932s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000300s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_pordernum` [ RunTime:0.000637s ]
+[ sql ] [ SQL ] SELECT a.state as orderstate,`a`.`code`,`p`.`id`,`p`.`state`,`p`.`pname`,p.price as money,`p`.`starttime`,`p`.`endtime`,`p`.`sumarea`,`a`.`landid`,`a`.`pesticide`,`a`.`area` FROM `fa_pordernum` `a` INNER JOIN `fa_porder` `p` ON `a`.`porderid`=`p`.`id` WHERE  `a`.`userid` = '29'  AND `a`.`state` > 1  AND `a`.`porderid` > 0 ORDER BY `a`.`addtime` DESC [ RunTime:0.000267s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_land` [ RunTime:0.000591s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000178s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000192s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000154s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (48) ) [ RunTime:0.000148s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (47) ) [ RunTime:0.000141s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000178s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (47) ) [ RunTime:0.000197s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000150s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000139s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46) ) [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46,47) ) [ RunTime:0.000147s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46,47) ) [ RunTime:0.000176s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:51:44+08:00 ] 115.60.20.220 POST wx.xlove99.top/api/person/myOrder
+[运行时间：0.040692s] [吞吐率：24.57req/s] [内存消耗：3,853.54kb] [文件加载：93]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.002140s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002164s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'person',
+    2 => 'myOrder',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'Keep-Alive',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '9',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; HUAWEI MLA-AL10 Build/HUAWEIMLA-AL10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+  'userid' => '29',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001300s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Person->myOrder[ /www/wwwroot/didi.xlove99.top/application/api/controller/Person.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000172s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000421s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000692s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000237s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_pordernum` [ RunTime:0.000671s ]
+[ sql ] [ SQL ] SELECT a.state as orderstate,`a`.`code`,`p`.`id`,`p`.`state`,`p`.`pname`,p.price as money,`p`.`starttime`,`p`.`endtime`,`p`.`sumarea`,`a`.`landid`,`a`.`pesticide`,`a`.`area` FROM `fa_pordernum` `a` INNER JOIN `fa_porder` `p` ON `a`.`porderid`=`p`.`id` WHERE  `a`.`userid` = '29'  AND `a`.`state` > 1  AND `a`.`porderid` > 0 ORDER BY `a`.`addtime` DESC [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_land` [ RunTime:0.000636s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000182s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000154s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (48) ) [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (47) ) [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (47) ) [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000150s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000141s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46) ) [ RunTime:0.000180s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46,47) ) [ RunTime:0.000193s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46,47) ) [ RunTime:0.000183s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:51:58+08:00 ] 115.60.20.220 POST wx.xlove99.top/api/Person/userInfo
+[运行时间：0.034448s] [吞吐率：29.03req/s] [内存消耗：3,806.22kb] [文件加载：91]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000028s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001961s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001983s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Person',
+    2 => 'userInfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'Keep-Alive',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '9',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; HUAWEI MLA-AL10 Build/HUAWEIMLA-AL10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+  'userid' => '29',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001303s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Person->userInfo[ /www/wwwroot/didi.xlove99.top/application/api/controller/Person.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000127s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000403s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000749s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_pordernum` [ RunTime:0.000608s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29 LIMIT 1 [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_user` [ RunTime:0.000563s ]
+[ sql ] [ SQL ] SELECT `money` FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000183s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000218s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:51:58+08:00 ] 115.60.20.220 POST wx.xlove99.top/api/person/myOrder
+[运行时间：0.037492s] [吞吐率：26.67req/s] [内存消耗：3,853.54kb] [文件加载：93]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.002047s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002070s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'person',
+    2 => 'myOrder',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'Keep-Alive',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '9',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; HUAWEI MLA-AL10 Build/HUAWEIMLA-AL10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+  'userid' => '29',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001323s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Person->myOrder[ /www/wwwroot/didi.xlove99.top/application/api/controller/Person.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000122s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000368s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000706s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_pordernum` [ RunTime:0.000590s ]
+[ sql ] [ SQL ] SELECT a.state as orderstate,`a`.`code`,`p`.`id`,`p`.`state`,`p`.`pname`,p.price as money,`p`.`starttime`,`p`.`endtime`,`p`.`sumarea`,`a`.`landid`,`a`.`pesticide`,`a`.`area` FROM `fa_pordernum` `a` INNER JOIN `fa_porder` `p` ON `a`.`porderid`=`p`.`id` WHERE  `a`.`userid` = '29'  AND `a`.`state` > 1  AND `a`.`porderid` > 0 ORDER BY `a`.`addtime` DESC [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_land` [ RunTime:0.000569s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000203s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000179s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000146s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (48) ) [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (47) ) [ RunTime:0.000141s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (47) ) [ RunTime:0.000142s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000148s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46) ) [ RunTime:0.000153s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46,47) ) [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46,47) ) [ RunTime:0.000150s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:52:00+08:00 ] 115.60.20.220 POST wx.xlove99.top/api/person/myOrder
+[运行时间：0.036937s] [吞吐率：27.07req/s] [内存消耗：3,853.54kb] [文件加载：93]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000028s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001970s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001986s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'person',
+    2 => 'myOrder',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'Keep-Alive',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '9',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; HUAWEI MLA-AL10 Build/HUAWEIMLA-AL10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+  'userid' => '29',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001166s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Person->myOrder[ /www/wwwroot/didi.xlove99.top/application/api/controller/Person.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000155s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000396s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000708s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_pordernum` [ RunTime:0.000598s ]
+[ sql ] [ SQL ] SELECT a.state as orderstate,`a`.`code`,`p`.`id`,`p`.`state`,`p`.`pname`,p.price as money,`p`.`starttime`,`p`.`endtime`,`p`.`sumarea`,`a`.`landid`,`a`.`pesticide`,`a`.`area` FROM `fa_pordernum` `a` INNER JOIN `fa_porder` `p` ON `a`.`porderid`=`p`.`id` WHERE  `a`.`userid` = '29'  AND `a`.`state` > 1  AND `a`.`porderid` > 0 ORDER BY `a`.`addtime` DESC [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_land` [ RunTime:0.000557s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000212s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000155s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000150s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (48) ) [ RunTime:0.000169s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (47) ) [ RunTime:0.000151s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (47) ) [ RunTime:0.000147s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000161s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000157s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46) ) [ RunTime:0.000138s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46,47) ) [ RunTime:0.000142s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46,47) ) [ RunTime:0.000153s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:52:06+08:00 ] 115.60.20.220 POST wx.xlove99.top/api/person/getPorderInfo
+[运行时间：0.036963s] [吞吐率：27.05req/s] [内存消耗：3,828.98kb] [文件加载：91]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000025s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.002077s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002093s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'person',
+    2 => 'getPorderInfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'Keep-Alive',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '269',
+  'content-type' => 'multipart/form-data; boundary=b5f326fa-3a40-49ec-b651-036ee8a242f4',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; HUAWEI MLA-AL10 Build/HUAWEIMLA-AL10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+  'userid' => '29',
+  'porderid' => '160',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001385s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Person->getPorderInfo[ /www/wwwroot/didi.xlove99.top/application/api/controller/Person.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000125s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000392s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000713s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000240s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_pordernum` [ RunTime:0.000578s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_pordernum` WHERE  `userid` = 29  AND `porderid` = '160'  AND `state` > '1' LIMIT 1 [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_porder` [ RunTime:0.000532s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_porder` WHERE  `userid` = 29  AND `id` = 160 LIMIT 1 [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_porder` WHERE  `id` = 160 LIMIT 1 [ RunTime:0.000199s ]
+[ sql ] [ SQL ] SELECT `landid`,`groupid` FROM `fa_pordernum` WHERE  `porderid` = '160' [ RunTime:0.000159s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_land` [ RunTime:0.000556s ]
+[ sql ] [ SQL ] SELECT id,point FROM `fa_land` WHERE  `id` IN (47) [ RunTime:0.000210s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:53:15+08:00 ] 115.60.20.220 POST wx.xlove99.top/api/person/getPorderInfo
+[运行时间：0.036945s] [吞吐率：27.07req/s] [内存消耗：3,831.77kb] [文件加载：91]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000027s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001904s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001922s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'person',
+    2 => 'getPorderInfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => '*/*',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundary5YDDzjtA9WKv9HfE',
+  'postman-token' => '0076f7c4-9c64-3173-637d-02ad3ad58863',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'cache-control' => 'no-cache',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'content-length' => '237',
+  'connection' => 'keep-alive',
+  'host' => 'wx.xlove99.top',
+)
+[ info ] [ PARAM ] array (
+  'userid' => '29',
+  'porderid' => '165',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001309s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Person->getPorderInfo[ /www/wwwroot/didi.xlove99.top/application/api/controller/Person.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000124s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000455s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000932s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000315s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_pordernum` [ RunTime:0.000781s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_pordernum` WHERE  `userid` = 29  AND `porderid` = '165'  AND `state` > '1' LIMIT 1 [ RunTime:0.000357s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_porder` [ RunTime:0.000711s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_porder` WHERE  `userid` = 29  AND `id` = 165 LIMIT 1 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_porder` WHERE  `id` = 165 LIMIT 1 [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT `landid`,`groupid` FROM `fa_pordernum` WHERE  `porderid` = '165' [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_land` [ RunTime:0.000548s ]
+[ sql ] [ SQL ] SELECT id,point FROM `fa_land` WHERE  `id` IN (65) [ RunTime:0.000160s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:55:19+08:00 ] 115.60.20.220 POST wx.xlove99.top/api/order/pay
+[运行时间：0.333938s] [吞吐率：2.99req/s] [内存消耗：5,118.59kb] [文件加载：168]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001938s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001955s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'order',
+    2 => 'pay',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => '*/*',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryysLiBgSDdQk5QnF8',
+  'postman-token' => '6cfce160-7926-34c7-556b-c6f34cca7c7e',
+  'origin' => 'chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop',
+  'cache-control' => 'no-cache',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'content-length' => '435',
+  'connection' => 'keep-alive',
+  'host' => 'wx.xlove99.top',
+)
+[ info ] [ PARAM ] array (
+  'userid' => '22',
+  'p_id' => '222',
+  'ordertype' => 'direct',
+  'paytype' => 'weixin',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001219s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Order->pay[ /www/wwwroot/didi.xlove99.top/application/api/controller/Order.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000136s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000379s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_pordernum` [ RunTime:0.000735s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_pordernum` WHERE  `id` = 222 LIMIT 1 [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_pordernum` WHERE  `id` = 222 LIMIT 1 [ RunTime:0.000207s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_pordernum` WHERE  `id` = 222 LIMIT 1 [ RunTime:0.000199s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_land` [ RunTime:0.000528s ]
+[ sql ] [ SQL ] SELECT `area` FROM `fa_land` WHERE  `id` = 47 LIMIT 1 [ RunTime:0.000162s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000570s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000184s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_porder` [ RunTime:0.000563s ]
+[ sql ] [ SQL ] SELECT `hasland`,`price` FROM `fa_porder` WHERE  `id` = 160 LIMIT 1 [ RunTime:0.000158s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_price` [ RunTime:0.000531s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_price` WHERE  `isdel` = '0'  AND `area` > 0 ORDER BY `area` ASC LIMIT 1 [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_order` [ RunTime:0.000531s ]
+[ sql ] [ SQL ] INSERT INTO `fa_order` (`userid` , `order_no` , `money` , `pordernumid` , `ordertype` , `paytype` , `createtime` , `describe`) VALUES (22 , 'wx' , 0 , 222 , 'direct' , 'weixin' , 1554803719 , '下单付款') [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000192s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:55:41+08:00 ] 115.60.20.220 POST wx.xlove99.top/api/Person/userInfo
+[运行时间：0.031780s] [吞吐率：31.47req/s] [内存消耗：3,806.22kb] [文件加载：91]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001804s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001820s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Person',
+    2 => 'userInfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'Keep-Alive',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '9',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; HUAWEI MLA-AL10 Build/HUAWEIMLA-AL10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+  'userid' => '29',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001175s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Person->userInfo[ /www/wwwroot/didi.xlove99.top/application/api/controller/Person.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000129s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000401s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000859s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_pordernum` [ RunTime:0.000602s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `fa_pordernum` WHERE  `userid` = 29 LIMIT 1 [ RunTime:0.000191s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_user` [ RunTime:0.000554s ]
+[ sql ] [ SQL ] SELECT `money` FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000157s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_user` WHERE  `id` = 29 LIMIT 1 [ RunTime:0.000223s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:55:42+08:00 ] 115.60.20.220 POST wx.xlove99.top/api/person/myOrder
+[运行时间：0.036864s] [吞吐率：27.13req/s] [内存消耗：3,853.54kb] [文件加载：93]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001908s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001925s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'person',
+    2 => 'myOrder',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'Keep-Alive',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '9',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; HUAWEI MLA-AL10 Build/HUAWEIMLA-AL10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+  'userid' => '29',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001239s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Person->myOrder[ /www/wwwroot/didi.xlove99.top/application/api/controller/Person.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000125s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000351s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000718s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000205s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_pordernum` [ RunTime:0.000604s ]
+[ sql ] [ SQL ] SELECT a.state as orderstate,`a`.`code`,`p`.`id`,`p`.`state`,`p`.`pname`,p.price as money,`p`.`starttime`,`p`.`endtime`,`p`.`sumarea`,`a`.`landid`,`a`.`pesticide`,`a`.`area` FROM `fa_pordernum` `a` INNER JOIN `fa_porder` `p` ON `a`.`porderid`=`p`.`id` WHERE  `a`.`userid` = '29'  AND `a`.`state` > 1  AND `a`.`porderid` > 0 ORDER BY `a`.`addtime` DESC [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_land` [ RunTime:0.000615s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000176s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000181s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000171s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (48) ) [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (47) ) [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000163s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (47) ) [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000142s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000146s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46) ) [ RunTime:0.000168s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46,47) ) [ RunTime:0.000146s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46,47) ) [ RunTime:0.000142s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:56:03+08:00 ] 115.60.20.220 POST wx.xlove99.top/api/person/myOrder
+[运行时间：0.035671s] [吞吐率：28.03req/s] [内存消耗：3,852.88kb] [文件加载：93]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001965s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001983s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'person',
+    2 => 'myOrder',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'Keep-Alive',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '9',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; HUAWEI MLA-AL10 Build/HUAWEIMLA-AL10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+  'userid' => '29',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001159s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Person->myOrder[ /www/wwwroot/didi.xlove99.top/application/api/controller/Person.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000119s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000404s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000669s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000205s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_pordernum` [ RunTime:0.000585s ]
+[ sql ] [ SQL ] SELECT a.state as orderstate,`a`.`code`,`p`.`id`,`p`.`state`,`p`.`pname`,p.price as money,`p`.`starttime`,`p`.`endtime`,`p`.`sumarea`,`a`.`landid`,`a`.`pesticide`,`a`.`area` FROM `fa_pordernum` `a` INNER JOIN `fa_porder` `p` ON `a`.`porderid`=`p`.`id` WHERE  `a`.`userid` = '29'  AND `a`.`state` > 1  AND `a`.`porderid` > 0 ORDER BY `a`.`addtime` DESC [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_land` [ RunTime:0.000551s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000187s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000150s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000140s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (48) ) [ RunTime:0.000150s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (47) ) [ RunTime:0.000150s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (47) ) [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (65) ) [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (49) ) [ RunTime:0.000154s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46) ) [ RunTime:0.000137s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46,47) ) [ RunTime:0.000143s ]
+[ sql ] [ SQL ] SELECT `name`,`area`,`id`,`state`,`point`,`landarea`,`perimeter` FROM `fa_land` WHERE  (  id in (46,47) ) [ RunTime:0.000143s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:56:05+08:00 ] 115.60.20.220 POST wx.xlove99.top/api/person/getPorderInfo
+[运行时间：0.034091s] [吞吐率：29.33req/s] [内存消耗：3,828.31kb] [文件加载：91]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001909s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001927s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'person',
+    2 => 'getPorderInfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'Keep-Alive',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '269',
+  'content-type' => 'multipart/form-data; boundary=639561ad-a702-4f65-9606-2cf5d953c015',
+  'user-agent' => 'Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; HUAWEI MLA-AL10 Build/HUAWEIMLA-AL10) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+  'userid' => '29',
+  'porderid' => '160',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001290s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Person->getPorderInfo[ /www/wwwroot/didi.xlove99.top/application/api/controller/Person.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000123s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000374s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000679s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'peace' [ RunTime:0.000209s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_pordernum` [ RunTime:0.000595s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_pordernum` WHERE  `userid` = 29  AND `porderid` = '160'  AND `state` > '1' LIMIT 1 [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_porder` [ RunTime:0.000536s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_porder` WHERE  `userid` = 29  AND `id` = 160 LIMIT 1 [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_porder` WHERE  `id` = 160 LIMIT 1 [ RunTime:0.000190s ]
+[ sql ] [ SQL ] SELECT `landid`,`groupid` FROM `fa_pordernum` WHERE  `porderid` = '160' [ RunTime:0.000160s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_land` [ RunTime:0.000547s ]
+[ sql ] [ SQL ] SELECT id,point FROM `fa_land` WHERE  `id` IN (47) [ RunTime:0.000161s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:58:19+08:00 ] 115.60.20.220 GET wx.xlove99.top/admin/order?addtabs=1
+[运行时间：0.038054s] [吞吐率：26.28req/s] [内存消耗：4,244.02kb] [文件加载：87]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001975s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001995s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1552528624,1552892568,1553481970; PHPSESSID=nt2thnchkefc4q3rream5vafd2; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://wx.xlove99.top/admin/order?ref=addtabs',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'keep-alive',
+  'host' => 'wx.xlove99.top',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'addtabs' => '1',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001316s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/admin/lang/zh-cn/order.php
+[ info ] [ RUN ] app\common\controller\Backend->index[ /www/wwwroot/didi.xlove99.top/application/admin/library/traits/Backend.php ]
+[ info ] [ VIEW ] /www/wwwroot/didi.xlove99.top/public/../application/admin/view/order/index.html [ array (
+  0 => 'breadcrumb',
+  1 => 'site',
+  2 => 'config',
+  3 => 'auth',
+  4 => 'admin',
+  5 => 'paytypeList',
+  6 => 'paystateList',
+  7 => 'ordertypeList',
+  8 => 'isdealList',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000064s ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000112s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000360s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000682s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000635s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000374s ]
+[ sql ] [ SQL ] SELECT `title`,`remark` FROM `fa_auth_rule` WHERE  `name` = 'order' LIMIT 1 [ RunTime:0.000322s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:58:19+08:00 ] 115.60.20.220 GET wx.xlove99.top/admin/ajax/lang?callback=define&controllername=order&v=1554803899
+[运行时间：0.026970s] [吞吐率：37.08req/s] [内存消耗：3,020.40kb] [文件加载：76]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000023s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001918s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001937s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'lang',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1552528624,1552892568,1553481970; PHPSESSID=nt2thnchkefc4q3rream5vafd2; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://wx.xlove99.top/admin/order?addtabs=1',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'connection' => 'keep-alive',
+  'host' => 'wx.xlove99.top',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'callback' => 'define',
+  'controllername' => 'order',
+  'v' => '1554803899',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001207s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/admin/lang/zh-cn/ajax.php
+[ info ] [ RUN ] app\admin\controller\Ajax->lang[ /www/wwwroot/didi.xlove99.top/application/admin/controller/Ajax.php ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/admin/lang/zh-cn/order.php
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000062s ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000104s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-04-09T17:58:20+08:00 ] 115.60.20.220 GET wx.xlove99.top/admin/order/index?sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1554803898225
+[运行时间：0.038345s] [吞吐率：26.08req/s] [内存消耗：4,123.44kb] [文件加载：85]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000020s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001910s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001933s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1552528624,1552892568,1553481970; PHPSESSID=nt2thnchkefc4q3rream5vafd2; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://wx.xlove99.top/admin/order?addtabs=1',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'keep-alive',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'sort' => 'id',
+  'order' => 'desc',
+  'offset' => '0',
+  'limit' => '10',
+  'filter' => '{}',
+  'op' => '{}',
+  '_' => '1554803898225',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001232s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/admin/lang/zh-cn/order.php
+[ info ] [ RUN ] app\common\controller\Backend->index[ /www/wwwroot/didi.xlove99.top/application/admin/library/traits/Backend.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000063s ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000152s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000365s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000700s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000601s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000374s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_order` [ RunTime:0.000658s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_order` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_order` ORDER BY `id` DESC LIMIT 0,10 [ RunTime:0.000324s ]
+---------------------------------------------------------------
+[ 2019-04-09T17:58:23+08:00 ] 115.60.20.220 GET wx.xlove99.top/admin/order/index?sort=id&order=desc&offset=10&limit=10&filter=%7B%7D&op=%7B%7D&_=1554803898226
+[运行时间：0.037209s] [吞吐率：26.88req/s] [内存消耗：4,123.82kb] [文件加载：85]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001877s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001894s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'thinkphp_show_page_trace=0|0; Hm_lvt_f8d0a8c400404989e195270b0bbf060a=1552528624,1552892568,1553481970; PHPSESSID=nt2thnchkefc4q3rream5vafd2; thinkphp_show_page_trace=0|0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://wx.xlove99.top/admin/order?addtabs=1',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'keep-alive',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+  'sort' => 'id',
+  'order' => 'desc',
+  'offset' => '10',
+  'limit' => '10',
+  'filter' => '{}',
+  'op' => '{}',
+  '_' => '1554803898226',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/admin/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001397s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/admin/lang/zh-cn/order.php
+[ info ] [ RUN ] app\common\controller\Backend->index[ /www/wwwroot/didi.xlove99.top/application/admin/library/traits/Backend.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000072s ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000132s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000478s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_group_access` [ RunTime:0.000698s ]
+[ sql ] [ SQL ] SELECT `aga`.`uid`,`aga`.`group_id`,`ag`.`id`,`ag`.`pid`,`ag`.`name`,`ag`.`rules` FROM `fa_auth_group_access` `aga` LEFT JOIN `fa_auth_group` `ag` ON `aga`.`group_id`=`ag`.`id` WHERE  (  aga.uid='1' and ag.status='normal' ) [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000551s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`condition`,`icon`,`name`,`title`,`ismenu` FROM `fa_auth_rule` WHERE  `status` = 'normal' [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_order` [ RunTime:0.000727s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `fa_order` ORDER BY `id` DESC LIMIT 1 [ RunTime:0.000179s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_order` ORDER BY `id` DESC LIMIT 10,10 [ RunTime:0.000335s ]
+---------------------------------------------------------------
+[ 2019-04-09T19:38:15+08:00 ] 124.235.65.20 HEAD www.chinafeifang.com/
+[运行时间：0.041080s] [吞吐率：24.34req/s] [内存消耗：4,882.73kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001813s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001832s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinafeifang.com',
+  'accept' => '*/*',
+  'user-agent' => 'Chrome/57',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001200s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000149s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000373s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000660s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000331s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000220s ]
+---------------------------------------------------------------
+[ 2019-04-09T19:50:29+08:00 ] 110.75.242.154 POST wx.xlove99.top/api/order/notify
+[运行时间：0.040134s] [吞吐率：24.92req/s] [内存消耗：3,602.57kb] [文件加载：82]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001934s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001952s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'order',
+    2 => 'notify',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/4.0',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '1185',
+)
+[ info ] [ PARAM ] array (
+  'gmt_create' => '2019-04-09 10:22:05',
+  'charset' => 'UTF-8',
+  'seller_email' => 'pay@chinafeifang.com',
+  'subject' => '拼单订金',
+  'sign' => 'Vl6jqml48e1qg7kilEOMjP85vNWCqsTsTp1/ITHONR46kgquoO1usu5Ax4mep/zUcbFSj0jJDD9ZaaHS/GlMbUFvaPJ0regWl4U+zgQOFL839Al6VbsVh7vZM5IkEXy8p8hXieftjPdXqUeFifwPhxjbTUIqIqCOfLb33HJ/YB5qJVtSJD/53sSPi9dfY/pyEx36BHydiugTXmGbCb9hVJWjtq+VXzqHJCDCn0fzdU98SKhvSOlN69nigdcbwqeLe8siekN0PpmMtdOvXO+8j2wo4m63nf3c8V/VhhxvjGwoAWRZHvCD6v55Vt1ldL+6b+jrtnsLKRPO8GfJG1zC+g==',
+  'body' => '拼单订金',
+  'buyer_id' => '2088012979713553',
+  'invoice_amount' => '0.01',
+  'notify_id' => '2019040900222102206013551010630786',
+  'fund_bill_list' => '[{"amount":"0.01","fundChannel":"ALIPAYACCOUNT"}]',
+  'notify_type' => 'trade_status_sync',
+  'trade_status' => 'TRADE_SUCCESS',
+  'receipt_amount' => '0.01',
+  'app_id' => '2019040163752270',
+  'buyer_pay_amount' => '0.01',
+  'sign_type' => 'RSA2',
+  'seller_id' => '2088431904301771',
+  'gmt_payment' => '2019-04-09 10:22:06',
+  'notify_time' => '2019-04-09 19:50:29',
+  'passback_params' => '2019040910172238145',
+  'version' => '1.0',
+  'out_trade_no' => '2019040910172238145',
+  'total_amount' => '0.01',
+  'trade_no' => '2019040922001413551035275183',
+  'auth_app_id' => '2019040163752270',
+  'buyer_logon_id' => '182****5112',
+  'point_amount' => '0.00',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001200s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000138s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-04-09T19:50:29+08:00 ] 110.75.242.154 GET wx.xlove99.top/api/order/notify
+[运行时间：0.020994s] [吞吐率：47.63req/s] [内存消耗：2,155.92kb] [文件加载：61]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001888s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001906s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '404',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/4.0',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '1185',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000107s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-04-09T20:13:09+08:00 ] 110.75.242.198 POST wx.xlove99.top/api/order/notify
+[运行时间：0.049849s] [吞吐率：20.06req/s] [内存消耗：3,602.57kb] [文件加载：82]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000023s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.002439s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002462s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'order',
+    2 => 'notify',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/4.0',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '1185',
+)
+[ info ] [ PARAM ] array (
+  'gmt_create' => '2019-04-09 10:45:39',
+  'charset' => 'UTF-8',
+  'seller_email' => 'pay@chinafeifang.com',
+  'subject' => '拼单订金',
+  'sign' => 'PS1h3tHIPlBT8gWh7pzWSDDBUmCu/YoeB8lZfcBuTCe3Mbg9j/3jV2I2T7oTwvE3E4FjURFDHnHE9GSNFzgX+xMhVsMmI2OZIx2K8kX0PLBeoUsSmSf9DU2Pl1HA53E2lyxep+k1tQDY8Gw0fTgQRK0KeLvfhKxIM+SmVjaEMGXoaAyl5r5V4PUog7DU6V+uXJX6UPBWB53Nb43N6UFfLqywRCdeD9gy2dldgbQ33emeTidJ18Qa7hnMHY8huN5eCEwzDm55sn623eytU9/3bWq6ConEpOhRV1+tiFGQ0wd2Ho8VBaXGbU5ryzRsk/qcaN+K/ELsnp+P/Ku8dMGQTQ==',
+  'body' => '拼单订金',
+  'buyer_id' => '2088012979713553',
+  'invoice_amount' => '0.01',
+  'notify_id' => '2019040900222104541013551010509006',
+  'fund_bill_list' => '[{"amount":"0.01","fundChannel":"ALIPAYACCOUNT"}]',
+  'notify_type' => 'trade_status_sync',
+  'trade_status' => 'TRADE_SUCCESS',
+  'receipt_amount' => '0.01',
+  'app_id' => '2019040163752270',
+  'buyer_pay_amount' => '0.01',
+  'sign_type' => 'RSA2',
+  'seller_id' => '2088431904301771',
+  'gmt_payment' => '2019-04-09 10:45:40',
+  'notify_time' => '2019-04-09 20:13:08',
+  'passback_params' => '2019040910452212689',
+  'version' => '1.0',
+  'out_trade_no' => '2019040910452212689',
+  'total_amount' => '0.01',
+  'trade_no' => '2019040922001413551035080834',
+  'auth_app_id' => '2019040163752270',
+  'buyer_logon_id' => '182****5112',
+  'point_amount' => '0.00',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001296s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000141s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-04-09T20:13:09+08:00 ] 110.75.242.198 GET wx.xlove99.top/api/order/notify
+[运行时间：0.020619s] [吞吐率：48.50req/s] [内存消耗：2,155.92kb] [文件加载：61]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001866s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001884s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '404',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/4.0',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '1185',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000125s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-04-09T20:34:45+08:00 ] 110.75.242.208 POST wx.xlove99.top/api/order/alipay_notify
+[运行时间：0.056693s] [吞吐率：17.64req/s] [内存消耗：4,019.95kb] [文件加载：91]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.002010s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002027s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'order',
+    2 => 'alipay_notify',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/4.0',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '1185',
+)
+[ info ] [ PARAM ] array (
+  'gmt_create' => '2019-04-09 11:06:18',
+  'charset' => 'UTF-8',
+  'seller_email' => 'pay@chinafeifang.com',
+  'subject' => '拼单订金',
+  'sign' => 'KqafopcB/mSWCMhwGJt/ebuDgRW3SQ5JvxJ6zpJb3ZOiQ+4xHxKntQAvUAYP0e1+mbVRr6FQZ2tsmbwv2BkYpE5aKzOR2ApZRZ/DG5KoG/z2q9Q4d4FFs/jjRG1orYwkQCVH0QTTvVpOWnU5bVigptL0JYoSqN608xnddCjU5TXnls/B0O9ZlePLbjjgx1RUJI1U/43+sotDTGjKSG3rnwn0fYPxOzqEPIGkZoUivahZ1QkB0Gt26B4HwwlRRoeJLNC6uPMGJm9wKTpwGKMBuasvTixgTVRRdRCF4LPXWf+SGomhz+G4KIvS+RRlRqL4D0b7pL1m7pCdohEi3Cp5cQ==',
+  'body' => '拼单订金',
+  'buyer_id' => '2088012979713553',
+  'invoice_amount' => '0.01',
+  'notify_id' => '2019040900222110619013551010595654',
+  'fund_bill_list' => '[{"amount":"0.01","fundChannel":"ALIPAYACCOUNT"}]',
+  'notify_type' => 'trade_status_sync',
+  'trade_status' => 'TRADE_SUCCESS',
+  'receipt_amount' => '0.01',
+  'app_id' => '2019040163752270',
+  'buyer_pay_amount' => '0.01',
+  'sign_type' => 'RSA2',
+  'seller_id' => '2088431904301771',
+  'gmt_payment' => '2019-04-09 11:06:19',
+  'notify_time' => '2019-04-09 20:34:45',
+  'passback_params' => '2019040911052268859',
+  'version' => '1.0',
+  'out_trade_no' => '2019040911052268859',
+  'total_amount' => '0.01',
+  'trade_no' => '2019040922001413551035097643',
+  'auth_app_id' => '2019040163752270',
+  'buyer_logon_id' => '182****5112',
+  'point_amount' => '0.00',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001324s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Order->alipay_notify[ /www/wwwroot/didi.xlove99.top/application/api/controller/Order.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000199s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000386s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000686s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'alipay' [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_order` [ RunTime:0.001022s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_order` WHERE  `order_no` = '2019040911052268859' LIMIT 1 [ RunTime:0.000321s ]
+---------------------------------------------------------------
+[ 2019-04-09T20:42:40+08:00 ] 110.75.242.110 POST wx.xlove99.top/api/order/alipay_notify
+[运行时间：0.058061s] [吞吐率：17.22req/s] [内存消耗：4,019.95kb] [文件加载：91]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000023s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.002030s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002049s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'order',
+    2 => 'alipay_notify',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/4.0',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '1179',
+)
+[ info ] [ PARAM ] array (
+  'gmt_create' => '2019-04-09 11:14:14',
+  'charset' => 'UTF-8',
+  'seller_email' => 'pay@chinafeifang.com',
+  'subject' => '下单付款',
+  'sign' => 'EmfXZqjjkNEgvYjZRRkV7p1Nlo1B+UReF+MAnlhH4LR4Rn96uU3kTYsKNzPx8QdELv9lcxV6w8NPxvstLeJGrxAojzYjZknJvFudQG6olEA7mPMMIXFzXNQZtHUUh7wbAXJHHch9VPtGXQGpZq1IbqgBV4lqvn2Od+FMliyJzIumjEBBcIgO44GVoe9mU0brB5lezPr7HyjjN9Y5w9qLAOvgv+z4tWN04uBZlFHZkz6huHFKaA7K+0gtx22wcdrTBKhBakl1r3dRhp0lS+5aTJ8Lx/PfMAXnJTCpmlCCYghvNMdIZijlgpNnxznsAtrNXvfMEfYbsOroYyFAUZTRDg==',
+  'body' => '下单付款',
+  'buyer_id' => '2088012979713553',
+  'invoice_amount' => '0.01',
+  'notify_id' => '2019040900222111415013551010562151',
+  'fund_bill_list' => '[{"amount":"0.01","fundChannel":"ALIPAYACCOUNT"}]',
+  'notify_type' => 'trade_status_sync',
+  'trade_status' => 'TRADE_SUCCESS',
+  'receipt_amount' => '0.01',
+  'app_id' => '2019040163752270',
+  'buyer_pay_amount' => '0.01',
+  'sign_type' => 'RSA2',
+  'seller_id' => '2088431904301771',
+  'gmt_payment' => '2019-04-09 11:14:15',
+  'notify_time' => '2019-04-09 20:42:39',
+  'passback_params' => 'ali2019040911132223223',
+  'version' => '1.0',
+  'out_trade_no' => 'ali2019040911132223223',
+  'total_amount' => '0.01',
+  'trade_no' => '2019040922001413551035285447',
+  'auth_app_id' => '2019040163752270',
+  'buyer_logon_id' => '182****5112',
+  'point_amount' => '0.00',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001234s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Order->alipay_notify[ /www/wwwroot/didi.xlove99.top/application/api/controller/Order.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000168s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000401s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000744s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'alipay' [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_order` [ RunTime:0.000925s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_order` WHERE  `order_no` = 'ali2019040911132223223' LIMIT 1 [ RunTime:0.000323s ]
+---------------------------------------------------------------
+[ 2019-04-09T20:44:54+08:00 ] 107.170.194.187 GET 47.92.113.32/
+[运行时间：0.041443s] [吞吐率：24.13req/s] [内存消耗：4,880.99kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000019s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001844s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001861s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 zgrab/0.x',
+  'host' => '47.92.113.32',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001155s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000218s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000367s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000667s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000225s ]
+---------------------------------------------------------------
+[ 2019-04-09T22:08:05+08:00 ] 220.202.128.188 HEAD www.chinafeifang.com/
+[运行时间：0.042475s] [吞吐率：23.54req/s] [内存消耗：4,882.73kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001930s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001948s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinafeifang.com',
+  'accept' => '*/*',
+  'user-agent' => 'Chrome/57',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001237s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000141s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000361s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000729s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000201s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000240s ]
+---------------------------------------------------------------
+[ 2019-04-09T22:41:21+08:00 ] 110.75.242.34 POST wx.xlove99.top/api/order/alipay_notify
+[运行时间：0.056666s] [吞吐率：17.65req/s] [内存消耗：4,019.95kb] [文件加载：91]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.002067s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002087s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'order',
+    2 => 'alipay_notify',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/4.0',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '1185',
+)
+[ info ] [ PARAM ] array (
+  'gmt_create' => '2019-04-09 13:13:15',
+  'charset' => 'UTF-8',
+  'seller_email' => 'pay@chinafeifang.com',
+  'subject' => '拼单订金',
+  'sign' => 'WG2ftplfIssToITzjdTepR+12MXz55Pi5t2vYyGWitYasx6GFWzdQCCihQJumKXXkeg14AefjkdLm6vyBa0PZwE93mLf1FiMaeSmL/WFaGrVA2YxaQI6erVA+BQCuzqQiGJdOIixZWHX828KYiCDjeb0omQ1XuCtVVAsRA5lHiK3bkFU3VbxIMVl+sQvAMJTTc7P1fUvAWDrcu9UecOEpGq7/KV/cew6S0COtrKNt+g4zB7txjL1lcgf6BjG/PQNB/ZuY3fugu5MbGdXHPfxZUEpEMN9ydYIaEuNIf1q0cGZcDSIIYnKrRdyzYdR7wF/RPNQjVo5f0SiR9E0CFhHBw==',
+  'body' => '拼单订金',
+  'buyer_id' => '2088612689266211',
+  'invoice_amount' => '0.01',
+  'notify_id' => '2019040900222131316066211002005313',
+  'fund_bill_list' => '[{"amount":"0.01","fundChannel":"ALIPAYACCOUNT"}]',
+  'notify_type' => 'trade_status_sync',
+  'trade_status' => 'TRADE_SUCCESS',
+  'receipt_amount' => '0.01',
+  'app_id' => '2019040163752270',
+  'buyer_pay_amount' => '0.01',
+  'sign_type' => 'RSA2',
+  'seller_id' => '2088431904301771',
+  'gmt_payment' => '2019-04-09 13:13:16',
+  'notify_time' => '2019-04-09 22:41:21',
+  'passback_params' => 'ali2019040913123094642',
+  'version' => '1.0',
+  'out_trade_no' => 'ali2019040913123094642',
+  'total_amount' => '0.01',
+  'trade_no' => '2019040922001466211027161697',
+  'auth_app_id' => '2019040163752270',
+  'buyer_logon_id' => '156****7260',
+  'point_amount' => '0.00',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001174s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Order->alipay_notify[ /www/wwwroot/didi.xlove99.top/application/api/controller/Order.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000154s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000355s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000694s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'alipay' [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_order` [ RunTime:0.000888s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_order` WHERE  `order_no` = 'ali2019040913123094642' LIMIT 1 [ RunTime:0.000290s ]
+---------------------------------------------------------------
+[ 2019-04-09T23:24:12+08:00 ] 110.75.242.35 POST wx.xlove99.top/api/order/alipay_notify
+[运行时间：0.056781s] [吞吐率：17.61req/s] [内存消耗：4,019.95kb] [文件加载：91]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.002046s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002064s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'order',
+    2 => 'alipay_notify',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/4.0',
+  'host' => 'wx.xlove99.top',
+  'content-length' => '1189',
+)
+[ info ] [ PARAM ] array (
+  'gmt_create' => '2019-04-09 13:56:31',
+  'charset' => 'UTF-8',
+  'seller_email' => 'pay@chinafeifang.com',
+  'subject' => '拼单订金',
+  'sign' => 'VngEZveVPacMpEMUo2MuqCS7/5pbpI9pDaRC4cB//8Sg9CtvBTAaPr/3Sbp3UP0nVcKqXZb7dUsujScQFkH10UAyliTEC1+FHCajOyKX3P+BU+9jtbLg0zTWfk0Dc6voAT7502WyhH0K9ihXgKABQCThpIfAH5HRy1bShGAIqaG0eliNqbM4cu9txEV/ByeN6MPYTQe45Hvdh78pXuUuth9SOcpwjadjpFQSf3792EkCjb/UEQQBbhT0Dt2k2cFPEAX1t2r4+kw3Q3efuak5HF+CF3BigPkwHaJ51RPzSCVZ+aA8dH8YTLG2hNYFBjXLM2Qggy1jLoMva0A541DKzQ==',
+  'body' => '拼单订金',
+  'buyer_id' => '2088612689266211',
+  'invoice_amount' => '0.01',
+  'notify_id' => '2019040900222135632066211002168624',
+  'fund_bill_list' => '[{"amount":"0.01","fundChannel":"ALIPAYACCOUNT"}]',
+  'notify_type' => 'trade_status_sync',
+  'trade_status' => 'TRADE_SUCCESS',
+  'receipt_amount' => '0.01',
+  'app_id' => '2019040163752270',
+  'buyer_pay_amount' => '0.01',
+  'sign_type' => 'RSA2',
+  'seller_id' => '2088431904301771',
+  'gmt_payment' => '2019-04-09 13:56:32',
+  'notify_time' => '2019-04-09 23:24:12',
+  'passback_params' => 'ali2019040913562933408',
+  'version' => '1.0',
+  'out_trade_no' => 'ali2019040913562933408',
+  'total_amount' => '0.01',
+  'trade_no' => '2019040922001466211027008594',
+  'auth_app_id' => '2019040163752270',
+  'buyer_logon_id' => '156****7260',
+  'point_amount' => '0.00',
+)
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/public/../application/api/lang/zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001256s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Order->alipay_notify[ /www/wwwroot/didi.xlove99.top/application/api/controller/Order.php ]
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000183s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000391s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000688s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'alipay' [ RunTime:0.000242s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_order` [ RunTime:0.000816s ]
+[ sql ] [ SQL ] SELECT * FROM `fa_order` WHERE  `order_no` = 'ali2019040913562933408' LIMIT 1 [ RunTime:0.000438s ]
+---------------------------------------------------------------
+[ 2019-04-09T23:51:12+08:00 ] 128.14.134.134 GET 47.92.113.32/cgi-bin/config.exp
+[运行时间：0.030547s] [吞吐率：32.74req/s] [内存消耗：2,153.98kb] [文件加载：61]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.002023s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002042s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'cgi-bin',
+    1 => 'config.exp',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'host' => '47.92.113.32',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000134s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-04-09T23:51:12+08:00 ] 128.14.134.134 GET 47.92.113.32/cgi-bin/config.exp
+[运行时间：0.020815s] [吞吐率：48.04req/s] [内存消耗：2,153.88kb] [文件加载：61]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000020s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001937s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001955s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '404',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'host' => '47.92.113.32',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000122s ]
+[ info ] [ LOG ] INIT File

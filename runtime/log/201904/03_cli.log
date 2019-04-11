@@ -1,0 +1,30 @@
+[ 2019-04-03T16:03:46+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000162s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-03T16:03:46+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-03T16:03:46+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003674s ]
+[ 2019-04-03T16:03:46+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003757s ]
+[ 2019-04-03T16:03:46+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-03T16:03:46+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000527s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-03T16:03:46+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'porder' [ RunTime:0.000489s ]
+[ 2019-04-03T16:03:46+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_porder' [ RunTime:0.000385s ]
+[ 2019-04-03T16:03:46+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'didi_project' AND table_name = 'fa_porder' ORDER BY ORDINAL_POSITION [ RunTime:0.000907s ]
+[ 2019-04-03T16:24:36+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000153s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-03T16:24:36+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-03T16:24:36+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003515s ]
+[ 2019-04-03T16:24:36+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003578s ]
+[ 2019-04-03T16:24:36+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-03T16:24:36+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000473s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-03T16:24:36+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'pordernum' [ RunTime:0.000469s ]
+[ 2019-04-03T16:24:36+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_pordernum' [ RunTime:0.000407s ]
+[ 2019-04-03T16:24:36+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'didi_project' AND table_name = 'fa_pordernum' ORDER BY ORDINAL_POSITION [ RunTime:0.000846s ]
+[ 2019-04-03T18:05:43+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000182s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-03T18:05:43+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-03T18:05:43+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003948s ]
+[ 2019-04-03T18:05:43+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004039s ]
+[ 2019-04-03T18:05:43+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-03T18:05:43+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000523s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-03T18:05:43+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'land' [ RunTime:0.000450s ]
+[ 2019-04-03T18:05:43+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_land' [ RunTime:0.000390s ]
+[ 2019-04-03T18:05:43+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'didi_project' AND table_name = 'fa_land' ORDER BY ORDINAL_POSITION [ RunTime:0.000828s ]

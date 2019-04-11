@@ -1,0 +1,169 @@
+[ 2019-04-09T13:34:41+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000161s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-09T13:34:41+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-09T13:34:41+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.004306s ]
+[ 2019-04-09T13:34:41+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004385s ]
+[ 2019-04-09T13:34:41+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-09T13:34:41+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000632s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-09T13:34:41+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'pilot' [ RunTime:0.000442s ]
+[ 2019-04-09T13:34:41+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_pilot' [ RunTime:0.000411s ]
+[ 2019-04-09T13:34:41+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'didi_project' AND table_name = 'fa_pilot' ORDER BY ORDINAL_POSITION [ RunTime:0.000742s ]
+[ 2019-04-09T13:34:42+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000150s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-09T13:34:42+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-09T13:34:42+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003344s ]
+[ 2019-04-09T13:34:42+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003411s ]
+[ 2019-04-09T13:34:42+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-09T13:34:42+08:00 ][ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/application/admin/lang/zh-cn.php
+[ 2019-04-09T13:34:42+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000528s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-09T13:34:42+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000672s ]
+[ 2019-04-09T13:34:42+08:00 ][ sql ] [ SQL ] SELECT * FROM `fa_auth_rule` WHERE  `name` = 'pilot' LIMIT 1 [ RunTime:0.000354s ]
+[ 2019-04-09T13:34:42+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`pid` , `name` , `title` , `icon` , `remark` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (0 , 'pilot' , '飞行员管理' , 'fa fa-circle-o' , '' , 1 , 'normal' , 1554788082 , 1554788082) [ RunTime:0.013810s ]
+[ 2019-04-09T13:34:42+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/index' LIMIT 1 [ RunTime:0.000400s ]
+[ 2019-04-09T13:34:42+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/add' LIMIT 1 [ RunTime:0.000221s ]
+[ 2019-04-09T13:34:42+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/edit' LIMIT 1 [ RunTime:0.000200s ]
+[ 2019-04-09T13:34:42+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/del' LIMIT 1 [ RunTime:0.000243s ]
+[ 2019-04-09T13:34:42+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/multi' LIMIT 1 [ RunTime:0.000275s ]
+[ 2019-04-09T13:34:42+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`id` , `pid` , `name` , `icon` , `title` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (NULL , 285 , 'pilot/index' , 'fa fa-circle-o' , '查看' , 0 , 'normal' , 1554788082 , 1554788082) [ RunTime:0.000614s ]
+[ 2019-04-09T13:34:42+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`id` , `pid` , `name` , `icon` , `title` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (NULL , 285 , 'pilot/add' , 'fa fa-circle-o' , '添加' , 0 , 'normal' , 1554788082 , 1554788082) [ RunTime:0.000296s ]
+[ 2019-04-09T13:34:42+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`id` , `pid` , `name` , `icon` , `title` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (NULL , 285 , 'pilot/edit' , 'fa fa-circle-o' , '编辑' , 0 , 'normal' , 1554788082 , 1554788082) [ RunTime:0.000288s ]
+[ 2019-04-09T13:34:42+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`id` , `pid` , `name` , `icon` , `title` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (NULL , 285 , 'pilot/del' , 'fa fa-circle-o' , '删除' , 0 , 'normal' , 1554788082 , 1554788082) [ RunTime:0.000287s ]
+[ 2019-04-09T13:34:42+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`id` , `pid` , `name` , `icon` , `title` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (NULL , 285 , 'pilot/multi' , 'fa fa-circle-o' , '批量更新' , 0 , 'normal' , 1554788082 , 1554788082) [ RunTime:0.000285s ]
+[ 2019-04-09T13:46:41+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000159s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-09T13:46:41+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-09T13:46:41+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.004114s ]
+[ 2019-04-09T13:46:41+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004229s ]
+[ 2019-04-09T13:46:41+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-09T13:46:41+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000525s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-09T13:46:41+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'pilot' [ RunTime:0.000431s ]
+[ 2019-04-09T13:46:41+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_pilot' [ RunTime:0.000443s ]
+[ 2019-04-09T13:46:55+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000163s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-09T13:46:55+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-09T13:46:55+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003501s ]
+[ 2019-04-09T13:46:55+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003591s ]
+[ 2019-04-09T13:46:55+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-09T13:46:55+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000473s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-09T13:46:55+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'pilot' [ RunTime:0.000443s ]
+[ 2019-04-09T13:46:55+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_pilot' [ RunTime:0.000416s ]
+[ 2019-04-09T13:47:19+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000153s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-09T13:47:19+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-09T13:47:19+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003567s ]
+[ 2019-04-09T13:47:19+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003638s ]
+[ 2019-04-09T13:47:19+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000467s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'pilot' [ RunTime:0.000425s ]
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_pilot' [ RunTime:0.000396s ]
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'didi_project' AND table_name = 'fa_pilot' ORDER BY ORDINAL_POSITION [ RunTime:0.000750s ]
+[ 2019-04-09T13:47:19+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000159s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-09T13:47:19+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-09T13:47:19+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003714s ]
+[ 2019-04-09T13:47:19+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003796s ]
+[ 2019-04-09T13:47:19+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-09T13:47:19+08:00 ][ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/application/admin/lang/zh-cn.php
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000495s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000703s ]
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ SQL ] SELECT * FROM `fa_auth_rule` WHERE  `name` = 'pilot' LIMIT 1 [ RunTime:0.000398s ]
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/index' LIMIT 1 [ RunTime:0.000252s ]
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/add' LIMIT 1 [ RunTime:0.000221s ]
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/edit' LIMIT 1 [ RunTime:0.000198s ]
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/del' LIMIT 1 [ RunTime:0.000223s ]
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/multi' LIMIT 1 [ RunTime:0.000199s ]
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/index',`icon`='fa fa-circle-o',`title`='查看',`ismenu`=0,`status`='normal',`updatetime`=1554788839  WHERE  `id` = 286 [ RunTime:0.000354s ]
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/add',`icon`='fa fa-circle-o',`title`='添加',`ismenu`=0,`status`='normal',`updatetime`=1554788839  WHERE  `id` = 287 [ RunTime:0.000233s ]
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/edit',`icon`='fa fa-circle-o',`title`='编辑',`ismenu`=0,`status`='normal',`updatetime`=1554788839  WHERE  `id` = 288 [ RunTime:0.000240s ]
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/del',`icon`='fa fa-circle-o',`title`='删除',`ismenu`=0,`status`='normal',`updatetime`=1554788839  WHERE  `id` = 289 [ RunTime:0.000208s ]
+[ 2019-04-09T13:47:19+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/multi',`icon`='fa fa-circle-o',`title`='批量更新',`ismenu`=0,`status`='normal',`updatetime`=1554788839  WHERE  `id` = 290 [ RunTime:0.000222s ]
+[ 2019-04-09T14:54:54+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000184s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-09T14:54:54+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-09T14:54:54+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003390s ]
+[ 2019-04-09T14:54:54+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003460s ]
+[ 2019-04-09T14:54:54+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000543s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'pilot' [ RunTime:0.000533s ]
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_pilot' [ RunTime:0.000412s ]
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'didi_project' AND table_name = 'fa_pilot' ORDER BY ORDINAL_POSITION [ RunTime:0.000768s ]
+[ 2019-04-09T14:54:54+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000147s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-09T14:54:54+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-09T14:54:54+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003334s ]
+[ 2019-04-09T14:54:54+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003394s ]
+[ 2019-04-09T14:54:54+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-09T14:54:54+08:00 ][ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/application/admin/lang/zh-cn.php
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000484s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000757s ]
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ SQL ] SELECT * FROM `fa_auth_rule` WHERE  `name` = 'pilot' LIMIT 1 [ RunTime:0.000377s ]
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/index' LIMIT 1 [ RunTime:0.000232s ]
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/add' LIMIT 1 [ RunTime:0.000218s ]
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/edit' LIMIT 1 [ RunTime:0.000222s ]
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/del' LIMIT 1 [ RunTime:0.000207s ]
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/multi' LIMIT 1 [ RunTime:0.000206s ]
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/index',`icon`='fa fa-circle-o',`title`='查看',`ismenu`=0,`status`='normal',`updatetime`=1554792894  WHERE  `id` = 286 [ RunTime:0.000315s ]
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/add',`icon`='fa fa-circle-o',`title`='添加',`ismenu`=0,`status`='normal',`updatetime`=1554792894  WHERE  `id` = 287 [ RunTime:0.000244s ]
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/edit',`icon`='fa fa-circle-o',`title`='编辑',`ismenu`=0,`status`='normal',`updatetime`=1554792894  WHERE  `id` = 288 [ RunTime:0.000212s ]
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/del',`icon`='fa fa-circle-o',`title`='删除',`ismenu`=0,`status`='normal',`updatetime`=1554792894  WHERE  `id` = 289 [ RunTime:0.000221s ]
+[ 2019-04-09T14:54:54+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/multi',`icon`='fa fa-circle-o',`title`='批量更新',`ismenu`=0,`status`='normal',`updatetime`=1554792894  WHERE  `id` = 290 [ RunTime:0.000212s ]
+[ 2019-04-09T15:07:57+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000165s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-09T15:07:57+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-09T15:07:57+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003769s ]
+[ 2019-04-09T15:07:57+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003859s ]
+[ 2019-04-09T15:07:57+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000455s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'pilot' [ RunTime:0.000466s ]
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_pilot' [ RunTime:0.000405s ]
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'didi_project' AND table_name = 'fa_pilot' ORDER BY ORDINAL_POSITION [ RunTime:0.000744s ]
+[ 2019-04-09T15:07:57+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000148s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-09T15:07:57+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-09T15:07:57+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003378s ]
+[ 2019-04-09T15:07:57+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003447s ]
+[ 2019-04-09T15:07:57+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-09T15:07:57+08:00 ][ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/application/admin/lang/zh-cn.php
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000440s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000685s ]
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ SQL ] SELECT * FROM `fa_auth_rule` WHERE  `name` = 'pilot' LIMIT 1 [ RunTime:0.000360s ]
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/index' LIMIT 1 [ RunTime:0.000267s ]
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/add' LIMIT 1 [ RunTime:0.000197s ]
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/edit' LIMIT 1 [ RunTime:0.000219s ]
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/del' LIMIT 1 [ RunTime:0.000191s ]
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/multi' LIMIT 1 [ RunTime:0.000189s ]
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/index',`icon`='fa fa-circle-o',`title`='查看',`ismenu`=0,`status`='normal',`updatetime`=1554793677  WHERE  `id` = 286 [ RunTime:0.000302s ]
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/add',`icon`='fa fa-circle-o',`title`='添加',`ismenu`=0,`status`='normal',`updatetime`=1554793677  WHERE  `id` = 287 [ RunTime:0.000217s ]
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/edit',`icon`='fa fa-circle-o',`title`='编辑',`ismenu`=0,`status`='normal',`updatetime`=1554793677  WHERE  `id` = 288 [ RunTime:0.000213s ]
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/del',`icon`='fa fa-circle-o',`title`='删除',`ismenu`=0,`status`='normal',`updatetime`=1554793677  WHERE  `id` = 289 [ RunTime:0.000200s ]
+[ 2019-04-09T15:07:57+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/multi',`icon`='fa fa-circle-o',`title`='批量更新',`ismenu`=0,`status`='normal',`updatetime`=1554793677  WHERE  `id` = 290 [ RunTime:0.000225s ]
+[ 2019-04-09T15:12:36+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000174s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-09T15:12:36+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-09T15:12:36+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003985s ]
+[ 2019-04-09T15:12:36+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004083s ]
+[ 2019-04-09T15:12:36+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000445s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'pilot' [ RunTime:0.000521s ]
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_pilot' [ RunTime:0.000394s ]
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'didi_project' AND table_name = 'fa_pilot' ORDER BY ORDINAL_POSITION [ RunTime:0.000811s ]
+[ 2019-04-09T15:12:36+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000190s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-09T15:12:36+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-09T15:12:36+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003673s ]
+[ 2019-04-09T15:12:36+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003749s ]
+[ 2019-04-09T15:12:36+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-09T15:12:36+08:00 ][ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/application/admin/lang/zh-cn.php
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000439s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000832s ]
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ SQL ] SELECT * FROM `fa_auth_rule` WHERE  `name` = 'pilot' LIMIT 1 [ RunTime:0.000426s ]
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/index' LIMIT 1 [ RunTime:0.000222s ]
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/add' LIMIT 1 [ RunTime:0.000248s ]
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/edit' LIMIT 1 [ RunTime:0.000203s ]
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/del' LIMIT 1 [ RunTime:0.000231s ]
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'pilot/multi' LIMIT 1 [ RunTime:0.000250s ]
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/index',`icon`='fa fa-circle-o',`title`='查看',`ismenu`=0,`status`='normal',`updatetime`=1554793956  WHERE  `id` = 286 [ RunTime:0.000363s ]
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/add',`icon`='fa fa-circle-o',`title`='添加',`ismenu`=0,`status`='normal',`updatetime`=1554793956  WHERE  `id` = 287 [ RunTime:0.000241s ]
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/edit',`icon`='fa fa-circle-o',`title`='编辑',`ismenu`=0,`status`='normal',`updatetime`=1554793956  WHERE  `id` = 288 [ RunTime:0.000218s ]
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/del',`icon`='fa fa-circle-o',`title`='删除',`ismenu`=0,`status`='normal',`updatetime`=1554793956  WHERE  `id` = 289 [ RunTime:0.000248s ]
+[ 2019-04-09T15:12:36+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=285,`name`='pilot/multi',`icon`='fa fa-circle-o',`title`='批量更新',`ismenu`=0,`status`='normal',`updatetime`=1554793956  WHERE  `id` = 290 [ RunTime:0.000236s ]

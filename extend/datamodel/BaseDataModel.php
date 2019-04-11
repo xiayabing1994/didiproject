@@ -227,7 +227,7 @@ class BaseDataModel extends \think\Model
     }
     public function queryfind($where,$field)
     {
-        return $this->field($field)->where($where)->find();
+        return $this->field($field)->where($where)->find() ? $this->field($field)->where($where)->find()->toArray() : null ;
     }
     public function querycount(array $where,$field='id')
     {

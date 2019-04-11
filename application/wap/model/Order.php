@@ -12,7 +12,6 @@ class Order extends Base{
     public function getPorderInfo($p_id){
         if(!$p_id>0) return [];
         $row=Db::name('porder')->where(['id'=>$p_id])->find();
-        $row['current_price']=$this->getPrice($row['hasland']);
         $row['land_points']=$this->getOrderLands($p_id);
         return $row;
     }
@@ -62,8 +61,7 @@ class Order extends Base{
         $distance=!empty($map['distance']) ? $map['distance'] : 500000;
         $orderModel=new \logicmodel\Porderlogic();
         //getAroundOrder($userid,$landid,$keyword,$distance,$pageIndex,$pageSize)
-        $res = $orderModel->getAroundOrder(session('user.id'),$landid,$keyword,$distance,$page,$size);
-        return xdeal($res);
+        return $orderModel->getAroundOrder(session('user.id'),$landid,$keyword,$distance,$page,$size);
     }
     /**
      * 获取附近拼单列表2

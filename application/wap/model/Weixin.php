@@ -44,7 +44,7 @@ class Weixin extends Model{
      * 获取easywechat需要的所有配置
      */
     public function getWxConfig(){
-        $wx_config=model('Config')->getConfig('weixin');
+        $wx_config=load_config('weixin');
         return [
             //1.常规参数
             'debug'=>true,

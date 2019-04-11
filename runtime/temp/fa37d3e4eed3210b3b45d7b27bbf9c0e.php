@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"/www/wwwroot/didi.xlove99.top/public/../application/admin/view/dashboard/index.html";i:1547349021;s:72:"/www/wwwroot/didi.xlove99.top/application/admin/view/layout/default.html";i:1547349021;s:69:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/meta.html";i:1547349021;s:71:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/script.html";i:1547349021;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"/www/wwwroot/didi.xlove99.top/public/../application/admin/view/dashboard/index.html";i:1554342289;s:72:"/www/wwwroot/didi.xlove99.top/application/admin/view/layout/default.html";i:1547349021;s:69:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/meta.html";i:1547349021;s:71:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/script.html";i:1547349021;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -389,32 +389,32 @@
 
                 <!--如果需要删除最新新闻和最新发贴，删除HTML后还需要删除dashboard.js中的代码-->
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="box box-danger">
-                            <div class="box-header">
-                                <h3 class="box-title"><?php echo __('Recent news'); ?></h3>
-                                <div class="box-tools pull-right">
-                                    <a href="https://www.fastadmin.net" target="_blank" class="btn btn-box-tool"><?php echo __('More'); ?></a>
-                                </div>
-                            </div>
-                            <div class="box-body" id="news-list">
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="box box-success">
-                            <div class="box-header">
-                                <h3 class="box-title"><?php echo __('Recent discussion'); ?></h3>
-                                <div class="box-tools pull-right">
-                                    <a href="https://forum.fastadmin.net" class="btn btn-box-tool"><?php echo __('More'); ?></a>
-                                </div>
-                            </div>
-                            <div class="box-body" id="discussion-list">
-                                
-                            </div>
-                        </div>
-                    </div>
+                    <!--<div class="col-lg-4">-->
+                        <!--<div class="box box-danger">-->
+                            <!--<div class="box-header">-->
+                                <!--<h3 class="box-title"><?php echo __('Recent news'); ?></h3>-->
+                                <!--<div class="box-tools pull-right">-->
+                                    <!--<a href="https://www.fastadmin.net" target="_blank" class="btn btn-box-tool"><?php echo __('More'); ?></a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="box-body" id="news-list">-->
+                                <!---->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-lg-4">-->
+                        <!--<div class="box box-success">-->
+                            <!--<div class="box-header">-->
+                                <!--<h3 class="box-title"><?php echo __('Recent discussion'); ?></h3>-->
+                                <!--<div class="box-tools pull-right">-->
+                                    <!--<a href="https://forum.fastadmin.net" class="btn btn-box-tool"><?php echo __('More'); ?></a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="box-body" id="discussion-list">-->
+                                <!---->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
                     <div class="col-lg-4">
                         <div class="box box-info">
                             <div class="box-header"><h3 class="box-title"><?php echo __('Server info'); ?></h3></div>

@@ -356,10 +356,10 @@ if(!function_exists('xdeal')) {
 if(!function_exists('explain_state')){
     function explain_state($state){
         switch ($state){
-            case 0: return '<i class="yj-color-red">待拼单</i>';
-            case 1: return '<i class="yj-color-gray">待付尾款</i>';
-            case 2: return '<i class="yj-color-gray">待作业</i>';
-            case 3: return '<i class="yj-color-main">已完单</i>';
+            case 1: return '<i class="yj-color-red">待拼单</i>';
+            case 2: return '<i class="yj-color-gray">待付尾款</i>';
+            case 3: return '<i class="yj-color-gray">待作业</i>';
+            case 4: return '<i class="yj-color-main">已完单</i>';
         }
     }
 }
@@ -375,12 +375,20 @@ if(!function_exists('load_config')){
        return $config->getConfig($group);
     }
 }
-if(!function_exists('explain_payfrom')){
-    function explain_payfrom($state){
-        switch ($state){
-            case 0: return '拼单订金';
-            case 2: return '下单付款';
-            case 1: return '支付尾款';
+if(!function_exists('explain_ordertype')){
+    function explain_ordertype($type){
+        switch ($type){
+            case 'sub'   : return '拼单订金';
+            case 'final' : return '支付尾款';
+            case 'direct': return '下单付款';
+        }
+    }
+}
+if(!function_exists('explain_paytype')){
+    function explain_paytype($type){
+        switch ($type){
+            case 'weixin'   : return '微信支付';
+            case 'alipay'   : return '支付宝支付';
         }
     }
 }
@@ -394,5 +402,31 @@ if(!function_exists('get_img_url')){
     function get_img_url($path){
         if(strpos($path,'http://') || strpos($path,'https://')) return $path;
         return request()->domain().$path;
+    }
+}
+if(!function_exists('randomkeys')){
+    function randomkeys($length){
+        $key='';
+        $pattern = 'ABCDEFGHIJKLOMNOPQRSTUVWXYZ';
+        for($i=0;$i<$length;$i++){
+            $key .= $pattern{mt_rand(0,25)};    //生成php随机数
+        }
+        return $key;
+    }
+}
+if(!function_exists('unique_multidim_array')){
+    function unique_multidim_array($array, $key) {
+        $temp_array = array();
+        $i = 0;
+        $key_array = array();
+
+        foreach($array as $val) {
+            if (!in_array($val[$key], $key_array)) {
+                $key_array[$i] = $val[$key];
+                $temp_array[$i] = $val;
+            }
+            $i++;
+        }
+        return $temp_array;
     }
 }

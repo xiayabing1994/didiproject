@@ -23,6 +23,7 @@ class Pordernum extends Backend
         parent::_initialize();
         $this->model = new \app\admin\model\Pordernum;
         $this->view->assign("stateList", $this->model->getStateList());
+        $this->view->assign("typeList", $this->model->getTypeList());
     }
     
     /**

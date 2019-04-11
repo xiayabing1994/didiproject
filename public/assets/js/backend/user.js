@@ -28,18 +28,16 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'name', title: __('Name')},
                         {field: 'sex', title: __('Sex'), searchList: {"0":__('Sex 0'),"1":__('Sex 1')}, formatter: Table.api.formatter.normal},
                         {field: 'mobile', title: __('Mobile')},
-                        {field: 'appid', title: __('Appid')},
-                        // {field: 'password', title: __('Password')},
                         {field: 'nickname', title: __('Nickname')},
-                        {field: 'avatar', title: __('Avatar'),formatter: Table.api.formatter.image,},
                         {field: 'type', title: __('Type'), searchList: {"1":__('Type 1'),"2":__('Type 2'),"3":__('Type 3')}, formatter: Table.api.formatter.normal},
-                        // {field: 'salt', title: __('Salt')},
                         {field: 'addtime', title: __('Addtime'), operate:'RANGE', addclass:'datetimerange'},
                         {field: 'state', title: __('State'), searchList: {"0":__('State 0'),"1":__('State 1')}, formatter: Table.api.formatter.normal},
                         {field: 'money', title: __('Money'), operate:'BETWEEN'},
+                        {field: 'profit', title: __('Profit'), operate:'BETWEEN'},
                         {field: 'last_login_time', title: __('Last_login_time'), operate:'RANGE', addclass:'datetimerange'},
-                        // {field: 'wx_unionid', title: __('Wx_unionid')},
+                        {field: 'wx_unionid', title: __('Wx_unionid')},
                         {field: 'login_type', title: __('Login_type'), searchList: {"weixin":__('Login_type weixin'),"mobile":__('Login_type mobile')}, formatter: Table.api.formatter.normal},
+                        {field: 'jtoken', title: __('Jtoken')},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]

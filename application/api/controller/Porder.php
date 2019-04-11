@@ -17,9 +17,8 @@ class Porder
         $this->_porderlogic = $porderlogic;
     }
 
-    /**农户发布拼单
-     * @return \think\response\Json
-     * @throws \think\Exception
+    /**
+     * 发布拼单接口
      */
     public function addPorder()
     {
@@ -37,19 +36,24 @@ class Porder
         }
     }
 
-    /**加入拼单
-     * @return \think\response\Json
-     * @throws \think\Exception
+    /**
+     * 加入拼单接口
      */
     public function joinPorder()
     {
         $userid=$this->_request->param('userid');
         $landid=$this->_request->param('landid');
-        $pordernum=$this->_request->param('pordernum');
         $pesticide=$this->_request->param('pesticide');
         $porderId = $this->_request->param('porderid');
         $pcode = $this->_request->param('pcode');
-        return json($this->_porderlogic->joinPorders($userid,$landid,$pordernum,$pesticide,$porderId,$pcode));
+        $pnuminfo=$this->_porderlogic->getPnumInfo($pcode);
+        if(!empty($pcode) && !empty($pnuminfo)){
+            return json(['errcode'=>3,'msg'=>'邀请码填写错误']);
+        }
+        if($res=$this->_porderlogic->joinPorders($userid,$landid,$pesticide,$porderId,$pcode,$pnuminfo['userid'])){
+            return json(['errcode'=>0,'msg'=>'加入成功','result'=>$res]);
+        }
+        return json(['errcode'=>1,'msg'=>'加入失败']);
     }
 
     /**
@@ -57,37 +61,60 @@ class Porder
      */
     public function placeOrder(){
         if($res=$this->_porderlogic->placeOrder($this->_request->param())){
-            return json(['errcode'=>0,'msg'=>'下单成功','result'=>['id'=>$res]]);
+            return json(['errcode'=>0,'msg'=>'下单成功','result'=>$res]);
         }else{
             return json(['errcode'=>1,'msg'=>'下单失败']);
         }
     }
-    /**农药列表
-     * @return \think\response\Json
-     * @throws \think\Exception
+    /**
+     * 农药列表接口
      */
     public function getPesticideList()
     {
         return json($this->_porderlogic->getPesticide());
     }
 
-    /**附近拼单
-     * @return \think\response\Json
-     * @throws \think\Exception
+    /**
+     * 附近拼单接口
      */
     public function aroundOrder()
     {
         $userid = $this->_request->param('userid');
         $landid = $this->_request->param('landid');
         $keyword = $this->_request->param('keyword');
-        $distance = $this->_request->param('distance',1000);
+        $distance = $this->_request->param('distance',10000000);
         $pageIndex=$this->_request->param('pageindex',1);
         $pageSize=$this->_request->param('pagesize',5);
-        return json($this->_porderlogic->getAroundOrder($userid,$landid,$keyword,$distance,$pageIndex,$pageSize));
+        $data=$this->_porderlogic->getAroundOrder($userid,$landid,$keyword,$distance,$pageIndex,$pageSize);
+        if(empty($data)) return json(['errcode'=>1,'msg'=>'附近暂无拼单']);
+        return json(['errcode'=>0,'msg'=>'获取拼单成功','result'=>$data]);
     }
 
+    /**
+     * 后台完单接口
+     */
+    public function finish(){
+        $id=input('id');
+        if($res=$this->_porderlogic->finishOrder($id)){
+            return json(['errcode'=>0,'msg'=>'完单成功']);
+        }else{
+            return json(['errcode'=>1,'msg'=>'操作失败']);
+        }
+    }
 
-
+    /**s上传分组值
+     * @return \think\response\Json
+     */
+    public function uploadGroupId()
+    {
+        $userId = $this->_request->param('userid');
+        $orderId = $this->_request->param('orderid');
+        $groupId = $this->_request->param('groupid');
+        if($res=$this->_porderlogic->addGrounpId($userId,$orderId,$groupId)){
+            return json(['errcode'=>0,'msg'=>'创建群组成功']);
+        }
+        return json(['errcode'=>1,'msg'=>'创建群组失败']);
+    }
 
 
 }

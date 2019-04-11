@@ -3,6 +3,7 @@ namespace  app\wap\controller;
 use think\Controller;
 use think\Env;
 class Crowd extends Controller{
+
     /**
      * 发布拼单首页
      */
@@ -46,10 +47,10 @@ class Crowd extends Controller{
      */
     public function placeDeal(){
         $data=input('param.');
-        $p_no=model('Crowd')->addCrowd(0,$data);    //
-        $price=model('\logicmodel\Pordernumlogic')->getPorderMoney($p_no); //根据土地面积获取订金价格
-        $this->assign('p_no',$p_no);
-        $this->assign('price',$price);
+        $data['userid']=session('user.id');
+        $pinfo=model('\logicmodel\Porderlogic')->placeOrder($data);    //
+        $this->assign('p_no',$pinfo['pordernumId']);
+        $this->assign('price',$pinfo['money']);
         $this->assign('p_msg','直接下单金额');
         return $this->fetch('deal');
     }

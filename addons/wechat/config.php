@@ -9,7 +9,7 @@ return array (
     'content' => 
     array (
     ),
-    'value' => 'wxc4a80eccc9d578b7',
+    'value' => 'wx7939b3f214c1d96d',
     'rule' => 'required',
     'msg' => '',
     'tip' => '',
@@ -24,7 +24,7 @@ return array (
     'content' => 
     array (
     ),
-    'value' => '33e1719dd8d77bf03140d405f9ddd20b',
+    'value' => '5db1c26912db734434dc1bc233c9e8d0',
     'rule' => 'required',
     'msg' => '',
     'tip' => '',
@@ -39,7 +39,7 @@ return array (
     'content' => 
     array (
     ),
-    'value' => 'AITAOSHENG2019',
+    'value' => 'FEIFANG2019',
     'rule' => 'required',
     'msg' => '',
     'tip' => '',
@@ -54,7 +54,7 @@ return array (
     'content' => 
     array (
     ),
-    'value' => 'mcHXoiqeJqJIixPEGTSoZagsmNsUv9gLxO7nqX364ED',
+    'value' => 'xUjQ5jGzh6ZPWvQ8Kl0rLArLGGDJlCptJbFAzsZUJvm',
     'rule' => 'required',
     'msg' => '',
     'tip' => '',

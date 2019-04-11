@@ -1,0 +1,120 @@
+[ 2019-04-01T17:05:48+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000161s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-01T17:05:48+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-01T17:05:48+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003376s ]
+[ 2019-04-01T17:05:48+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003440s ]
+[ 2019-04-01T17:05:48+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000459s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'order' [ RunTime:0.000480s ]
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_order' [ RunTime:0.000381s ]
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'didi_project' AND table_name = 'fa_order' ORDER BY ORDINAL_POSITION [ RunTime:0.000849s ]
+[ 2019-04-01T17:05:48+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000183s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-01T17:05:48+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-01T17:05:48+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003388s ]
+[ 2019-04-01T17:05:48+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003469s ]
+[ 2019-04-01T17:05:48+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-01T17:05:48+08:00 ][ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/application/admin/lang/zh-cn.php
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000460s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000678s ]
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ SQL ] SELECT * FROM `fa_auth_rule` WHERE  `name` = 'order' LIMIT 1 [ RunTime:0.000382s ]
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/index' LIMIT 1 [ RunTime:0.000226s ]
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/add' LIMIT 1 [ RunTime:0.000243s ]
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/edit' LIMIT 1 [ RunTime:0.000249s ]
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/del' LIMIT 1 [ RunTime:0.000276s ]
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/multi' LIMIT 1 [ RunTime:0.000210s ]
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/index',`icon`='fa fa-circle-o',`title`='查看',`ismenu`=0,`status`='normal',`updatetime`=1554109548  WHERE  `id` = 280 [ RunTime:0.000354s ]
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/add',`icon`='fa fa-circle-o',`title`='添加',`ismenu`=0,`status`='normal',`updatetime`=1554109548  WHERE  `id` = 281 [ RunTime:0.000220s ]
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/edit',`icon`='fa fa-circle-o',`title`='编辑',`ismenu`=0,`status`='normal',`updatetime`=1554109548  WHERE  `id` = 282 [ RunTime:0.000209s ]
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/del',`icon`='fa fa-circle-o',`title`='删除',`ismenu`=0,`status`='normal',`updatetime`=1554109548  WHERE  `id` = 283 [ RunTime:0.000208s ]
+[ 2019-04-01T17:05:48+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/multi',`icon`='fa fa-circle-o',`title`='批量更新',`ismenu`=0,`status`='normal',`updatetime`=1554109548  WHERE  `id` = 284 [ RunTime:0.000215s ]
+[ 2019-04-01T17:08:10+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000159s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-01T17:08:10+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-01T17:08:10+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003392s ]
+[ 2019-04-01T17:08:10+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003459s ]
+[ 2019-04-01T17:08:10+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000469s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'order' [ RunTime:0.000455s ]
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_order' [ RunTime:0.000392s ]
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'didi_project' AND table_name = 'fa_order' ORDER BY ORDINAL_POSITION [ RunTime:0.000858s ]
+[ 2019-04-01T17:08:10+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000155s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-01T17:08:10+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-01T17:08:10+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003386s ]
+[ 2019-04-01T17:08:10+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003466s ]
+[ 2019-04-01T17:08:10+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-01T17:08:10+08:00 ][ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/application/admin/lang/zh-cn.php
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000457s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000719s ]
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ SQL ] SELECT * FROM `fa_auth_rule` WHERE  `name` = 'order' LIMIT 1 [ RunTime:0.000394s ]
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/index' LIMIT 1 [ RunTime:0.000237s ]
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/add' LIMIT 1 [ RunTime:0.000204s ]
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/edit' LIMIT 1 [ RunTime:0.000197s ]
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/del' LIMIT 1 [ RunTime:0.000217s ]
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/multi' LIMIT 1 [ RunTime:0.000200s ]
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/index',`icon`='fa fa-circle-o',`title`='查看',`ismenu`=0,`status`='normal',`updatetime`=1554109690  WHERE  `id` = 280 [ RunTime:0.000311s ]
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/add',`icon`='fa fa-circle-o',`title`='添加',`ismenu`=0,`status`='normal',`updatetime`=1554109690  WHERE  `id` = 281 [ RunTime:0.000225s ]
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/edit',`icon`='fa fa-circle-o',`title`='编辑',`ismenu`=0,`status`='normal',`updatetime`=1554109690  WHERE  `id` = 282 [ RunTime:0.000220s ]
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/del',`icon`='fa fa-circle-o',`title`='删除',`ismenu`=0,`status`='normal',`updatetime`=1554109690  WHERE  `id` = 283 [ RunTime:0.000208s ]
+[ 2019-04-01T17:08:10+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/multi',`icon`='fa fa-circle-o',`title`='批量更新',`ismenu`=0,`status`='normal',`updatetime`=1554109690  WHERE  `id` = 284 [ RunTime:0.000202s ]
+[ 2019-04-01T17:17:44+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000159s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-01T17:17:44+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-01T17:17:44+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003606s ]
+[ 2019-04-01T17:17:44+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003675s ]
+[ 2019-04-01T17:17:44+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000495s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'order' [ RunTime:0.000481s ]
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_order' [ RunTime:0.000392s ]
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'didi_project' AND table_name = 'fa_order' ORDER BY ORDINAL_POSITION [ RunTime:0.000844s ]
+[ 2019-04-01T17:17:44+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000160s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-01T17:17:44+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-01T17:17:44+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003466s ]
+[ 2019-04-01T17:17:44+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003527s ]
+[ 2019-04-01T17:17:44+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-01T17:17:44+08:00 ][ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/application/admin/lang/zh-cn.php
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000873s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000773s ]
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ SQL ] SELECT * FROM `fa_auth_rule` WHERE  `name` = 'order' LIMIT 1 [ RunTime:0.000411s ]
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/index' LIMIT 1 [ RunTime:0.000225s ]
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/add' LIMIT 1 [ RunTime:0.000255s ]
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/edit' LIMIT 1 [ RunTime:0.000205s ]
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/del' LIMIT 1 [ RunTime:0.000204s ]
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/multi' LIMIT 1 [ RunTime:0.000212s ]
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/index',`icon`='fa fa-circle-o',`title`='查看',`ismenu`=0,`status`='normal',`updatetime`=1554110264  WHERE  `id` = 280 [ RunTime:0.000329s ]
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/add',`icon`='fa fa-circle-o',`title`='添加',`ismenu`=0,`status`='normal',`updatetime`=1554110264  WHERE  `id` = 281 [ RunTime:0.000234s ]
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/edit',`icon`='fa fa-circle-o',`title`='编辑',`ismenu`=0,`status`='normal',`updatetime`=1554110264  WHERE  `id` = 282 [ RunTime:0.000217s ]
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/del',`icon`='fa fa-circle-o',`title`='删除',`ismenu`=0,`status`='normal',`updatetime`=1554110264  WHERE  `id` = 283 [ RunTime:0.000222s ]
+[ 2019-04-01T17:17:44+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/multi',`icon`='fa fa-circle-o',`title`='批量更新',`ismenu`=0,`status`='normal',`updatetime`=1554110264  WHERE  `id` = 284 [ RunTime:0.000203s ]
+[ 2019-04-01T17:35:39+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000190s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-01T17:35:39+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-01T17:35:39+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.004314s ]
+[ 2019-04-01T17:35:39+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004410s ]
+[ 2019-04-01T17:35:39+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000525s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'order' [ RunTime:0.000497s ]
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_order' [ RunTime:0.000444s ]
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'didi_project' AND table_name = 'fa_order' ORDER BY ORDINAL_POSITION [ RunTime:0.000958s ]
+[ 2019-04-01T17:35:39+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000187s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-01T17:35:39+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-01T17:35:39+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.004192s ]
+[ 2019-04-01T17:35:39+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004278s ]
+[ 2019-04-01T17:35:39+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-01T17:35:39+08:00 ][ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/application/admin/lang/zh-cn.php
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000490s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000751s ]
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ SQL ] SELECT * FROM `fa_auth_rule` WHERE  `name` = 'order' LIMIT 1 [ RunTime:0.000396s ]
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/index' LIMIT 1 [ RunTime:0.000241s ]
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/add' LIMIT 1 [ RunTime:0.000219s ]
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/edit' LIMIT 1 [ RunTime:0.000261s ]
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/del' LIMIT 1 [ RunTime:0.000200s ]
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'order/multi' LIMIT 1 [ RunTime:0.000209s ]
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/index',`icon`='fa fa-circle-o',`title`='查看',`ismenu`=0,`status`='normal',`updatetime`=1554111339  WHERE  `id` = 280 [ RunTime:0.000297s ]
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/add',`icon`='fa fa-circle-o',`title`='添加',`ismenu`=0,`status`='normal',`updatetime`=1554111339  WHERE  `id` = 281 [ RunTime:0.000242s ]
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/edit',`icon`='fa fa-circle-o',`title`='编辑',`ismenu`=0,`status`='normal',`updatetime`=1554111339  WHERE  `id` = 282 [ RunTime:0.000217s ]
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/del',`icon`='fa fa-circle-o',`title`='删除',`ismenu`=0,`status`='normal',`updatetime`=1554111339  WHERE  `id` = 283 [ RunTime:0.000223s ]
+[ 2019-04-01T17:35:39+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=279,`name`='order/multi',`icon`='fa fa-circle-o',`title`='批量更新',`ismenu`=0,`status`='normal',`updatetime`=1554111339  WHERE  `id` = 284 [ RunTime:0.000214s ]

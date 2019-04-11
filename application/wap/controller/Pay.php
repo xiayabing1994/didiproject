@@ -15,7 +15,7 @@ class Pay extends Base{
     public function pay(){
         $data=input('param.');
         $order=new \logicmodel\Orderlogic();
-        $orderinfo=$order->createOrders(22,$data['p_id'],0,$data['paytype']);
+        $orderinfo=$order->createOrders(22,$data['p_id'],'sub',$data['paytype']);
         if(!empty($orderinfo)){
             echo '创建'.$data['paytype'].'订单成功';
             if($data['paytype']=='weixin') $this->wxPay($orderinfo['orderdata']);
@@ -30,7 +30,7 @@ class Pay extends Base{
             'trade_type'       => 'NATIVE', // JSAPI，NATIVE，APP...
             'body'             => $data['describe'],
             'detail'           => $data['describe'],
-            'out_trade_no'     => $data['ordernum'],
+            'out_trade_no'     => $data['order_no'],
             'total_fee'        => $data['money']*100, // 单位：分
             'notify_url'       => '/wap/pay/notify', // 支付结果通知网址，如果不设置则会使用配置里的默认地址
             'openid'           => '', // trade_type=JSAPI，此参数必传，用户在商户appid下的唯一标识，
@@ -44,12 +44,27 @@ class Pay extends Base{
 //            $prepayId = $result->prepay_id;
 //        }
     }
-    public function detail(){
-        return view('merge_detail');
+    public function aliPay($data){
+        $orderdata=[
+            'body'=>$data['describe'],
+            'order_no'=>$data['order_no'],
+            'money'=>$data['money'],
+            'notify_url'=> '/wap/pay/notify'
+        ];
+        $alipayModel=new \tybservice\TybAliPay();
+        dump($alipayModel->alipay($orderdata));
     }
-
     /**
      * 支付信息处理
      */
+     public function notify(){
+         $data=input('param.');
+         $verify=1;
+         if($verify==1){
+             if(model('\logicmodel\Orderlogic')->dealOrder($data)) return 'success';
+             return 'failed';
+         }else{
 
+         }
+     }
 }

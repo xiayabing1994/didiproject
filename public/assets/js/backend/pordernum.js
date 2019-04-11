@@ -36,7 +36,9 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'groupid', title: __('Groupid')},
                         {field: 'porderid', title: __('Porderid')},
                         {field: 'code', title: __('Code')},
-                        {field: 'pcode', title: __('Pcode')},
+                        {field: 'superior_code', title: __('Superior_code')},
+                        {field: 'price', title: __('Price'), operate:'BETWEEN'},
+                        {field: 'type', title: __('Type'), searchList: {"direct":__('Type direct'),"crowd":__('Type crowd')}, formatter: Table.api.formatter.normal},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]

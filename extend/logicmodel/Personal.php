@@ -9,13 +9,14 @@ namespace logicmodel;
 
 class Personal
 {
+    const ADDTIME_DESC = 'addtime desc';
     private $_user;
     private $_land;
     private $_order;
     private $_porder;
     private $_banner;
     private $_suggest;
-    private $_earnings;
+    private $_profit;
     private $_pordernum;
     private $_version;
     private $_price;
@@ -29,7 +30,7 @@ class Personal
         $this->_porder = new \datamodel\Porder();
         $this->_banner = new \datamodel\Banner();
         $this->_suggest = new \datamodel\Suggest();
-        $this->_earnings = new \datamodel\Earnings();
+        $this->_earnings = new \datamodel\Profit();
         $this->_pordernum = new \datamodel\Pordernum();
         $this->_version = new \datamodel\Version();
         $this->_price = new \datamodel\Price();
@@ -45,7 +46,7 @@ class Personal
      */
     public function getUserInfo($uid)
     {
-        $orderCount=$this->_order->querycount(['userid'=>$uid,'orderstate'=>0]);
+        $orderCount=$this->_pordernum->querycount(['userid'=>$uid]);
         $allearnings=$this->_user->queryfind(['id'=>$uid],['money'])['money'];
         if($allearnings==0)
         {
@@ -58,11 +59,10 @@ class Personal
         $res=$this->_user->queryfind(['id'=>$uid],['*']);
         $nickname=$res['nickname'];
         $mobile=$res['mobile'];
-        $headimg=$res['headimg'];
+        $headimg=get_img_url($res['headimg']);
         $sex=$res['sex'];
         return ['errcode'=>0,'msg'=>'success','result'=>['ordercount'=>$orderCount,'remainmoney'=>$remainMoney,'nickname'=>$nickname,'mobile'=>$mobile,'headimg'=>$headimg,'sex'=>$sex]];
     }
-
     /**获取banner
      * @return array
      * @throws \think\Exception
@@ -136,17 +136,27 @@ class Personal
      * @return array
      * @throws \think\Exception
      */
-    public function getOrderInfos($userid)
+    public function getOrderInfos($userid,$ordertype='crowd')
     {
-        $res = $this->_pordernum->queryRelation([['fa_porder b','a.porderid = b.id','inner']],['a.userid'=>$userid],['a.state as orderstate','b.id','b.pname','b.price as money','b.pordernum','b.starttime','b.endtime','a.landid','a.pesticide','a.area','b.sumarea']);
-        if($res)
-        {
-
-            return ['errcode'=>0,'msg'=>'success','result'=>['res'=>$res]];
-        }else
-        {
-            return ['errcode'=>0,'msg'=>'暂无订单'];
+        if($ordertype=='crowd'){
+            $where=['a.userid'=>$userid,'a.state'=>['>',1],'a.porderid'=>['>',0]];
+            $fields=['a.state as orderstate','a.code','p.id','p.state','p.pname','p.price as money','p.starttime','p.endtime','p.sumarea','a.landid','a.pesticide','a.area'];
+            $res = $this->_pordernum->queryRelation([['porder p','a.porderid = p.id','inner']],$where,$fields,'',['a.addtime desc']);
+        }elseif($ordertype=='direct'){
+            $where=['userid'=>$userid,'porderid'=>0];
+            $res=$this->_pordernum->queryEntity($where,['id,userid,landid,pesticide,area,addtime,type,price'],'', ['addtime desc']);
+        }else{
+            return [];
         }
+        foreach($res as $k=>$v){
+            $pests=$this->getPesticideName($v['pesticide']);
+            $landsinfo=model('\logicmodel\Landlogic')->getLandInfo($v['landid']);
+            foreach($pests as $pk=>$pv){
+                $landsinfo[$pk]['pes_name']=$pv;
+            }
+            $res[$k]['landsinfo']=$landsinfo;
+        }
+        return $res;
     }
 
     /**获取当前app版本号
@@ -167,31 +177,16 @@ class Personal
      */
     public function getPorderInfo($userid,$porderid)
     {
-        $su=$this->_pordernum->queryfind(['userid'=>$userid,'state'=>0],['*']);
-        $leader=$this->_porder->queryfind(['userid'=>$userid,'state'=>0],['isleader'])['isleader'];
-        if(is_null($leader)||$leader==1)
-        {
-            $leader=1;
-        }else
-        {
-            $leader=0;
-        }
-        if($su)
-        {
-            $isjoin=0;
-        }else
-        {
-            $isjoin=1;
-        }
-        $porderInfo=$this->_porder->queryfind(['id'=>$porderid,'state'=>0],['*']);
-        $price=$this->_price->queryEntity(['area'=>['>=',$porderInfo['hasland']]],['price'],null,['price desc'])[0]['price'];
-        $porderInfo['price']=$price;
-        $res=$this->_pordernum->queryEntity(['porderid'=>$porderid,'state'=>0],['landid','groupid']);
-        foreach ($res as $v)
-        {
-            $point[]=$this->_land->queryfind(['id'=>$v['landid']],['point'])['point'];
-        }
-        return ['errcode'=>0,'msg'=>'success','result'=>['res'=>$porderInfo,'isjoin'=>$isjoin,'isleader'=>$leader,'point'=>$point,'groupid'=>$res[0]['groupid']]];
+        $porderInfo=model('\logicmodel\Porderlogic')->getPorderinfo($porderid);
+        if(empty($porderInfo)) return false;
+        $field=['userid,landid,pesticide,pid,area,state,code,superior_code'];
+        $pnum_info=$this->_pordernum->queryfind(['userid'=>$userid,'porderid'=>$porderid,'state'=>['>',1]],$field);
+        $leader=$porderInfo['userid']==$userid ? 1 : 0;
+        $isjoin=empty($pnum_info) ? 0 : 1;
+        $porderInfo['joininfo']=$pnum_info;
+        $porderInfo['isleader']=$leader;
+        $porderInfo['isjoin']=$isjoin;
+        return $porderInfo;
     }
 
     public function addKeyword($userid,$keysword)
@@ -235,5 +230,13 @@ class Personal
             return ['errcode'=>0,'msg'=>'success','result'=>['keyword'=>$keywords]];
         }
     }
-
+    private function getPesticideName($pesticide){
+            $pest_arr=explode(',',$pesticide);
+            $res=[];
+            $pestModel=new \datamodel\Pesticide();
+            foreach($pest_arr as $v){
+                $res[]=$pestModel->queryfind(['id'=>$v],['*'])['name'];
+            }
+            return $res;
+    }
 }

@@ -26,7 +26,6 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {checkbox: true},
                         {field: 'id', title: __('Id')},
                         {field: 'name', title: __('Name')},
-                        // {field: 'point', title: __('Point')},
                         {field: 'area', title: __('Area')},
                         {field: 'userid', title: __('Userid')},
                         {field: 'centerX', title: __('Centerx'), operate:'BETWEEN'},

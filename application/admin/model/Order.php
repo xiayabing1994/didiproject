@@ -19,7 +19,10 @@ class Order extends Model
     // 追加属性
     protected $append = [
         'paytype_text',
-        'orderstate_text'
+        'paystate_text',
+        'paytime_text',
+        'ordertype_text',
+        'isdeal_text'
     ];
     
 
@@ -29,9 +32,19 @@ class Order extends Model
         return ['weixin' => __('Paytype weixin'),'alipay' => __('Paytype alipay')];
     }     
 
-    public function getOrderstateList()
+    public function getPaystateList()
     {
-        return ['0' => __('Orderstate 0'),'1' => __('Orderstate 1'),'4' => __('Orderstate 4'),'3' => __('Orderstate 3')];
+        return ['0' => __('Paystate 0'),'1' => __('Paystate 1'),'4' => __('Paystate 4'),'3' => __('Paystate 3')];
+    }     
+
+    public function getOrdertypeList()
+    {
+        return ['sub' => __('Ordertype sub'),'final' => __('Ordertype final'),'direct' => __('Ordertype direct')];
+    }     
+
+    public function getIsdealList()
+    {
+        return ['0' => __('Isdeal 0'),'1' => __('Isdeal 1')];
     }     
 
 
@@ -43,14 +56,40 @@ class Order extends Model
     }
 
 
-    public function getOrderstateTextAttr($value, $data)
+    public function getPaystateTextAttr($value, $data)
     {        
-        $value = $value ? $value : (isset($data['orderstate']) ? $data['orderstate'] : '');
-        $list = $this->getOrderstateList();
+        $value = $value ? $value : (isset($data['paystate']) ? $data['paystate'] : '');
+        $list = $this->getPaystateList();
         return isset($list[$value]) ? $list[$value] : '';
     }
 
 
+    public function getPaytimeTextAttr($value, $data)
+    {
+        $value = $value ? $value : (isset($data['paytime']) ? $data['paytime'] : '');
+        return is_numeric($value) ? date("Y-m-d H:i:s", $value) : $value;
+    }
+
+
+    public function getOrdertypeTextAttr($value, $data)
+    {        
+        $value = $value ? $value : (isset($data['ordertype']) ? $data['ordertype'] : '');
+        $list = $this->getOrdertypeList();
+        return isset($list[$value]) ? $list[$value] : '';
+    }
+
+
+    public function getIsdealTextAttr($value, $data)
+    {        
+        $value = $value ? $value : (isset($data['isdeal']) ? $data['isdeal'] : '');
+        $list = $this->getIsdealList();
+        return isset($list[$value]) ? $list[$value] : '';
+    }
+
+    protected function setPaytimeAttr($value)
+    {
+        return $value && !is_numeric($value) ? strtotime($value) : $value;
+    }
 
 
 }
