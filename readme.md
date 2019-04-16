@@ -7,5 +7,6 @@
  a. app端服务接口目录是api目录
  b. 公众号端在wap模块下
  c. admin管理后台基于fastadmin控制，在admin目录下
+ 
 3.其他
  项目正处于开发测试中,上线日期待定
