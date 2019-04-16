@@ -164,11 +164,11 @@ class BaseDataModel extends \think\Model
     {
           if($pageindex===0)
           {
-              return $this->alias('a')->join($join)->where($where)->field($field)->group($groupField)->order($orderule)->select();
+              return $this->alias('a')->join($join)->where($where)->field($field)->group($groupField)->order($orderule)->select()->toArray();
           }
         else
         {
-            return $this->alias('a')->join($join)->where($where)->field($field)->group($groupField)->order($orderule)->page($pageindex,$pagesize)->select();
+            return $this->alias('a')->join($join)->where($where)->field($field)->group($groupField)->order($orderule)->page($pageindex,$pagesize)->select()->toArray();
 
         }
     }

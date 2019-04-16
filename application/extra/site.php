@@ -27,6 +27,7 @@ return array (
     'peace' => 'Peace',
     'weixin' => 'Weixin',
     'alipay' => 'Alipay',
+    'app' => 'App',
   ),
   'mail_type' => '1',
   'mail_smtp_host' => 'smtp.qq.com',
@@ -60,4 +61,8 @@ return array (
   'ali_private_key' => 'MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCJXNTbWYklmPfJqRt8PlPpvpgAIx2FVWN5jpOYW3BFU0yZ88aQbY22ldMl5MMevXzZ6cy5R2r4mOvArOmiInmEDE2gFXJYd5kBqwPBaHrRSLOXaF7AnSuoxf+J2+0vhMQ1Ez1rnD6unsz024ip9bF83YfycAk3eni9b5S8Tj3AyUjlM73vKSBZe6g5kxaBWq+FnnAspdSbuoiYSgj0jKOCTz8cE/Layvot6zQtLZhoBHZLvCzZlvKj3aBNhvsh4xV4B/Ppm3p6H1FswkGquZrgjKMnWKYaYVOlGO6xiSWtWdsfLJeyPZvfj8mZI5Nkt3lI19Y6dRkfLYbiBzMMYsZZAgMBAAECggEAJ3vNm3dzGqGLqCW5xs7LpAaq/m8ZjzfqLgizmDnAXc0B2cberqku8OrEFMJa670f5Ct2M1O6Bdc+/NU3Gum58CDxNzCy+4b1LiuQGsoDc6DoLn9LrSYAZLT1LRVQajZJh9AN+Z6hzePLmh54fBIpgHDVIPTfUVkc16b5I9+BlKZbAY5lPAw8SAmJUY1+MxR31zRKpkzrYYjYDdqBfenadyDMIGkDTf7R4uXnvnT0gsH86PXSuEweZZEWDT6jbM0IOsRT8r+p9sfRCa/0D+n/SlYaPxWrhJCfSrnT9KndAbdGkeWtjqp3wbjZL2uVuLZ8jEesq1KCV0nkDoXWzlVdeQKBgQDJKeL+vSMXb4IjmIpDwFS0yPVEx4IjD5q92Nw2BT5j11G/c0d4jX/4qUMr0Ojen+R5XK7EqN1aXFa4O+NTjHhcOewXt3YRg1LL7G5uDgPjpeodG8T8nnLfFIlzqkPmFuxfEo+ABfLLBllSzVz9M4Z47QKaOe7kz6aBqjpfI9B9fwKBgQCuzp7nOWV0yLyzMwCeWEsOZFOxdijOu0bhkZjwXTMeah+sRWOm3Kk8zLYFa4+QVmaalj+OidV4nrl99QmYJ07g0XBuim3cHasDGkia5CK98BBKx1TJ4N9tXv9sC8jhm6Ro3z+TmuW0LATub01MScIs0DX6pmHe1cn/pABlSYRYJwKBgQCLwLfctdWdQHCu/hiAfSvb9QjAYcJ9TSf54KEMPpRblIlMcnAixlszi5QI6rf9giOeVM9t/MrbLe9pSuHhd2Ne3zawO1qhTBTHa1hEySPWkbuVwWcXAZVYedIMMyu8vAw2+JQNIxTMC3se1WFW3ub7N91o+/qFp+VLi9HFqwH7TQKBgDevcGU+Hni2XY5ESAUpITfDc/nLJzK769d9dxfSyK7+pXpOXHFSR8Mrfyx42DHlpCfIhxSUCeGzxmk+fsDufK0XatZ72IVPGiQR4mEdHYgeCkKX/wWUUfhYU8uKcYKU/ym9PFZ7+IKNp0CBSkFsGaQG67sd931x4zhBeTLK2ZLvAoGAGZ2arI5egn/lD6q6/rXBu/dsn8HkOuC3xosSWOtILjc9bkUycYXAxlM8TemyYLoUIFKtIVue+dsQFxspvZ2WtszRFEcH7A6UdSevLawJOW7fObSW6wgNJkAN921RGJkQhRnmFtdiRDZoclWVMKOZRZtadLGRCjwXgZ3yeXfOmYM=',
   'ali_appid' => '2019040163752270',
   'official_app_id' => 'wxc4a80eccc9d578b7',
+  'jpush_appkey' => 'fb38ca8a89d253c642865bd9',
+  'jpush_appsecret' => '951cb8a08c469bc329c15c26',
+  'push_gap_second' => '43200',
+  'encrypt_key' => '3errrrewq11',
 );

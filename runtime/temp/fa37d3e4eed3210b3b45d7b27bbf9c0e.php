@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"/www/wwwroot/didi.xlove99.top/public/../application/admin/view/dashboard/index.html";i:1554342289;s:72:"/www/wwwroot/didi.xlove99.top/application/admin/view/layout/default.html";i:1547349021;s:69:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/meta.html";i:1547349021;s:71:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/script.html";i:1547349021;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"/www/wwwroot/didi.xlove99.top/public/../application/admin/view/dashboard/index.html";i:1555297395;s:72:"/www/wwwroot/didi.xlove99.top/application/admin/view/layout/default.html";i:1547349021;s:69:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/meta.html";i:1547349021;s:71:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/script.html";i:1547349021;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -203,10 +203,19 @@
                     </div>
                     <div class="col-sm-3 col-xs-6">
                         <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-violet"><i class="fa fa-book"></i></span>
+                            <span class="sm-st-icon st-violet"><i class="fa fa-leanpub"></i></span>
                             <div class="sm-st-info">
-                                <span><?php echo $totalviews; ?></span>
-                                <?php echo __('Total view'); ?>
+                                <span><?php echo $totalpub; ?></span>
+                                <?php echo __('Total publish'); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="sm-st clearfix">
+                            <span class="sm-st-icon st-green"><i class="fa fa-linkedin"></i></span>
+                            <div class="sm-st-info">
+                                <span><?php echo $totaljoin; ?></span>
+                                <?php echo __('Total join'); ?>
                             </div>
                         </div>
                     </div>
@@ -271,8 +280,8 @@
                                     <div class="col-xs-6  stat-col">
                                         <div class="stat-icon"> <i class="fa fa-users"></i> </div>
                                         <div class="stat">
-                                            <div class="value"> <?php echo $unsettleorder; ?> </div>
-                                            <div class="name"> <?php echo __('Unsettle order'); ?> </div>
+                                            <div class="value"> <?php echo $unpayorder; ?> </div>
+                                            <div class="name"> <?php echo __('Unpay order'); ?> </div>
                                         </div>
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-success" style="width: 25%"></div>
@@ -304,88 +313,88 @@
                     </div>
                 </div>
 
-                <div class="row" style="margin-top:15px;">
+                <!--<div class="row" style="margin-top:15px;">-->
 
-                    <div class="col-lg-12">
-                    </div>
-                    <div class="col-xs-6 col-md-3">
-                        <div class="panel bg-blue">
-                            <div class="panel-body">
-                                <div class="panel-title">
-                                    <span class="label label-success pull-right"><?php echo __('Real time'); ?></span>
-                                    <h5><?php echo __('Category count'); ?></h5>
-                                </div>
-                                <div class="panel-content">
-                                    <h1 class="no-margins">1234</h1>
-                                    <div class="stat-percent font-bold text-gray"><i class="fa fa-commenting"></i> 1234</div>
-                                    <small><?php echo __('Category count tips'); ?></small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-md-3">
-                        <div class="panel bg-aqua-gradient">
-                            <div class="panel-body">
-                                <div class="ibox-title">
-                                    <span class="label label-info pull-right"><?php echo __('Real time'); ?></span>
-                                    <h5><?php echo __('Attachment count'); ?></h5>
-                                </div>
-                                <div class="ibox-content">
-                                    <h1 class="no-margins">1043</h1>
-                                    <div class="stat-percent font-bold text-gray"><i class="fa fa-modx"></i> 2592</div>
-                                    <small><?php echo __('Attachment count tips'); ?></small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!--<div class="col-lg-12">-->
+                    <!--</div>-->
+                    <!--<div class="col-xs-6 col-md-3">-->
+                        <!--<div class="panel bg-blue">-->
+                            <!--<div class="panel-body">-->
+                                <!--<div class="panel-title">-->
+                                    <!--<span class="label label-success pull-right"><?php echo __('Real time'); ?></span>-->
+                                    <!--<h5><?php echo __('Category count'); ?></h5>-->
+                                <!--</div>-->
+                                <!--<div class="panel-content">-->
+                                    <!--<h1 class="no-margins">1234</h1>-->
+                                    <!--<div class="stat-percent font-bold text-gray"><i class="fa fa-commenting"></i> 1234</div>-->
+                                    <!--<small><?php echo __('Category count tips'); ?></small>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-xs-6 col-md-3">-->
+                        <!--<div class="panel bg-aqua-gradient">-->
+                            <!--<div class="panel-body">-->
+                                <!--<div class="ibox-title">-->
+                                    <!--<span class="label label-info pull-right"><?php echo __('Real time'); ?></span>-->
+                                    <!--<h5><?php echo __('Attachment count'); ?></h5>-->
+                                <!--</div>-->
+                                <!--<div class="ibox-content">-->
+                                    <!--<h1 class="no-margins">1043</h1>-->
+                                    <!--<div class="stat-percent font-bold text-gray"><i class="fa fa-modx"></i> 2592</div>-->
+                                    <!--<small><?php echo __('Attachment count tips'); ?></small>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                    <div class="col-xs-6 col-md-3">
-                        <div class="panel bg-purple-gradient">
-                            <div class="panel-body">
-                                <div class="ibox-title">
-                                    <span class="label label-primary pull-right"><?php echo __('Real time'); ?></span>
-                                    <h5><?php echo __('Article count'); ?></h5>
-                                </div>
-                                <div class="ibox-content">
+                    <!--<div class="col-xs-6 col-md-3">-->
+                        <!--<div class="panel bg-purple-gradient">-->
+                            <!--<div class="panel-body">-->
+                                <!--<div class="ibox-title">-->
+                                    <!--<span class="label label-primary pull-right"><?php echo __('Real time'); ?></span>-->
+                                    <!--<h5><?php echo __('Article count'); ?></h5>-->
+                                <!--</div>-->
+                                <!--<div class="ibox-content">-->
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <h1 class="no-margins">1234</h1>
-                                            <div class="font-bold"><i class="fa fa-commenting"></i> <small><?php echo __('Comment count'); ?></small></div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <h1 class="no-margins">6754</h1>
-                                            <div class="font-bold"><i class="fa fa-heart"></i> <small><?php echo __('Like count'); ?></small></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-md-3">
-                        <div class="panel bg-green-gradient">
-                            <div class="panel-body">
-                                <div class="ibox-title">
-                                    <span class="label label-primary pull-right"><?php echo __('Real time'); ?></span>
-                                    <h5><?php echo __('News count'); ?></h5>
-                                </div>
-                                <div class="ibox-content">
+                                    <!--<div class="row">-->
+                                        <!--<div class="col-md-6">-->
+                                            <!--<h1 class="no-margins">1234</h1>-->
+                                            <!--<div class="font-bold"><i class="fa fa-commenting"></i> <small><?php echo __('Comment count'); ?></small></div>-->
+                                        <!--</div>-->
+                                        <!--<div class="col-md-6">-->
+                                            <!--<h1 class="no-margins">6754</h1>-->
+                                            <!--<div class="font-bold"><i class="fa fa-heart"></i> <small><?php echo __('Like count'); ?></small></div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-xs-6 col-md-3">-->
+                        <!--<div class="panel bg-green-gradient">-->
+                            <!--<div class="panel-body">-->
+                                <!--<div class="ibox-title">-->
+                                    <!--<span class="label label-primary pull-right"><?php echo __('Real time'); ?></span>-->
+                                    <!--<h5><?php echo __('News count'); ?></h5>-->
+                                <!--</div>-->
+                                <!--<div class="ibox-content">-->
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <h1 class="no-margins">5302</h1>
-                                            <div class="font-bold"><i class="fa fa-commenting"></i> <small><?php echo __('Comment count'); ?></small></div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <h1 class="no-margins">8205</h1>
-                                            <div class="font-bold"><i class="fa fa-user"></i> <small><?php echo __('Like count'); ?></small></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                    <!--<div class="row">-->
+                                        <!--<div class="col-md-6">-->
+                                            <!--<h1 class="no-margins">5302</h1>-->
+                                            <!--<div class="font-bold"><i class="fa fa-commenting"></i> <small><?php echo __('Comment count'); ?></small></div>-->
+                                        <!--</div>-->
+                                        <!--<div class="col-md-6">-->
+                                            <!--<h1 class="no-margins">8205</h1>-->
+                                            <!--<div class="font-bold"><i class="fa fa-user"></i> <small><?php echo __('Like count'); ?></small></div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
 
                 <!--如果需要删除最新新闻和最新发贴，删除HTML后还需要删除dashboard.js中的代码-->
                 <div class="row">

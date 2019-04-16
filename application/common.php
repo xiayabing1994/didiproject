@@ -24,7 +24,46 @@ if (!function_exists('__')) {
     }
 
 }
+if (!function_exists('build_radios')) {
 
+    /**
+     * 生成单选按钮组
+     * @param string $name
+     * @param array $list
+     * @param mixed $selected
+     * @return string
+     */
+    function build_radios($name, $list = [], $selected = null)
+    {
+        $html = [];
+        $selected = is_null($selected) ? key($list) : $selected;
+        $selected = is_array($selected) ? $selected : explode(',', $selected);
+        foreach ($list as $k => $v) {
+            $html[] = sprintf(Form::label("{$name}-{$k}", "%s {$v}"), Form::radio($name, $k, in_array($k, $selected), ['id' => "{$name}-{$k}"]));
+        }
+        return '<div class="radio">' . implode(' ', $html) . '</div>';
+    }
+}
+if (!function_exists('build_checkboxs')) {
+
+    /**
+     * 生成复选按钮组
+     * @param string $name
+     * @param array $list
+     * @param mixed $selected
+     * @return string
+     */
+    function build_checkboxs($name, $list = [], $selected = null)
+    {
+        $html = [];
+        $selected = is_null($selected) ? [] : $selected;
+        $selected = is_array($selected) ? $selected : explode(',', $selected);
+        foreach ($list as $k => $v) {
+            $html[] = sprintf(Form::label("{$name}-{$k}", "%s {$v}"), Form::checkbox($name, $k, in_array($k, $selected), ['id' => "{$name}-{$k}"]));
+        }
+        return '<div class="checkbox">' . implode(' ', $html) . '</div>';
+    }
+}
 if (!function_exists('format_bytes')) {
 
     /**
@@ -371,8 +410,9 @@ if(!function_exists('deal_distance')){
 }
 if(!function_exists('load_config')){
     function load_config($group=''){
-       $config=new app\wap\model\Config;
-       return $config->getConfig($group);
+       $config=model('\app\common\model\Config')->getConfig();
+       if($group!='') return $config[$group];
+       return $config;
     }
 }
 if(!function_exists('explain_ordertype')){
@@ -428,5 +468,21 @@ if(!function_exists('unique_multidim_array')){
             $i++;
         }
         return $temp_array;
+    }
+}
+if(!function_exists('get_client_ip')){
+    //获取客户端IP
+    function get_client_ip() {
+        if (getenv ( "HTTP_CLIENT_IP" ) && strcasecmp ( getenv ( "HTTP_CLIENT_IP" ), "unknown" ))
+            $ip = getenv ( "HTTP_CLIENT_IP" );
+        else if (getenv ( "HTTP_X_FORWARDED_FOR" ) && strcasecmp ( getenv ( "HTTP_X_FORWARDED_FOR" ), "unknown" ))
+            $ip = getenv ( "HTTP_X_FORWARDED_FOR" );
+        else if (getenv ( "REMOTE_ADDR" ) && strcasecmp ( getenv ( "REMOTE_ADDR" ), "unknown" ))
+            $ip = getenv ( "REMOTE_ADDR" );
+        else if (isset ( $_SERVER ['REMOTE_ADDR'] ) && $_SERVER ['REMOTE_ADDR'] && strcasecmp ( $_SERVER ['REMOTE_ADDR'], "unknown" ))
+            $ip = $_SERVER ['REMOTE_ADDR'];
+        else
+            $ip = "unknown";
+        return ($ip);
     }
 }

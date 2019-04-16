@@ -47,7 +47,7 @@ class Porder
         $porderId = $this->_request->param('porderid');
         $pcode = $this->_request->param('pcode');
         $pnuminfo=$this->_porderlogic->getPnumInfo($pcode);
-        if(!empty($pcode) && !empty($pnuminfo)){
+        if(!empty($pcode) && empty($pnuminfo)){
             return json(['errcode'=>3,'msg'=>'邀请码填写错误']);
         }
         if($res=$this->_porderlogic->joinPorders($userid,$landid,$pesticide,$porderId,$pcode,$pnuminfo['userid'])){
@@ -82,7 +82,7 @@ class Porder
         $userid = $this->_request->param('userid');
         $landid = $this->_request->param('landid');
         $keyword = $this->_request->param('keyword');
-        $distance = $this->_request->param('distance',10000000);
+        $distance = $this->_request->param('distance',1000000000);
         $pageIndex=$this->_request->param('pageindex',1);
         $pageSize=$this->_request->param('pagesize',5);
         $data=$this->_porderlogic->getAroundOrder($userid,$landid,$keyword,$distance,$pageIndex,$pageSize);

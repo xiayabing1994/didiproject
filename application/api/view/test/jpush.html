@@ -1,0 +1,103 @@
+<form id="add-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="" accept-charset="UTF-8">
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Title')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-title" class="form-control form-control" name="row[title]" type="text">
+        </div>
+    </div>
+    <div class="form-group" id="push_content" >
+        <label class="control-label col-xs-12 col-sm-2">{:__('Push_content')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea id="c-push_content" class="form-control " name="row[push_content]" data-rule="required"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group" id="platform">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Platform')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_radios('row[platform]',['全部','IOS','Android'])}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">推送应用:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_checkboxs('row[app]',$appList,$select)}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Target_population')}:</label>
+        <div class="col-xs-12 col-sm-8" id="range">
+            {:build_radios('row[target_population]',['全部用户','指定用户'])}
+        </div>
+    </div>
+
+    <div class="form-group" id="appoint_people" style="display: none;">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Appoint_people')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-appoint_people" name="row[appoint_people]" data-source="platform/Jpushlog/selectpage" data-pagination="true" data-page-size="10" data-multiple="true" class="form-control selectpage form-control" >
+        </div>
+    </div>
+
+    <!--<div class="form-group">-->
+    <!--<label class="control-label col-xs-12 col-sm-2">{:__('Follow_upaction')}:</label>-->
+    <!--<div class="col-xs-12 col-sm-8">-->
+    <!--{:build_radios('row[follow_upaction]',['打开应用','应用内打开链接','打开指定页面','打开书籍','应用外打开链接'])}-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_radios('row[type]', ['打开应用','商品详情','webview','safari','联系导师'])}
+        </div>
+    </div>
+
+    <div class="form-group" id="url" style="display: none">
+        <label class="control-label col-xs-12 col-sm-2">跳转链接:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-url" class="form-control" name="row[url]" >
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Uniform_speed')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_radios('row[uniform_speed]',['否','是'])}
+        </div>
+    </div>
+
+    <div class="form-group" id="minute" style="display: none">
+        <label class="control-label col-xs-12 col-sm-2">匀速推送时间(分钟):</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-minute" class="form-control" name="row[minute]" data-rule="integer" >
+        </div>
+    </div>
+
+    <div class="form-group" id="push_time">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Push_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_radios('row[push_time]',['立即','定时'])}
+        </div>
+    </div>
+
+    <div class="form-group" id="fixed_time" style="display: none;">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Fixed_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-fixed_time" class="form-control datetimepicker"  name="row[fixed_time]" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Desc')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-desc" class="form-control form-control" name="row[desc]" type="text">
+        </div>
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

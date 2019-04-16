@@ -17,6 +17,7 @@ class Pordernum extends Backend
      * @var \app\admin\model\Pordernum
      */
     protected $model = null;
+    protected $relationSearch = true;
 
     public function _initialize()
     {
@@ -31,6 +32,26 @@ class Pordernum extends Backend
      * 因此在当前控制器中可不用编写增删改查的代码,除非需要自己控制这部分逻辑
      * 需要将application/admin/library/traits/Backend.php中对应的方法复制到当前控制器,然后进行修改
      */
-    
+    public function index()
+    {
+        if ($this->request->isAjax())
+        {
+            list($where, $sort, $order, $offset, $limit) = $this->buildparams();
+            $total = $this->model
+                ->with(["user"])
+                ->where($where)
+                ->order($sort, $order)
+                ->count();
+            $list = $this->model
+                ->with(["user"])
+                ->where($where)
+                ->order($sort, $order)
+                ->limit($offset, $limit)
+                ->select();
+            $result = array("total" => $total, "rows" => $list);
+            return json($result);
+        }
+        return $this->view->fetch();
+    }
 
 }

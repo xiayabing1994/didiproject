@@ -3,7 +3,7 @@
 namespace app\common\model;
 
 use think\Model;
-
+use think\Cache;
 /**
  * 配置模型
  */
@@ -154,5 +154,16 @@ class Config extends Model
         ];
         return $upload;
     }
-
+    public function getConfig(){
+        $Rds=Cache::store('redis');
+        if($res=$Rds->get('sys_config')) return json_decode($res,1);
+        $fields='id,name,group,value';
+        $res=[];
+        $configs=$this->field($fields)->select();
+        foreach($configs as $config){
+            $res[$config['group']][$config['name']]=trim($config['value']);
+        }
+        $Rds->set('sys_config',json_encode($res));
+        return $res;
+    }
 }

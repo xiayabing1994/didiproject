@@ -11,7 +11,7 @@ class Profitlogic{
      * 订单完成或尾款完成时
      */
     public function dealAllProfit($porderid){
-        $peace_conf=load_config('peace');
+        $distribute_rate=load_config('peace')['land_distribute_rate'];
         $allInfo=Db::name('pordernum')
             ->alias('a')
             ->field('a.id as childpnumid,a.userid as childid,b.id as pnumid,b.userid as parentid')
@@ -27,8 +27,8 @@ class Profitlogic{
                 'userid'=>$info['parentid'],
                 'addtime'=>date("Y-m-d H:i:s"),
                 'type'=>'earn',
-                'money'=>$peace_conf['land_distribute_rate']*(Db::name('order')
-                    ->where(['pordernumid'=>$info['pnumid']])
+                'money'=>$distribute_rate*(Db::name('order')
+                    ->where(['pordernumid'=>$info['pnumid'],'paystate'=>1])
                     ->sum('money')),
             ];
             dump($profit_arr);

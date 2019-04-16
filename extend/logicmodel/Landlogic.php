@@ -14,13 +14,8 @@ class Landlogic
         $this->_land = new \datamodel\Land();
     }
 
-    /**农户添加土地
-     * @param $name string 土地名称
-     * @param $area string 土地面积
-     * @param $point string 坐标点
-     * @param $userid int 用户id
-     * @return array
-     * @throws \think\Exception
+    /**
+     * 农户添加土地
      */
     public function addLandInfo($name,$area,$point,$userid,$centerX,$centerY,$perimeter,$landarea)
     {
@@ -36,10 +31,8 @@ class Landlogic
             }
     }
 
-    /**农户添加的地块
-     * @param $userid
-     * @return array
-     * @throws \think\Exception
+    /**
+     * 获取土地列表
      */
     public function userLands($userid)
     {
@@ -54,7 +47,10 @@ class Landlogic
     }
     public function getLandInfo($landid){
         $landid=strval($landid);
-        $res=db('land')->where("id in ({$landid})")->field(['name','area','id','state','point','landarea','perimeter'])->select();
+        $res=$this->_land
+            ->where("id in ({$landid})")
+            ->field(['name','area','id','state','point','landarea','perimeter'])
+            ->select();
 //        $res= $this->_land->queryEntity(["id"=>[ "in", "({$landid})"]],['name','area','id','state','point','landarea','perimeter']);
         return $res;
     }

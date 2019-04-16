@@ -3,7 +3,7 @@
 namespace app\admin\model;
 
 use think\Model;
-
+use think\Db;
 class User extends Model
 {
     // 表名
@@ -77,7 +77,18 @@ class User extends Model
         $list = $this->getLoginTypeList();
         return isset($list[$value]) ? $list[$value] : '';
     }
-
+    public function getTotalUsers(){
+        $today=date('Y-m-d');
+        $sevenDay=date('Y-m-d',strtotime('-7 day'));
+        $res= [
+            'totaluser'=>Db::name('user')->count(),
+            'todayusersignup'=>Db::name('user')->where('addtime','>',$today)->count(),
+            'todayuserlogin'=>Db::name('user')->where('last_login_time','>',$today)->count(),
+        ];
+        $res['sevendnu']=round(Db::name('user')->where('addtime','>',$sevenDay)->count()/$res['totaluser'],2);
+        $res['sevendau']=round(Db::name('user')->where('last_login_time','>',$sevenDay)->count()/$res['totaluser'],2);
+        return $res;
+    }
 
 
 

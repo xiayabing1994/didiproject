@@ -30,8 +30,18 @@ use think\Db;
 
         }
 
-        public function getPorderInfo($pid){
+        public function getPorderInfo($pid,$userid=0){
             $res=$this->_porder->queryfind(['id'=>$pid],['*']);
+            $ori_price=load_config('peace')['land_unit_price'];
+            if($userid!=0){
+                $where=['userid'=>$userid,'porderid'=>$pid,'state'=>['>',1]];
+                $pnum_info=$this->_pordernum->queryfind($where,['userid,landid,pesticide,pid,area,state,code,superior_code']);
+                $res['isleader']=$res['userid']==$userid ? 1 : 0 ;
+                $res['isjoin']=empty($pnum_info) ? 0 : 1 ;
+                $res['joininfo']=$pnum_info;
+                $res['leader_name']=model('\logicmodel\Personal')->getUserInfo($res['userid'])['result']['nickname'];
+                $res['ori_price']=$ori_price;
+            }
             $res['landsinfo']=$this->getLandsInfo($pid);
             return $res;
         }
@@ -54,9 +64,8 @@ use think\Db;
         {
             //如果lands为空则根据发布时间顺序获取拼单列表  如果不为空则获取distance附近的拼单
             $where=['p.state'=>'1','p.pname'=>['like',"%$keyword%"]];
-            $ori_price=load_config('peace')['land_unit_price'];
             if(empty($lands)){
-                $porders=db('porder')
+                $arr=db('porder')
                     ->alias('p')
                     ->where($where)
                     ->order('addtime desc')
@@ -79,22 +88,24 @@ use think\Db;
                     $a=\tybservice\Distance::getDistance($centerX,$centerY,$landInfo['centerX'],$landInfo['centerY']);
                     if($a<=$distance){
                         $v['distance']=$a;
-                        $v['ori_price']=$ori_price;
                         $arr[]=$v;
                     }
                 }
+                $arr=unique_multidim_array($arr,'id');
+                array_multisort(array_column($arr,'distance'),SORT_ASC,$arr);
                 Log::info($arr);
             }
             if(empty($arr)) return [];
             foreach($arr as $k=>$v){
-                $count=db('pordernum')->where(['userid'=>$userid,'porderid'=>$v['id']])->count();
-                $arr[$k]['isleader']=$v['userid']==$userid ? 1 : 0 ;
-                $arr[$k]['isjoin']=$count;
-                $arr[$k]['leader_name']=model('\logicmodel\Personal')->getUserInfo($v['userid'])['result']['nickname'];
-                $arr[$k]['lands_info']=$this->getLandsInfo($v['id']);
+                $arr[$k]=array_merge($this->getPorderInfo($v['id'],$userid),$v);
+//                $count=db('pordernum')->where(['userid'=>$userid,'porderid'=>$v['id']])->count();
+//                $arr[$k]['isleader']=$v['userid']==$userid ? 1 : 0 ;
+//                $arr[$k]['isjoin']=$count;
+//                $arr[$k]['leader_name']=model('\logicmodel\Personal')->getUserInfo($v['userid'])['result']['nickname'];
+//                $arr[$k]['lands_info']=$this->getLandsInfo($v['id']);
+//                $arr[$k]['ori_price']=$ori_price;
+
             }
-            $arr=unique_multidim_array($arr,'id');
-            array_multisort(array_column($arr,'distance'),SORT_ASC,$arr);
             return $arr;
         }
 
@@ -185,7 +196,9 @@ use think\Db;
             $land_upd_arr=['state'=>0];
             $lands=$this->_pordernum->queryEntity(['porderid'=>$id],['landid']);
             $landstr='';
-            foreach($lands as $land){
+            $profitModel=new \logicmodel\Profitlogic;
+            $pushModel=new \logicmodel\Jpushlogic();
+             foreach($lands as $land){
                 $landstr.=$land['landid'].',';
             }
             $landstr=rtrim($landstr,',');
@@ -196,7 +209,7 @@ use think\Db;
                  Db::name('pordernum')->where('porderid',$id)->update($pnum_upd_arr);
                  // 提交事务
                  Db::commit();
-                 $profitModel=new \logicmodel\Profitlogic;
+                 $pushModel->finishPush($id);
                  if($profitModel->dealAllProfit($id))    return true;
                  return false;
              } catch (\Exception $e) {
@@ -228,13 +241,21 @@ use think\Db;
       * 获取某个拼单下的所有土地信息
       */
          public  function getLandsInfo($porderid){
-            $str='';
-            $landids=$this->_pordernum->queryEntity(['porderid'=>$porderid],['landid']);
+             $lands=[];
+             $land_str='';
+            $pes_str='';
+            $landids=$this->_pordernum->queryEntity(['porderid'=>$porderid,'state'=>['>',1]],['landid,pesticide']);
+            if(empty($landids)) return [];
             foreach($landids as $land){
-                $str.=$land['landid'].',';
+                $land_str.=$land['landid'].',';
+                $pes_str.=$land['pesticide'].',';
             }
-            rtrim($str,',');
-            $lands=$this->_land->queryEntity(["id"=>['in', $str]],['*']);
+            $land_arr=explode(',',rtrim($land_str,','));
+            $pes_arr=explode(',',rtrim($pes_str,','));
+            foreach($land_arr as $k=>$v){
+                $lands[$k]=$this->_land->queryfind(['id'=>$v],['*']);
+                $lands[$k]['pesticide']=$this->_pesticide->queryfind(['id'=>$pes_arr[$k]],['name'])['name'];
+            }
             return $lands;
          }
      /**

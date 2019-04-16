@@ -15,7 +15,6 @@ class Porder extends Model
     // 定义时间戳字段名
     protected $createTime = false;
     protected $updateTime = false;
-    
     // 追加属性
     protected $append = [
         'isleader_text',
@@ -49,8 +48,16 @@ class Porder extends Model
         $list = $this->getStateList();
         return isset($list[$value]) ? $list[$value] : '';
     }
-
-
+    public function user()
+    {
+        $user=$this->belongsTo('User', 'userid')->setEagerlyType(0);
+        return $user;
+    }
+    public function getTotalPubs(){
+        return [
+            'totalpub'=>$this->count(),
+        ];
+    }
 
 
 }

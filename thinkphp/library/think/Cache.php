@@ -188,7 +188,12 @@ class Cache
 
         return self::init()->rm($name);
     }
+    public static function hset($key,$fields,$value='')
+    {
+        self::$writeTimes++;
 
+        return self::init()->hset($key,$fields,$value);
+    }
     /**
      * 清除缓存
      * @access public

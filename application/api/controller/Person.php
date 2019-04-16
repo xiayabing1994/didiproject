@@ -115,7 +115,7 @@ class Person
         if(empty($userid) || empty($porderid)){
             return json(['errcode'=>4,'msg'=>'参数错误']);
         }
-        if($res=$this->_personal->getPorderInfo($userid,$porderid)){
+        if($res=$this->_porderlogic->getPorderInfo($porderid,$userid)){
             return json(['errcode'=>0,'msg'=>'获取详情成功','result'=>$res]);
         }else{
             return json(['errcode'=>3,'msg'=>'暂无详情信息']);
@@ -127,6 +127,13 @@ class Person
             return json(['errcode'=>0,'msg'=>'获取个人订单信息成功','result'=>$res]);
         }
         return json(['errcode'=>2,'msg'=>'暂无信息']);
+    }
+    public function getFinalMoney(){
+        $p_id=$this->_request->param('p_id');
+        if(empty($p_id)){
+            return json(['errcode'=>4,'msg'=>'参数错误','data'=>$this->_request->param()]);
+        }
+        return json(['errcode'=>0,'msg'=>'应付尾款金额','result'=>$this->_pordernumlogic->getPorderMoney($p_id)]);
     }
     public function recordKeyword()
     {

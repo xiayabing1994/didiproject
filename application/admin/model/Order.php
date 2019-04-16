@@ -3,7 +3,7 @@
 namespace app\admin\model;
 
 use think\Model;
-
+use think\Db;
 class Order extends Model
 {
     // 表名
@@ -85,7 +85,22 @@ class Order extends Model
         $list = $this->getIsdealList();
         return isset($list[$value]) ? $list[$value] : '';
     }
+    public function user()
+    {
+        $user=$this->belongsTo('User', 'userid')->setEagerlyType(0);
+        return $user;
+    }
+    public function getTotalOrders(){
+        $today=strtotime(date('Y-m-d'));
+        $res=[
+            'totalorder'=>Db::name('order')->count(),
+            'totalorderamount'=>Db::name('order')->sum('money'),
+            'todayorder'=>Db::name('order')->where('createtime','>',$today)->count(),
+            'unpayorder'=>Db::name('order')->where('paystate','0')->count(),
 
+        ];
+        return $res;
+    }
     protected function setPaytimeAttr($value)
     {
         return $value && !is_numeric($value) ? strtotime($value) : $value;

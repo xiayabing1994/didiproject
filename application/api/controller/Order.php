@@ -80,7 +80,8 @@ class Order
      */
     public function alipay_notify(){
         $data=input('param.');
-        file_put_contents('./pay_log.txt',date('H:i:s').json_encode($data)."\r\n",FILE_APPEND);
+//        $data=json_decode('{"gmt_create":"2019-04-11 17:54:22","charset":"UTF-8","seller_email":"pay@chinafeifang.com","subject":"\u652f\u4ed8\u5c3e\u6b3e","sign":"cYLp4PIA1gX4sHXXY7gyA+0ir5O9O\/QZUNZe9APXZhFM3CMmFq5QvMZBuU2\/t1o8rHLbl9mHBtrZxarJsj8sclKiw5UcTSlGpXjgAbzIRFkoKV\/Fr6eWHTOcxYUCAY8QHyBpzJkcmoMR146QF+zear\/n5VKX46edrBns1GBtmq9bBUsblw7X2tYbtCpasj8LkGVCoFfbhujqqmOPKVl4giXNWFV5KyPP7JawuEf4LNNGdrTJGnAjm7Jko\/xdUZij+2eF8WyC7xVtKOR8UYjCD8029F\/0woduf\/JZSp+hj3gJ9+u1JDnD0syMsVY604Ga5gM4ticLF08CxZvtQTZMmA==","body":"\u652f\u4ed8\u5c3e\u6b3e","buyer_id":"2088612336985500","invoice_amount":"0.01","notify_id":"2019041100222175423085501012019584","fund_bill_list":"[{\"amount\":\"0.01\",\"fundChannel\":\"ALIPAYACCOUNT\"}]","notify_type":"trade_status_sync","trade_status":"TRADE_SUCCESS","receipt_amount":"0.01","app_id":"2019040163752270","buyer_pay_amount":"0.01","sign_type":"RSA2","seller_id":"2088431904301771","gmt_payment":"2019-04-11 17:54:23","notify_time":"2019-04-11 17:57:44","passback_params":"ali2019041117543089418","version":"1.0","out_trade_no":"ali2019041117543089418","total_amount":"0.01","trade_no":"2019041122001485501037525723","auth_app_id":"2019040163752270","buyer_logon_id":"155****1707","point_amount":"0.00"}',true);
+        file_put_contents('./pay_log.txt',date('H:i:s').'支付宝:'.json_encode($data)."\r\n",FILE_APPEND);
         $alipayModel=new \tybservice\TybAliPay();
         $verify=$alipayModel->checkSign($data);
         if($verify){
@@ -101,15 +102,15 @@ class Order
     public function weixin_notify(){
         $wx_config=model('app\wap\model\Weixin')->getWxConfig();
         $this->app = new Application($wx_config);
-        $data=input('param.');
-        file_put_contents('./pay_log.txt',date('H:i:s').json_encode($data)."\r\n",FILE_APPEND);
         $response = $this->app->payment->handleNotify(function($notify, $successful){
             // 使用通知里的 "微信支付订单号" 或者 "商户订单号" 去自己的数据库找到订单
+            file_put_contents('./pay_log.txt',date('H:i:s').'微信:'.json_encode($notify)."\r\n",FILE_APPEND);
             $orderinfo=[
-                'out_no'=>$notify['trade_no'],
-                'paymoney'=>$notify['total_fee'],
+                'out_no'=>$notify['transaction_id'],
+                'paymoney'=>$notify['total_fee']/100,
                 'order_no'=>$notify['out_trade_no'],
                 'state'=>$notify['result_code']=='SUCCESS' ? 1 : 4,
+                'pay_account'=>'',
             ];
             if($this->_orderlogic->dealOrder($orderinfo)) return 'success';
             return 'failed';

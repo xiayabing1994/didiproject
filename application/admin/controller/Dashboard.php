@@ -4,7 +4,6 @@ namespace app\admin\controller;
 
 use app\common\controller\Backend;
 use think\Config;
-
 /**
  * 控制台
  *
@@ -33,17 +32,22 @@ class Dashboard extends Backend
         Config::parse($addonComposerCfg, "json", "composer");
         $config = Config::get("composer");
         $addonVersion = isset($config['version']) ? $config['version'] : __('Unknown');
+        $totalUser=model('User')->getTotalUsers();
+        $totalOrder=model('Order')->getTotalOrders();
+        $totalPub=model('Porder')->getTotalPubs();
+        $totalJoin=model('Pordernum')->getTotalJoins();
         $this->view->assign([
-            'totaluser'        => 35200,
-            'totalviews'       => 219390,
-            'totalorder'       => 32143,
-            'totalorderamount' => 174800,
-            'todayuserlogin'   => 321,
-            'todayusersignup'  => 430,
-            'todayorder'       => 2324,
-            'unsettleorder'    => 132,
-            'sevendnu'         => '80%',
-            'sevendau'         => '32%',
+            'totaluser'        => $totalUser['totaluser'],
+            'todayuserlogin'   => $totalUser['todayuserlogin'],
+            'todayusersignup'  => $totalUser['todayusersignup'],
+            'sevendnu'         => ($totalUser['sevendnu']*100).'%',
+            'sevendau'         => ($totalUser['sevendau']*100).'%',
+            'totalorder'       => $totalOrder['totalorder'],
+            'totalorderamount' => $totalOrder['totalorderamount'],
+            'todayorder'       => $totalOrder['todayorder'],
+            'unpayorder'       => $totalOrder['unpayorder'],
+            'totalpub'         => $totalPub['totalpub'],
+            'totaljoin'        => $totalJoin['totaljoin'],
             'paylist'          => $paylist,
             'createlist'       => $createlist,
             'addonversion'       => $addonVersion,

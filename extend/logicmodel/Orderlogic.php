@@ -67,7 +67,7 @@ class Orderlogic
             if($state==2) $p_upd_arr['code']=$this->mkInviteCode($pay_order['pordernumid']);
             Db::startTrans();
             try{
-                Db::name('land')->where("id in ($pninfo[landid]) ")->update(['state'=>1]);
+                if($state==2) Db::name('land')->where("id in ($pninfo[landid]) ")->update(['state'=>1]);
                 Db::name('order')->where('order_no',$data['order_no'])->update($upd_arr);
                 Db::name('pordernum')->where('id',$pay_order['pordernumid'])->update($p_upd_arr);
                 // 提交事务

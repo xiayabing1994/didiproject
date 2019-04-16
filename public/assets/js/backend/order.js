@@ -27,7 +27,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'id', title: __('Id')},
                         {field: 'order_no', title: __('Order_no')},
                         {field: 'out_no', title: __('Out_no')},
-                        {field: 'userid', title: __('Userid')},
+                        {field: 'user.nickname', title: __('Userid')},
                         {field: 'money', title: __('Money'), operate:'BETWEEN'},
                         {field: 'paymoney', title: __('Paymoney'), operate:'BETWEEN'},
                         {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},

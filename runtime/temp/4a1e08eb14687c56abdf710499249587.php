@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:79:"/www/wwwroot/didi.xlove99.top/public/../application/admin/view/index/index.html";i:1547349021;s:69:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/meta.html";i:1547349021;s:71:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/header.html";i:1547349021;s:69:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/menu.html";i:1552031059;s:72:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/control.html";i:1547349021;s:71:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/script.html";i:1547349021;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:79:"/www/wwwroot/didi.xlove99.top/public/../application/admin/view/index/index.html";i:1547349021;s:69:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/meta.html";i:1547349021;s:71:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/header.html";i:1555407574;s:69:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/menu.html";i:1552031059;s:72:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/control.html";i:1547349021;s:71:"/www/wwwroot/didi.xlove99.top/application/admin/view/common/script.html";i:1547349021;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -76,6 +76,7 @@
                         <li><a href="javascript:;" data-type="content"><i class="fa fa-file-text"></i> <?php echo __('Wipe content cache'); ?></a></li>
                         <li><a href="javascript:;" data-type="template"><i class="fa fa-file-image-o"></i> <?php echo __('Wipe template cache'); ?></a></li>
                         <li><a href="javascript:;" data-type="addons"><i class="fa fa-rocket"></i> <?php echo __('Wipe addons cache'); ?></a></li>
+                        <li><a href="javascript:;" data-type="app"><i class="fa fa-rocket"></i> <?php echo __('清除数据缓存'); ?></a></li>
                     </ul>
                 </li>
 

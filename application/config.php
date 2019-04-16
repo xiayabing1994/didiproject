@@ -177,13 +177,24 @@ return [
     // +----------------------------------------------------------------------
     'cache'                  => [
         // 驱动方式
-        'type'   => 'File',
-        // 缓存保存目录
-        'path'   => CACHE_PATH,
-        // 缓存前缀
-        'prefix' => '',
-        // 缓存有效期 0表示永久缓存
-        'expire' => 0,
+        'type'   => 'complex',
+        'default'=>[
+            'type'=>'redis',
+        ],
+        'file'=>[
+            'type'=>'File',
+            'path'=>CACHE_PATH,
+            'prefix'=>'didi:',
+            'expire'=>0,
+        ],
+        'redis'=>[
+            'type'=>'redis',
+            'host'=>'127.0.0.1',
+            'port'=>'6379',
+            'password'=>'',
+            'prefix'=>'didi:',
+            'expire'=>3600,
+        ],
     ],
     // +----------------------------------------------------------------------
     // | 会话设置
@@ -193,11 +204,12 @@ return [
         // SESSION_ID的提交变量,解决flash上传跨域
         'var_session_id' => '',
         // SESSION 前缀
-        'prefix'         => 'think',
+        'prefix'         => 'didi_',
         // 驱动方式 支持redis memcache memcached
         'type'           => '',
         // 是否自动开启 SESSION
         'auto_start'     => true,
+        'expire'=>20,
     ],
     // +----------------------------------------------------------------------
     // | Cookie设置

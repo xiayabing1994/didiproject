@@ -127,6 +127,35 @@ class Redis extends Driver
     }
 
     /**
+     * 哈希类型设置值
+     * @param $key          哈希类型键名
+     * @param $fields       哈希字段
+     * @param string $value 字段值
+     * @return array|bool|int array\int
+     */
+    public function hset($key,$fields,$value=''){
+        if(is_array($fields)){
+            foreach($fields as $k=>$v){
+                $result[]=$this->handler->hset($key, $k, $v);
+            }
+        }else{
+            $result = $this->handler->hset($key, $fields, $value);
+        }
+        return $result;
+    }
+    public function hget($key,$field=null){
+        if(is_null($field)){
+            $result=$this->handler->hgetall($key);
+        }else{
+            $result=$this->handler->hget($key,$field);
+        }
+        return $result;
+    }
+    public function hincrby($key,$field,$increment,$float=''){
+        if($float=='float') return $this->handler->hIncrByFloat($key,$field,$increment);
+        return $this->handler->hIncrBy($key,$field,$increment);
+    }
+    /**
      * 自增缓存（针对数值缓存）
      * @access public
      * @param  string    $name 缓存变量名
@@ -184,5 +213,4 @@ class Redis extends Driver
         }
         return $this->handler->flushDB();
     }
-
 }

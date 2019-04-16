@@ -14,38 +14,33 @@ class Login
         $this->_alluser = new \datamodel\User();
     }
 
-    /** 发送登陆验证码
-     * @param $mobile
-     * @param $appid
-     * @return mixed
-     */
-    public function sendLoginCode($mobile, $appid)
-    {
-        return $this->sendCode($mobile,$appid);
-    }
-
     /** 发送验证码
      * @param $mobile
      * @param $appid
      * @return array
      */
-    private function sendCode($mobile,$appid)
+    public  function sendSmsCode($mobile,$event='reg')
     {
 
-        if(TybValidator::isPhone($mobile)&&strlen($appid)>0) {
+        if(TybValidator::isPhone($mobile)) {
             $mcode = mt_rand(100000, 999999);
             $res = TybSendMessage::sendSMS($mobile, $mcode);
             \think\Log::info('短信接口调用结果为'.json_encode($res));
+            $insert_arr=['mobile'=>$mobile,'code'=>$mcode,'ip'=>get_client_ip(),'event'=>$event,'createtime'=>time()];
             if ($res['errcode'] === 0) {
-                Cache::set("{$appid}mcode", ['code' => $mcode, 'mobile' => $mobile], 300);
+                db('sms')->insert($insert_arr);
+                Cache::set("{$mobile}mcode", ['code' => $mcode, 'mobile' => $mobile], 300);
                 return ['errcode' => 0, 'msg' => '短信已发送'];
             } else {
+                $insert_arr['sendstate']='fail';
+                db('sms')->insert($insert_arr);
+                Cache::set("{$mobile}mcode", ['code' => $mcode, 'mobile' => $mobile], 300);
                 return ['errcode' => 2, 'msg' => '短信发送失败'];
             }
         }
         else
         {
-            return ['errcode'=>5,'msg'=>"手机号格式不正确或appid为空"];
+            return ['errcode'=>5,'msg'=>"手机号格式不正确"];
         }
     }
 
@@ -73,7 +68,7 @@ class Login
                     Log::info('用户信息错误'.json_encode($u));
                     if($u['jtoken']!=$jtoken)
                     {
-                        $this->_alluser->updateEntity(['id'=>$u['id']],['jtoken'=>$jtoken]);
+                        $this->_alluser->updateEntity(['id'=>$u['id']],['jtoken'=>$jtoken,'last_login_time'=>date('Y-m-d H:i:s')]);
                     }
                     $usersig=\tybservice\Tim::getSign($mobile);
                     return ['errcode'=>0,'msg'=>'登录成功','result'=>['res'=>$myuser,'usersig'=>$usersig]];
@@ -125,7 +120,7 @@ class Login
      */
     public function regUser($mobile,$code,$pwd,$appid,$jtoken)
     {
-        $mycode = Cache::get("{$appid}mcode");
+        $mycode = Cache::get("{$mobile}mcode");
         \think\Log::info('缓存中的验证码为：'.json_encode($mycode));
         if($mycode&&$mycode['code']==$code&&$mycode['mobile']==$mobile) {
         $u=$this->getUserByMobile($mobile);
@@ -184,7 +179,7 @@ class Login
             return ['errcode' => 1,'msg'=> '此手机号已经被注册，请更换手机号'];
 
         } else {
-            return $this->sendCode($mobile,$appid);
+            return $this->sendSmsCode($mobile,$appid);
         }
     }
 

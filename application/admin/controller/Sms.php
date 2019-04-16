@@ -22,7 +22,8 @@ class Sms extends Backend
     {
         parent::_initialize();
         $this->model = new \app\admin\model\Sms;
-
+        $this->view->assign("eventList", $this->model->getEventList());
+        $this->view->assign("sendstateList", $this->model->getSendstateList());
     }
     
     /**

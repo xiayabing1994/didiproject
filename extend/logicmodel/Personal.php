@@ -46,22 +46,13 @@ class Personal
      */
     public function getUserInfo($uid)
     {
+        $res=$this->_user->queryfind(['id'=>$uid],['profit,money,nickname,mobile,headimg,sex']);
+        if(empty($res)) return ['errcode'=>3,'msg'=>'用户不存在'];
+        $res['headimg']=get_img_url($res['headimg']);
+        $res['remainmoney']=$res['profit'];
         $orderCount=$this->_pordernum->querycount(['userid'=>$uid]);
-        $allearnings=$this->_user->queryfind(['id'=>$uid],['money'])['money'];
-        if($allearnings==0)
-        {
-            $remainMoney=0;
-        }else
-            {
-                $hasMoney=$this->_usemoney->getSum(['userid'=>$uid],'usemoney');
-                $remainMoney=bcsub($allearnings,$hasMoney,2);
-            }
-        $res=$this->_user->queryfind(['id'=>$uid],['*']);
-        $nickname=$res['nickname'];
-        $mobile=$res['mobile'];
-        $headimg=get_img_url($res['headimg']);
-        $sex=$res['sex'];
-        return ['errcode'=>0,'msg'=>'success','result'=>['ordercount'=>$orderCount,'remainmoney'=>$remainMoney,'nickname'=>$nickname,'mobile'=>$mobile,'headimg'=>$headimg,'sex'=>$sex]];
+        $res['ordercount']=$orderCount;
+        return ['errcode'=>0,'msg'=>'success','result'=>$res];
     }
     /**获取banner
      * @return array
@@ -118,16 +109,15 @@ class Personal
      */
     public function getEarningsList($userid)
     {
-        $res=$this->_earnings->queryEntity(['userid'=>$userid],['*']);
-        $sumEarnings=$this->_earnings->getSum(['userid'=>$userid],'money');
-        if(!$res)
+        $where=['userid'=>$userid,'iseffect'=>1];
+        $res=$this->_earnings->queryEntity($where,['*']);
+        $sumEarnings=$this->_earnings->getSum($where,'money');
+        if(!$res) return ['errcode'=>1,'msg'=>'您暂时没有收益'];
+        foreach ($res as $k=>$v)
         {
-            return ['errcode'=>1,'msg'=>'您暂时没有收益'];
-        }
-        foreach ($res as &$v)
-        {
-            $name = $this->_user->queryfind(['id'=>$userid],['name'])['name'];
-            $v['name']=$name;
+            $join=[['fa_porder p','p.id=a.porderid']];
+            $res[$k]['pname']=$this->_pordernum->queryRelation($join,['a.id'=>$v['pid']],['p.*'])[0]['pname'];
+            $res[$k]['type']=$v['type']=='earn' ? '分享收益' : '其他收益';
         }
         return ['errcode'=>0,'msg'=>'success','result'=>['res'=>$res,'sumearnings'=>$sumEarnings]];
     }
@@ -140,7 +130,7 @@ class Personal
     {
         if($ordertype=='crowd'){
             $where=['a.userid'=>$userid,'a.state'=>['>',1],'a.porderid'=>['>',0]];
-            $fields=['a.state as orderstate','a.code','p.id','p.state','p.pname','p.price as money','p.starttime','p.endtime','p.sumarea','a.landid','a.pesticide','a.area'];
+            $fields=['a.id as pnumid,a.state as orderstate','a.code','p.groupid','p.hasland as area','p.id','p.state','p.pname','p.price as money','p.starttime','p.endtime','p.sumarea','a.landid','a.pesticide'];
             $res = $this->_pordernum->queryRelation([['porder p','a.porderid = p.id','inner']],$where,$fields,'',['a.addtime desc']);
         }elseif($ordertype=='direct'){
             $where=['userid'=>$userid,'porderid'=>0];
@@ -177,15 +167,15 @@ class Personal
      */
     public function getPorderInfo($userid,$porderid)
     {
-        $porderInfo=model('\logicmodel\Porderlogic')->getPorderinfo($porderid);
-        if(empty($porderInfo)) return false;
-        $field=['userid,landid,pesticide,pid,area,state,code,superior_code'];
-        $pnum_info=$this->_pordernum->queryfind(['userid'=>$userid,'porderid'=>$porderid,'state'=>['>',1]],$field);
-        $leader=$porderInfo['userid']==$userid ? 1 : 0;
-        $isjoin=empty($pnum_info) ? 0 : 1;
-        $porderInfo['joininfo']=$pnum_info;
-        $porderInfo['isleader']=$leader;
-        $porderInfo['isjoin']=$isjoin;
+        $porderInfo=model('\logicmodel\Porderlogic')->getPorderinfo($porderid,$userid);
+//        if(empty($porderInfo)) return false;
+//        $field=['userid,landid,pesticide,pid,area,state,code,superior_code'];
+//        $pnum_info=$this->_pordernum->queryfind(['userid'=>$userid,'porderid'=>$porderid,'state'=>['>',1]],$field);
+//        $leader=$porderInfo['userid']==$userid ? 1 : 0;
+//        $isjoin=empty($pnum_info) ? 0 : 1;
+//        $porderInfo['joininfo']=$pnum_info;
+//        $porderInfo['isleader']=$leader;
+//        $porderInfo['isjoin']=$isjoin;
         return $porderInfo;
     }
 

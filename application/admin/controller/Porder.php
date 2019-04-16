@@ -17,6 +17,8 @@ class Porder extends Backend
      * @var \app\admin\model\Porder
      */
     protected $model = null;
+    protected $relationSearch = true;
+
 
     public function _initialize()
     {
@@ -39,4 +41,26 @@ class Porder extends Backend
         $this->view->assign('pid',$id);
         return $this->view->fetch();
     }
+    public function index()
+    {
+        if ($this->request->isAjax())
+        {
+            list($where, $sort, $order, $offset, $limit) = $this->buildparams();
+            $total = $this->model
+                ->with(["user"])
+                ->where($where)
+                ->order($sort, $order)
+                ->count();
+            $list = $this->model
+                ->with(["user"])
+                ->where($where)
+                ->order($sort, $order)
+                ->limit($offset, $limit)
+                ->select();
+            $result = array("total" => $total, "rows" => $list);
+            return json($result);
+        }
+        return $this->view->fetch();
+    }
+
 }

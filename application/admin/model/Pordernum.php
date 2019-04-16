@@ -49,8 +49,16 @@ class Pordernum extends Model
         $list = $this->getTypeList();
         return isset($list[$value]) ? $list[$value] : '';
     }
-
-
+    public function user()
+    {
+        $user=$this->belongsTo('User', 'userid')->setEagerlyType(0);
+        return $user;
+    }
+   public function getTotalJoins(){
+        return [
+            'totaljoin'=>$this->count(),
+        ];
+   }
 
 
 }

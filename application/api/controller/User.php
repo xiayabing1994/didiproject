@@ -23,10 +23,10 @@ class User
     /** 手机发送验证码
      * @return \think\response\Json
      */
-    public function sendlogincode()
+    public function sendCode()
     {
         $mobile = $this->_request->param('mobile');
-        return json($this->_userLogic->sendLoginCode($mobile,$this->_appid));
+        return json($this->_userLogic->sendSmsCode($mobile,'reg'));
     }
 
     /** app账号密码登录接口

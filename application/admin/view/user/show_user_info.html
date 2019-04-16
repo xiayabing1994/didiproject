@@ -1,0 +1,138 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-id" data-rule="required" class="form-control" name="row[id]" type="text" value="{$row.id}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Sex')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <select  id="c-sex" data-rule="required" class="form-control " name="sex">
+                {foreach name="sexList" item="vo"}
+                <option value="{$key}" {in name="key" value="$row.sex"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Mobile')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-mobile" data-rule="required" class="form-control" name="row[mobile]" type="text" value="{$row.mobile}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Nickname')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-nickname" data-rule="required" class="form-control" name="row[nickname]" type="text" value="{$row.nickname}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Headimg')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <img class="img-sm img-center" src="{$row.headimg}">
+            <!--<input id="c-headimg" data-rule="required" class="form-control" name="row[headimg]" type="text" value="{$row.headimg}">-->
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <select  id="c-type" data-rule="required" class="form-control" name="type">
+                {foreach name="typeList" item="vo"}
+                <option value="{$key}" {in name="key" value="$row.type"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Addtime')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-addtime" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[addtime]" type="text" value="{$row.addtime}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('State')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <div class="radio">
+                {foreach name="stateList" item="vo"}
+                <label for="row[state]-{$key}"><input id="row[state]-{$key}" name="row[state]" type="radio" value="{$key}" {in name="key" value="$row.state"}checked{/in} /> {$vo}</label>
+                {/foreach}
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Money')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-money" data-rule="required" class="form-control" name="row[money]" type="number" value="{$row.money}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Last_login_time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-last_login_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="row[last_login_time]" type="text" value="{$row.last_login_time}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Login_type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+
+            <select  id="c-login_type" data-rule="required" class="form-control " name="row[login_type]">
+                {foreach name="loginTypeList" item="vo"}
+                <option value="{$key}" {in name="key" value="$row.login_type"}selected{/in}>{$vo}</option>
+                {/foreach}
+            </select>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">{:__('Jtoken')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-jtoken" data-rule="required" class="form-control" name="row[jtoken]" type="text" value="{$row.jtoken}">
+        </div>
+    </div>
+    <!--<div class="form-group layer-footer">-->
+        <!--<label class="control-label col-xs-12 col-sm-2"></label>-->
+        <!--<div class="col-xs-12 col-sm-8">-->
+            <!--<button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>-->
+            <!--<button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>-->
+        <!--</div>-->
+    <!--</div>-->
+</form>
+拼单列表
+<table id="table" class="table table-striped table-bordered table-hover table-nowrap" data-operate-edit="1" data-operate-del="1" width="100%">
+    <tbody>
+    <tr>
+        <th style="text-align: center; vertical-align: middle; " data-field="id"><div class="th-inner ">业务id</div>
+            <div class="fht-cell"></div>
+        </th>
+        <th style="text-align: center; vertical-align: middle; " data-field="id"><div class="th-inner ">参与拼单名称</div>
+            <div class="fht-cell"></div>
+        </th>
+        <th style="text-align: center; vertical-align: middle; " data-field="id"><div class="th-inner ">参与土地信息</div>
+            <div class="fht-cell"></div>
+        </th>
+        <th style="text-align: center; vertical-align: middle; " data-field="id"><div class="th-inner ">状态</div>
+            <div class="fht-cell"></div>
+        </th>
+    </tr>
+    {volist name='joins' id='join'}
+    <tr data-index="0" class="selected">
+        <td style="text-align: center; vertical-align: middle; ">{$join.id}</td>
+        <td style="text-align: center; vertical-align: middle; ">{$join.pname}</td>
+        <td style="text-align: center; vertical-align: middle; ">
+            {volist name='join.landsinfo' id='land'}
+              {$land.name}-{$land.pes_name}<br>
+            {/volist}
+        </td>
+        <td style="text-align: center; vertical-align: middle; ">{:explain_state($join.orderstate)}</td>
+    </tr>
+    {/volist}
+    </tbody>
+</table>

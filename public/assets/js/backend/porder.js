@@ -25,17 +25,19 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                     [
                         {checkbox: true},
                         {field: 'id', title: __('Id')},
-                        {field: 'userid', title: __('Userid')},
+                        {field: 'user.id', title: __('Userid'),formatter: function(value){
+                                return "<a href='/admin/user/showuserinfo/userid/"+value+"' target='_self'>"+value+"</a>";
+                            }
+                        },
                         {field: 'sumarea', title: __('Sumarea'), operate:'BETWEEN'},
-                        {field: 'isleader', title: __('Isleader'), searchList: {"0":__('Isleader 0'),"1":__('Isleader 1')}, formatter: Table.api.formatter.normal},
-                        {field: 'state', title: __('State'), searchList: {"1":__('State 1'),"2":__('State 2'),"3":__('State 3'),"4":__('State 4')}, formatter: Table.api.formatter.normal},
+                        {field: 'hasland', title: __('Hasland'), operate:'BETWEEN'},
                         {field: 'pname', title: __('Pname')},
                         {field: 'starttime', title: __('Starttime'), operate:'RANGE', addclass:'datetimerange'},
                         {field: 'endtime', title: __('Endtime'), operate:'RANGE', addclass:'datetimerange'},
                         {field: 'addtime', title: __('Addtime'), operate:'RANGE', addclass:'datetimerange'},
                         {field: 'finishtime', title: __('Finishtime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
-                        {field: 'hasland', title: __('Hasland'), operate:'BETWEEN'},
                         {field: 'price', title: __('Price'), operate:'BETWEEN'},
+                        {field: 'state', title: __('State'), searchList: {"1":__('State 1'),"2":__('State 2'),"3":__('State 3'),"4":__('State 4')}, formatter: Table.api.formatter.normal},
                         {field: 'groupid', title: __('Groupid')},
                         {
                             field: 'buttons',
@@ -56,7 +58,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                                     },
                                     visible: function (row) {
                                         //返回true时按钮显示,返回false隐藏
-                                        return true;
+                                         return true;
                                     }
                                 },
                                 {
@@ -67,6 +69,11 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                                     icon: 'fa fa-circle-thin',
                                     url: '/api/porder/finish/id/{ids}',
                                     confirm: '确认完单',
+                                    visible: function (row) {
+                                        //返回true时按钮显示,返回false隐藏
+                                        if(row.state==3) return true;
+                                        return false;
+                                    },
                                     success: function (data, ret) {
                                         console.log(data, ret);
                                         alert(data);

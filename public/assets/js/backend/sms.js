@@ -25,12 +25,13 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                     [
                         {checkbox: true},
                         {field: 'id', title: __('Id')},
-                        {field: 'event', title: __('Event')},
+                        {field: 'event', title: __('Event'), searchList: {"bind":__('Event bind'),"reg":__('Event reg')}, formatter: Table.api.formatter.normal},
                         {field: 'mobile', title: __('Mobile')},
                         {field: 'code', title: __('Code')},
                         {field: 'times', title: __('Times')},
                         {field: 'ip', title: __('Ip')},
                         {field: 'createtime', title: __('Createtime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
+                        {field: 'sendstate', title: __('Sendstate'), searchList: {"success":__('Sendstate success'),"fail":__('Sendstate fail')}, formatter: Table.api.formatter.normal},
                         {field: 'operate', title: __('Operate'), table: table, events: Table.api.events.operate, formatter: Table.api.formatter.operate}
                     ]
                 ]

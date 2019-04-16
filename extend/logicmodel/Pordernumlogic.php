@@ -19,8 +19,8 @@ class Pordernumlogic
 
     public function getPorderNumInfo($pnumid)
     {
-        $field=[''];
         $pnuminfo=$this->_pordernum->queryfind(['id'=>$pnumid],['*']);
+        if(empty($pnuminfo)) return [];
         $pnuminfo['landinfo']=model('\logicmodel\Landlogic')->getLandInfo($pnuminfo['landid']);
         $pesticide=model('\datamodel\Pesticide')->queryEntity(['id'=>['in',$pnuminfo['pesticide']]],['*']);
         $pes_str='';
@@ -46,9 +46,8 @@ class Pordernumlogic
         $money=0;
         if($pinfo['porderid']>0){   //拼单的操作   分为1=付定金    2=付尾款
             $oinfo=db('porder')->where('id',$pinfo['porderid'])->field('hasland,price')->find();
-            $price=get_land_price($oinfo['hasland']);
             if($pinfo['state']==1) $money=$area*$pconf['land_unit_price']*$pconf['land_sub_rate'];
-            if($pinfo['state']==2) $money=$area*$price-$area*$pconf['land_unit_price']*$pconf['land_sub_rate'];
+            if($pinfo['state']==2) $money=$area*$oinfo['price']-$area*$pconf['land_unit_price']*$pconf['land_sub_rate'];
         }else{    //直接下单的操作  只有全部付款一项
             $money=$area*get_land_price($area);
         }

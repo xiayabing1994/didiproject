@@ -29,6 +29,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'sex', title: __('Sex'), searchList: {"0":__('Sex 0'),"1":__('Sex 1')}, formatter: Table.api.formatter.normal},
                         {field: 'mobile', title: __('Mobile')},
                         {field: 'nickname', title: __('Nickname')},
+                        {field:'headimg',title:__('Headimg'),formatter:Table.api.formatter.image},
                         {field: 'type', title: __('Type'), searchList: {"1":__('Type 1'),"2":__('Type 2'),"3":__('Type 3')}, formatter: Table.api.formatter.normal},
                         {field: 'addtime', title: __('Addtime'), operate:'RANGE', addclass:'datetimerange'},
                         {field: 'state', title: __('State'), searchList: {"0":__('State 0'),"1":__('State 1')}, formatter: Table.api.formatter.normal},

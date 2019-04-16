@@ -15,6 +15,7 @@ return [
     'Weixin'                      => '微信配置',
     'Alipay'                      => '支付宝配置',
     'Weixinmp'                    => '公众号配置',
+    'App'                         => 'app配置',
     'User'                        => '会员配置',
     'Example'                     => '示例分组',
     'Extend'                      => '扩展属性',

@@ -1,0 +1,74 @@
+[ 2019-04-13T15:27:22+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000207s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-13T15:27:22+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-13T15:27:22+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.005329s ]
+[ 2019-04-13T15:27:22+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.005435s ]
+[ 2019-04-13T15:27:22+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000819s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'push_log' [ RunTime:0.000591s ]
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_push_log' [ RunTime:0.000557s ]
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'didi_project' AND table_name = 'fa_push_log' ORDER BY ORDINAL_POSITION [ RunTime:0.001039s ]
+[ 2019-04-13T15:27:22+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000194s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-13T15:27:22+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-13T15:27:22+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.005360s ]
+[ 2019-04-13T15:27:22+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.005453s ]
+[ 2019-04-13T15:27:22+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-13T15:27:22+08:00 ][ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/application/admin/lang/zh-cn.php
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000660s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.001032s ]
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] SELECT * FROM `fa_auth_rule` WHERE  `name` = 'push' LIMIT 1 [ RunTime:0.000481s ]
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`pid` , `name` , `title` , `icon` , `remark` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (0 , 'push' , 'push' , 'fa fa-list' , '' , 1 , 'normal' , 1555140442 , 1555140442) [ RunTime:0.010797s ]
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] SELECT * FROM `fa_auth_rule` WHERE  `name` = 'push/log' LIMIT 1 [ RunTime:0.000539s ]
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`pid` , `name` , `title` , `icon` , `remark` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (338 , 'push/log' , 'Log' , 'fa fa-circle-o' , '' , 1 , 'normal' , 1555140442 , 1555140442) [ RunTime:0.004362s ]
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'push/log/index' LIMIT 1 [ RunTime:0.000353s ]
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'push/log/add' LIMIT 1 [ RunTime:0.000289s ]
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'push/log/edit' LIMIT 1 [ RunTime:0.000272s ]
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'push/log/del' LIMIT 1 [ RunTime:0.000283s ]
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'push/log/multi' LIMIT 1 [ RunTime:0.000268s ]
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`id` , `pid` , `name` , `icon` , `title` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (NULL , 339 , 'push/log/index' , 'fa fa-circle-o' , '查看' , 0 , 'normal' , 1555140442 , 1555140442) [ RunTime:0.000332s ]
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`id` , `pid` , `name` , `icon` , `title` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (NULL , 339 , 'push/log/add' , 'fa fa-circle-o' , '添加' , 0 , 'normal' , 1555140442 , 1555140442) [ RunTime:0.000288s ]
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`id` , `pid` , `name` , `icon` , `title` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (NULL , 339 , 'push/log/edit' , 'fa fa-circle-o' , '编辑' , 0 , 'normal' , 1555140442 , 1555140442) [ RunTime:0.000284s ]
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`id` , `pid` , `name` , `icon` , `title` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (NULL , 339 , 'push/log/del' , 'fa fa-circle-o' , '删除' , 0 , 'normal' , 1555140442 , 1555140442) [ RunTime:0.000276s ]
+[ 2019-04-13T15:27:22+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`id` , `pid` , `name` , `icon` , `title` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (NULL , 339 , 'push/log/multi' , 'fa fa-circle-o' , '批量更新' , 0 , 'normal' , 1555140442 , 1555140442) [ RunTime:0.000265s ]
+[ 2019-04-13T15:33:47+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000219s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-13T15:33:47+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-13T15:33:47+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003743s ]
+[ 2019-04-13T15:33:47+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003822s ]
+[ 2019-04-13T15:33:47+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-13T15:33:47+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000483s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-13T15:33:47+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'push_log' [ RunTime:0.000503s ]
+[ 2019-04-13T15:33:47+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_push_log' [ RunTime:0.000424s ]
+[ 2019-04-13T15:33:53+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000164s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-13T15:33:53+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-13T15:33:53+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003358s ]
+[ 2019-04-13T15:33:53+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003421s ]
+[ 2019-04-13T15:33:53+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000510s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'push_log' [ RunTime:0.000475s ]
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_push_log' [ RunTime:0.000514s ]
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'didi_project' AND table_name = 'fa_push_log' ORDER BY ORDINAL_POSITION [ RunTime:0.000775s ]
+[ 2019-04-13T15:33:53+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000161s ]
+[ info ] [ LOG ] INIT File
+[ 2019-04-13T15:33:53+08:00 ][ info ] [ CACHE ] INIT File
+[ 2019-04-13T15:33:53+08:00 ][ info ] [ BEHAVIOR ] Run \addons\epay\Epay @app_init [ RunTime:0.003525s ]
+[ 2019-04-13T15:33:53+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003603s ]
+[ 2019-04-13T15:33:53+08:00 ][ info ] [ DB ] INIT mysql
+[ 2019-04-13T15:33:53+08:00 ][ info ] [ LANG ] /www/wwwroot/didi.xlove99.top/application/admin/lang/zh-cn.php
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000500s ] mysql:host=127.0.0.1;dbname=didi_project;charset=utf8
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000732s ]
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] SELECT * FROM `fa_auth_rule` WHERE  `name` = 'push' LIMIT 1 [ RunTime:0.000358s ]
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`pid` , `name` , `title` , `icon` , `remark` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (0 , 'push' , 'push' , 'fa fa-list' , '' , 1 , 'normal' , 1555140833 , 1555140833) [ RunTime:0.004454s ]
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] SELECT * FROM `fa_auth_rule` WHERE  `name` = 'push/log' LIMIT 1 [ RunTime:0.000344s ]
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'push/log/index' LIMIT 1 [ RunTime:0.000244s ]
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'push/log/add' LIMIT 1 [ RunTime:0.000205s ]
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'push/log/edit' LIMIT 1 [ RunTime:0.000210s ]
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'push/log/del' LIMIT 1 [ RunTime:0.000226s ]
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'push/log/multi' LIMIT 1 [ RunTime:0.000193s ]
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=339,`name`='push/log/index',`icon`='fa fa-circle-o',`title`='查看',`ismenu`=0,`status`='normal',`updatetime`=1555140833  WHERE  `id` = 340 [ RunTime:0.000300s ]
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=339,`name`='push/log/add',`icon`='fa fa-circle-o',`title`='添加',`ismenu`=0,`status`='normal',`updatetime`=1555140833  WHERE  `id` = 341 [ RunTime:0.000218s ]
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=339,`name`='push/log/edit',`icon`='fa fa-circle-o',`title`='编辑',`ismenu`=0,`status`='normal',`updatetime`=1555140833  WHERE  `id` = 342 [ RunTime:0.000234s ]
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=339,`name`='push/log/del',`icon`='fa fa-circle-o',`title`='删除',`ismenu`=0,`status`='normal',`updatetime`=1555140833  WHERE  `id` = 343 [ RunTime:0.000215s ]
+[ 2019-04-13T15:33:53+08:00 ][ sql ] [ SQL ] UPDATE `fa_auth_rule`  SET `pid`=339,`name`='push/log/multi',`icon`='fa fa-circle-o',`title`='批量更新',`ismenu`=0,`status`='normal',`updatetime`=1555140833  WHERE  `id` = 344 [ RunTime:0.000212s ]
